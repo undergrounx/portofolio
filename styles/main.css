@@ -1,0 +1,267 @@
+/* -------------------------------------------------------------
+ * MUADZ PORTFOLIO — CORE DESIGN SYSTEM & THEME
+ * Strictly crafted to match the reference composition & aesthetic
+ * ------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap');
+
+:root {
+  --bg-primary: #07080a;
+  --bg-surface: #0e1015;
+  --bg-surface-elevated: #14161f;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(255, 255, 255, 0.22);
+  --text-primary: #f5f5f7;
+  --text-secondary: #8e94a0;
+  --text-muted: #565c69;
+  --accent-metallic: #e2e8f0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Custom Typography Classes */
+.font-display {
+  font-family: 'Bebas Neue', 'Archivo Black', 'Syne', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-editorial {
+  font-family: 'Syne', 'Inter', sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.font-mono-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Background Ambient Gradient Grid */
+.bg-grid-subtle {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+.bg-radial-hero {
+  background: radial-gradient(circle at 65% 25%, rgba(45, 52, 68, 0.35) 0%, rgba(15, 17, 24, 0.15) 45%, transparent 70%);
+}
+
+/* Reference Card Styles */
+.card-panel {
+  background: linear-gradient(180deg, rgba(20, 22, 29, 0.7) 0%, rgba(12, 14, 18, 0.85) 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-panel:hover {
+  border-color: var(--border-active);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+}
+
+/* Pill Buttons */
+.btn-pill-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 26px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #2b2e38 0%, #15171e 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn-pill-primary:hover {
+  background: linear-gradient(135deg, #3c4150 0%, #1c1f28 100%);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.btn-pill-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  background: transparent;
+  color: #c4cad4;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn-pill-ghost:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Circular Action Arrow Button (Ref Match) */
+.btn-circle-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.card-panel:hover .btn-circle-arrow,
+.btn-circle-arrow:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: scale(1.08) rotate(45deg);
+  border-color: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Metallic Sheen Card (Final CTA Left Box) */
+.metallic-sheen-surface {
+  background: linear-gradient(135deg, 
+    #252932 0%, 
+    #4a5160 25%, 
+    #8f98a8 45%, 
+    #424855 60%, 
+    #1d2027 100%);
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.metallic-sheen-surface::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 55%
+  );
+  transform: rotate(30deg);
+  animation: metallicGlint 8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+@keyframes metallicGlint {
+  0%, 70% {
+    transform: translateX(-100%) rotate(30deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(30deg);
+  }
+}
+
+/* Hairline dividers */
+.hairline-divider-v {
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+}
+
+.hairline-divider-h {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+}
+
+/* Interactive Cursor */
+.custom-cursor-dot {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease;
+}
+
+.custom-cursor-ring {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, border-color 0.2s, transform 0.18s ease-out;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .hero-headline-title {
+    font-size: 4.8rem !important;
+    line-height: 0.88 !important;
+  }
+  .custom-cursor-dot, .custom-cursor-ring {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-headline-title {
+    font-size: 7.8rem;
+    line-height: 0.86;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-headline-title {
+    font-size: 9.4rem;
+    line-height: 0.84;
+  }
+}
