@@ -135,15 +135,15 @@ export const portfolioData = {
       }
     },
     {
-      id: "avenor-chia-seed",
-      title: "Avenor Chia Seed Premium",
+      id: "chia-seed",
+      title: "Chia Seed Premium",
       category: "BRANDING / E-COMMERCE / PRODUCT",
       badge: "PHYSICAL VENTURE",
-      image: "assets/avenor-pack.svg",
+      image: "assets/chia-pack.svg",
       shortDesc: "A premium chia seed brand built around clean visual identity, product positioning, and digital commerce.",
       details: {
         problem: "Most health superfoods on the market suffer from cluttered medical typography, low-trust packaging, and generic bulk presentation.",
-        solution: "Conceived, branded, and formulated Avenor as an elevated daily ritual with matte-black tactile packaging, strict nutritional transparency, and a direct-to-consumer digital storefront.",
+        solution: "Conceived, branded, and formulated chia as an elevated daily ritual with matte-black tactile packaging, strict nutritional transparency, and a direct-to-consumer digital storefront.",
         architecture: [
           "Brand Identity: Luxury editorial typography, custom botanical monogram",
           "Packaging Engineering: Multi-layer matte barrier pouch with foil deboss",
