@@ -6,11 +6,11 @@
 export const portfolioData = {
   profile: {
     name: "MUADZ",
-    monogram: "MDZ",
+    monogram: "Mz",
     role: "Designer × AI Creator",
     eyebrow: "DESIGN × AI × CONTENT",
     headlineLine1: "DESIGNER",
-    headlineLine2: "× AI",
+    headlineLine2: "AI",
     bio: "Designing digital experiences, AI systems, and content that turn ideas into useful products.",
     availabilityBadge: {
       tag: "AVAILABLE FOR",
@@ -36,7 +36,7 @@ export const portfolioData = {
       numericValue: 1,
       suffix: "",
       label: "PRODUCT BRAND",
-      sublabel: "Avenor Chia Seed Premium",
+      sublabel: "Chia Seed Premium",
       icon: "box"
     },
     {
@@ -277,7 +277,7 @@ export const portfolioData = {
     {
       step: "05",
       title: "DELIVER",
-      desc: "Refine, launch, and improve.",
+      desc: "Mengerjakan project dengan sepenuh hati dan effisien waktu.",
       icon: "rocket"
     }
   ],
@@ -289,14 +289,14 @@ export const portfolioData = {
 
   contact: {
     ctaHeadline: "LET'S CREATE\nSOMETHING\nEXTRAORDINARY",
-    ctaCopy: "Have an idea, project, or system you want to build? Let's turn it into something real.",
-    availability: "I'm currently available for freelance projects and collaborations.",
+    ctaCopy: "Punya ide, Project, tapi butuh team? mungkin saya adalah opsi terbaik!.",
+    availability: "Saya bersedia untuk kerja sama dalam bentuk freelance atau project",
     instagram: "@Muadz_dora",
     instagramUrl: "https://instagram.com/Muadz_dora",
     whatsapp: "0857 8101 8006",
     whatsappUrl: "https://wa.me/6285781018006?text=Hi%20Muadz,%20I'd%20love%20to%20collaborate%20on%20a%20project.",
-    email: "hello@muadz.design",
-    emailMailto: "mailto:hello@muadz.design",
+    email: "muadzfirdaus58@gmail.com",
+    emailMailto: "mailto:muadzfirdaus58@gmail.com",
     location: "Indonesia / Remote Worldwide"
   },
 
