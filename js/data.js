@@ -7,7 +7,7 @@
 export const portfolioData = {
   profile: {
     name: "MUADZ",
-    monogram: "MDZ",
+    monogram: "Mz",
     brandLabel: "DESIGN × AI × SYSTEMS",
     role: "Designer · AI Controller · AI Content Creator",
     eyebrow: "DESIGNER · AI CONTROLLER · AI CONTENT CREATOR",
@@ -287,7 +287,7 @@ export const portfolioData = {
     instagramUrl: "https://instagram.com/Muadz_dora",
     whatsapp: "0857 8101 8006",
     whatsappUrl: "https://wa.me/6285781018006?text=Hi%20Muadz,%20I'd%20love%20to%20discuss%20a%20project.",
-    email: "hello@muadz.design"
+    email: "muadzfirdaus58@gmail.com"
   },
 
   // Footer
