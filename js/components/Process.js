@@ -5,8 +5,6 @@ export function renderProcess() {
     switch (icon) {
       case "search":
         return `<svg class="w-4 h-4 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>`;
-      case "crosshair":
-        return `<svg class="w-4 h-4 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>`;
       case "pen":
         return `<svg class="w-4 h-4 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>`;
       case "code":
@@ -29,19 +27,19 @@ export function renderProcess() {
           </h2>
         </div>
 
-        <!-- Horizontal Process Panel (Ref Match: Single Card with 5 steps) -->
+        <!-- Horizontal Process Panel (4-Step Flow) -->
         <div class="card-panel p-6 sm:p-8 lg:p-10">
-          <div class="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4 relative">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-6 relative">
             
             ${portfolioData.process.map((step, idx) => `
-              <div class="flex flex-col justify-between relative space-y-4 ${idx < 4 ? 'md:pr-4' : ''}">
+              <div class="flex flex-col justify-between relative space-y-4 ${idx < 3 ? 'md:pr-4' : ''}">
                 
                 <div>
                   <div class="flex items-center gap-2 mb-2">
                     <span class="text-[11px] font-mono font-bold text-slate-500">${step.step}</span>
                     <h3 class="text-xs font-bold text-white uppercase tracking-wider">${step.title}</h3>
                   </div>
-                  <p class="text-[11px] text-slate-400 leading-relaxed font-normal">
+                  <p class="text-xs text-slate-400 leading-relaxed font-normal">
                     ${step.desc}
                   </p>
                 </div>
@@ -50,7 +48,7 @@ export function renderProcess() {
                   <div class="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center">
                     ${getProcessIcon(step.icon)}
                   </div>
-                  ${idx < 4 ? `<span class="hidden md:inline text-slate-600 text-xs font-mono font-bold">→</span>` : ''}
+                  ${idx < 3 ? `<span class="hidden md:inline text-slate-600 text-xs font-mono font-bold">→</span>` : ''}
                 </div>
 
               </div>

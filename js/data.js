@@ -1,312 +1,302 @@
 /**
- * MUADZ — PREMIUM AI DESIGN PORTFOLIO
- * Single Source of Truth for all site copy, data, metrics, and project assets.
+ * ANTIGRAVITY PORTFOLIO BRIEF — MUADZ
+ * Single Source of Truth for Muadz's personal portfolio website.
+ * No fabricated metrics, clients, testimonials, awards, or false claims.
  */
 
 export const portfolioData = {
   profile: {
     name: "MUADZ",
-    monogram: "Mz",
-    role: "Designer × AI Creator",
-    eyebrow: "DESIGN × AI × CONTENT",
-    headlineLine1: "DESIGNER",
-    headlineLine2: "AI",
-    bio: "Designing digital experiences, AI systems, and content that turn ideas into useful products.",
+    monogram: "MDZ",
+    brandLabel: "DESIGN × AI × SYSTEMS",
+    role: "Designer · AI Controller · AI Content Creator",
+    eyebrow: "DESIGNER · AI CONTROLLER · AI CONTENT CREATOR",
+    headlineLine1: "I DESIGN. I BUILD.",
+    headlineLine2: "I AUTOMATE.",
+    supportingLine: "Creative visuals and practical AI systems for ideas that deserve to move.",
+    positioning: "I combine design, AI, and automation to turn ideas into useful digital experiences.",
+    descriptor: "Designing visuals. Building AI systems. Creating with purpose.",
+    education: "SMK BinaKarya Mandiri · Desain Komunikasi Visual (DKV)",
+    ctaPrimary: "Explore My Work",
+    ctaSecondary: "Let's Talk",
     availabilityBadge: {
       tag: "AVAILABLE FOR",
-      title: "FREELANCE",
-      sub: "PROJECTS ↗",
+      title: "COLLABORATIONS",
+      sub: "LET'S TALK ↗",
       link: "#contact"
     }
   },
 
-  stats: [
+  // Strategic Focus Pillars (Snapshot — No fake numbers or fabricated client counts)
+  snapshot: [
     {
-      id: "stat-1",
-      number: "04+",
-      numericValue: 4,
-      suffix: "+",
-      label: "AI PROJECTS",
-      sublabel: "Active Production Systems",
-      icon: "sparkle"
+      id: "focus-1",
+      title: "VISUAL DESIGN",
+      tagline: "Brand, Identity & Digital UI",
+      desc: "Editorial aesthetic, visual consistency, and responsive layouts crafted with DKV foundations.",
+      icon: "penTool"
     },
     {
-      id: "stat-2",
-      number: "01",
-      numericValue: 1,
-      suffix: "",
-      label: "PRODUCT BRAND",
-      sublabel: "Chia Seed Premium",
-      icon: "box"
+      id: "focus-2",
+      title: "AI CONTENT",
+      tagline: "Short-Form & Generative Visuals",
+      desc: "High-retention video workflows, prompt design, and scalable media creation.",
+      icon: "sparkles"
     },
     {
-      id: "stat-3",
-      number: "03+",
-      numericValue: 3,
-      suffix: "+",
-      label: "AI SYSTEM CONCEPTS",
-      sublabel: "Autonomous Automations",
+      id: "focus-3",
+      title: "AUTOMATION",
+      tagline: "Systems & Webhook Workflows",
+      desc: "Connecting tools like n8n and AI APIs to make repetitive creative production seamless.",
       icon: "cpu"
     },
     {
-      id: "stat-4",
-      number: "∞",
-      numericValue: null,
-      suffix: "",
-      label: "IDEAS IN PROGRESS",
-      sublabel: "Always Building",
-      icon: "infinity"
+      id: "focus-4",
+      title: "DIGITAL PRODUCTS",
+      tagline: "Product & DTC Thinking",
+      desc: "Bridging brand aesthetics with physical packaging and e-commerce exploration.",
+      icon: "box"
     }
   ],
 
+  // Selected Work (Honest status labels, curated 6 projects)
   featuredProjects: [
     {
       id: "ai-clipping",
-      title: "AI Clipping Infrastructure",
-      category: "AI AUTOMATION / CONTENT SYSTEM",
-      badge: "PRODUCTION READY",
+      title: "AI Infrastructure for Clipping",
+      category: "AI SYSTEMS / CONTENT WORKFLOW",
+      status: "Concept Exploration",
       image: "assets/clipping-ui.svg",
-      shortDesc: "An AI-powered infrastructure concept designed to streamline clipping workflows, content extraction, organization, and publishing.",
+      shortDesc: "Exploring AI-supported infrastructure for organizing, extracting, and producing clipping workflows.",
       details: {
-        problem: "Creators spend 15+ hours weekly scrubbing long-form podcasts and video logs to find moments of viral retention.",
-        solution: "Engineered an autonomous pipeline integrating Whisper AI for phoneme-aligned transcription, Gemini LLM for viral sentiment scoring, and FFmpeg for automated 9:16 framing.",
-        architecture: [
-          "Ingestion: Webhook triggers on YouTube/Drive uploads",
-          "Speech Analysis: OpenAI Whisper multi-language timestamps",
-          "Hook Intelligence: LLM evaluation against 10M+ viral hook patterns",
-          "Automated Framing: Dynamic 9:16 face-centering crop algorithm",
-          "Multi-Platform Publishing: Instant dispatch to TikTok, Reels, & Shorts"
+        context: "Creators and media teams spend excessive hours manually scrubbing long-form footage to find compelling video moments.",
+        approach: "Investigated a streamlined pipeline combining transcription timestamps, LLM hook scoring, and automated vertical framing algorithms.",
+        highlights: [
+          "Ingestion and transcription pipeline concepts",
+          "Automated highlight detection logic",
+          "Short-form 9:16 vertical video formatting",
+          "Multi-channel webhook distribution architecture"
         ],
-        tags: ["Whisper AI", "FFmpeg", "n8n", "Automated Video", "Python", "Webhooks"],
-        metrics: [
-          { label: "Extraction Speed", value: "6.8x realtime" },
-          { label: "Viral Hook Accuracy", value: "96.2%" },
-          { label: "Time Saved / Video", value: "4.5 hours" }
-        ]
+        tags: ["AI Workflow", "Video Pipeline", "Content Systems", "Concept"]
       }
     },
     {
       id: "ai-file-organizer",
       title: "AI File Organizer",
-      category: "AI PRODUCTIVITY / AUTOMATION",
-      badge: "SEMANTIC ENGINE",
+      category: "AI TOOLS / PRODUCTIVITY",
+      status: "Concept",
       image: "assets/organizer-ui.svg",
-      shortDesc: "An intelligent file organization system designed to automatically understand, categorize, rename, and structure digital files.",
+      shortDesc: "An AI-assisted concept for making digital files easier to organize, categorize, and retrieve.",
       details: {
-        problem: "Creative professionals accumulate thousands of disordered downloads, unformatted raw media, contracts, and design tokens.",
-        solution: "Built a local vector embedding index that inspects document contents, visual textures, and audio transcripts to auto-cluster files into human-readable folder taxonomies.",
-        architecture: [
-          "Local File Watcher: Lightweight background daemon",
-          "Multimodal Embeddings: Semantic vectors for PDF, PNG, Blender, and Audio",
-          "Clustering Core: Unsupervised t-SNE / HDBSCAN group discovery",
-          "Deterministic Renamer: Zero-hallucination structured file renaming",
-          "Safety Sandbox: Non-destructive symlinking with instant 1-click rollback"
+        context: "Creative practitioners generate large volumes of raw exports, design tokens, and unorganized media downloads.",
+        approach: "Conceptualized a local semantic categorization tool that inspects content context to structure folders cleanly.",
+        highlights: [
+          "Semantic file grouping concept",
+          "Contextual folder taxonomy generation",
+          "Automated file naming patterns",
+          "Non-destructive workflow ideas"
         ],
-        tags: ["Vector Embeddings", "Local AI", "Taxonomy Engine", "Document OCR", "Node.js"],
-        metrics: [
-          { label: "Classification Rate", value: "420 files/sec" },
-          { label: "Storage Recovered", value: "3.4 GB deduped" },
-          { label: "Accuracy", value: "99.4%" }
-        ]
+        tags: ["Productivity", "Local Tools", "Organization", "Concept"]
       }
     },
     {
       id: "ai-reminder",
       title: "AI Reminder Companion",
-      category: "AI PRODUCTIVITY / PERSONAL SYSTEM",
-      badge: "MOBILE AGENT",
+      category: "AI ASSISTANT / PRODUCTIVITY",
+      status: "Concept",
       image: "assets/reminder-ui.svg",
-      shortDesc: "A smart reminder concept designed to help users manage tasks, goals, routines, and important actions.",
+      shortDesc: "A reminder and follow-up concept designed to support consistent creative execution and daily routines.",
       details: {
-        problem: "Conventional to-do lists are static, guilt-inducing, and fail to adapt to unpredictable real-world creative schedules.",
-        solution: "Designed a contextual AI mobile assistant that schedules actions based on real-time energy levels, conversational voice memos, and task dependencies.",
-        architecture: [
-          "Conversational Quick-Capture: Natural language voice parser (Indonesian & English)",
-          "Context Engine: Calendar sync, location triggers, and chronobiology curves",
-          "Adaptive Rescheduler: Graceful task deferral without shame or friction",
-          "Proactive Briefing: 2-minute ambient morning and evening audio synopses"
+        context: "Standard to-do lists are static and often fail to support dynamic, multi-disciplinary daily workflows.",
+        approach: "Designed a mobile interface focused on contextual task scheduling, voice capture, and friction-free daily focus.",
+        highlights: [
+          "Context-aware follow-up logic",
+          "Voice memo quick-capture interface",
+          "Daily focus progress visualization",
+          "Adaptive routine scheduling concept"
         ],
-        tags: ["Mobile UI/UX", "Natural Language", "Personal AI", "Design Systems", "Figma"],
-        metrics: [
-          { label: "Daily Completion", value: "72% average" },
-          { label: "Voice Capture Latency", value: "< 450ms" },
-          { label: "Daily Active Retention", value: "84%" }
-        ]
+        tags: ["Mobile UI", "AI Assistant", "Daily Routines", "Concept"]
       }
     },
     {
-      id: "chia-seed",
-      title: "Chia Seed Premium",
-      category: "BRANDING / E-COMMERCE / PRODUCT",
-      badge: "PHYSICAL VENTURE",
-      image: "assets/chia-pack.svg",
-      shortDesc: "A premium chia seed brand built around clean visual identity, product positioning, and digital commerce.",
+      id: "avenor-chia-seed",
+      title: "Avenor Chia Seed",
+      category: "BRANDING & PRODUCT",
+      status: "Active Project",
+      image: "assets/avenor-pack.svg",
+      shortDesc: "A product-brand project spanning packaging direction, product visuals, and e-commerce marketing exploration.",
       details: {
-        problem: "Most health superfoods on the market suffer from cluttered medical typography, low-trust packaging, and generic bulk presentation.",
-        solution: "Conceived, branded, and formulated chia as an elevated daily ritual with matte-black tactile packaging, strict nutritional transparency, and a direct-to-consumer digital storefront.",
-        architecture: [
-          "Brand Identity: Luxury editorial typography, custom botanical monogram",
-          "Packaging Engineering: Multi-layer matte barrier pouch with foil deboss",
-          "Supply Chain Strategy: Clean-grade A seed sourcing & lab purity testing",
-          "DTC Digital Commerce: High-conversion headless checkout experience"
+        context: "Exploring the intersection of modern minimal aesthetics, superfood branding, and digital commerce.",
+        approach: "Developed a luxury monochrome visual identity, matte packaging dielines, and digital storefront marketing touchpoints.",
+        highlights: [
+          "Matte-black tactile packaging dieline and typography",
+          "Organic botanical emblem and visual system",
+          "E-commerce storefront and landing page exploration",
+          "Direct-to-consumer digital marketing assets"
         ],
-        tags: ["Brand Architecture", "Product Design", "Packaging Dieline", "DTC Commerce", "Supply Chain"],
-        metrics: [
-          { label: "Packaging Grade", value: "Matte Black Foil" },
-          { label: "Seed Purity", value: "99.9% Grade A" },
-          { label: "Founder Role", value: "Founder & Lead Designer" }
-        ]
+        tags: ["Brand Identity", "Packaging Design", "DTC Commerce", "In Development"]
+      }
+    },
+    {
+      id: "cromans-creative",
+      title: "Cromans Creative & AI Automation",
+      category: "CREATIVE PARTNER / SYSTEMS",
+      status: "Creative Direction",
+      image: "assets/cromans-ui.svg",
+      shortDesc: "A creative and AI automation direction connecting content production with practical workflow systems.",
+      details: {
+        context: "Businesses and personal brands need both polished short-form creative assets and automated systems to sustain posting frequency.",
+        approach: "Framed an end-to-end partner model connecting video editing, prompt-assisted visuals, and n8n webhook automations.",
+        highlights: [
+          "Short-form video editing and formatting frameworks",
+          "Prompt engineering for brand visuals",
+          "Automated workflow scheduling with n8n",
+          "Consultative creative strategy"
+        ],
+        tags: ["Content Production", "Automation", "Workflow Systems", "In Progress"]
+      }
+    },
+    {
+      id: "berka-product-visuals",
+      title: "Berka Herbal Product Visuals",
+      category: "PACKAGING & VISUALS",
+      status: "Packaging Concept",
+      image: "assets/berka-pack.svg",
+      shortDesc: "Product mockup and packaging-visual exploration for a traditional herbal powder wellness drink.",
+      details: {
+        context: "Crafting a clean, natural packaging aesthetic for traditional Indonesian herbal formulations (JSR).",
+        approach: "Explored kraft beige doypack pouches with contrasting navy panels alongside clear powder jars.",
+        highlights: [
+          "80g kraft standup pouch packaging layout",
+          "150g clear jar label typography and composition",
+          "Minimalist herbal branding hierarchy",
+          "Photorealistic 3D/2D packaging visualization"
+        ],
+        tags: ["Packaging Mockup", "Herbal Wellness", "Visual Exploration", "Concept"]
       }
     }
   ],
 
+  // 4 Core Capabilities
   capabilities: [
     {
       number: "01",
-      title: "UI / UX DESIGN",
-      desc: "Creating intuitive, user-centered digital interfaces with strong visual systems.",
+      title: "VISUAL DESIGN",
+      desc: "Creating intuitive digital interfaces, brand identities, and packaging systems grounded in DKV principles.",
       icon: "penTool"
     },
     {
       number: "02",
-      title: "WEB DESIGN",
-      desc: "Designing modern responsive websites with strong composition and interaction.",
-      icon: "monitor"
+      title: "AI CONTENT CREATION",
+      desc: "Developing short-form video concepts, prompt development, and visual assets for scalable publishing.",
+      icon: "sparkles"
     },
     {
       number: "03",
-      title: "AI SYSTEM DESIGN",
-      desc: "Designing AI-powered workflows, automation concepts, and intelligent digital systems.",
+      title: "AI SYSTEMS & AUTOMATION",
+      desc: "Designing workflow pipelines, n8n webhook automations, and AI-assisted tooling to remove production friction.",
       icon: "cpu"
     },
     {
       number: "04",
-      title: "AI CONTENT CREATION",
-      desc: "Developing AI-assisted visual content, creative concepts, and scalable content workflows.",
-      icon: "sparkles"
-    },
-    {
-      number: "05",
-      title: "BRANDING",
-      desc: "Building visual identities and digital brand experiences.",
-      icon: "compass"
-    },
-    {
-      number: "06",
-      title: "CREATIVE TECHNOLOGY",
-      desc: "Combining design, AI, automation, and emerging technology into useful digital products.",
+      title: "DIGITAL PRODUCT THINKING",
+      desc: "Connecting brand aesthetics with physical packaging, direct-to-consumer commerce, and system thinking.",
       icon: "layers"
     }
   ],
 
+  // Tools & Workflow (Honest representation, no unverified certifications)
   tools: [
-    { name: "Figma", category: "Design", icon: "figma" },
-    { name: "Adobe Photoshop", category: "Design", icon: "photoshop" },
-    { name: "Adobe Illustrator", category: "Design", icon: "illustrator" },
-    { name: "Canva", category: "Design", icon: "canva" },
-    { name: "CapCut", category: "Content", icon: "capcut" },
-    { name: "Leonardo AI", category: "AI Creation", icon: "leonardo" },
-    { name: "Gemini", category: "AI Systems", icon: "gemini" },
-    { name: "ChatGPT", category: "AI Systems", icon: "chatgpt" },
-    { name: "Veo", category: "AI Video", icon: "veo" },
-    { name: "n8n", category: "Automation", icon: "n8n" },
-    { name: "Three.js", category: "3D Web", icon: "threejs" },
-    { name: "React", category: "Frontend", icon: "react" }
+    { name: "Figma", category: "UI/UX & Systems" },
+    { name: "Adobe Tools", category: "Graphic & Vector" },
+    { name: "Canva", category: "Rapid Layouts" },
+    { name: "CapCut", category: "Video Editing" },
+    { name: "Leonardo AI", category: "Generative Visuals" },
+    { name: "Gemini", category: "AI Systems & Logic" },
+    { name: "ChatGPT", category: "AI Prompting" },
+    { name: "Veo", category: "AI Video Exploration" },
+    { name: "n8n", category: "Workflow Automation" }
   ],
 
-  specializations: [
-    {
-      title: "Autonomous Agent Orchestration",
-      institution: "n8n · LangChain · LLM Function Calling",
-      year: "Production Architecture",
-      desc: "Architecting multi-step autonomous pipelines connecting video rendering, vector retrieval, and automated content distribution."
-    },
-    {
-      title: "Physical Brand & DTC Entrepreneurship",
-      institution: "Avenor Labs · Direct-to-Consumer",
-      year: "Founder & Brand Lead",
-      desc: "Direct execution of product design, luxury packaging engineering, international supplier sourcing, and digital commerce operations."
-    }
-  ],
-
+  // About Section
   about: {
     headline: "DESIGNER.\nBUILDER.\nAI CREATOR.",
-    paragraph1: "Muadz is a designer and AI-focused creator exploring the intersection of visual design, artificial intelligence, automation, content, and entrepreneurship.",
-    paragraph2: "From digital experiences and AI systems to content and physical products, the goal is simple: turn ideas into useful things.",
+    bioLead: "I'm Muadz, a designer and AI-focused creator with a DKV background.",
+    paragraph1: "I work across visual design, AI-generated content, and automation concepts—exploring how creative thinking and useful systems can work together.",
+    paragraph2: "From digital experiences and AI systems to content and physical products, the goal is simple: turn ideas into useful digital experiences that deserve to move.",
+    education: {
+      institution: "SMK BinaKarya Mandiri",
+      major: "Desain Komunikasi Visual (DKV)",
+      focus: "Visual hierarchy, composition, branding, and digital media foundations."
+    },
     pillars: [
       {
-        title: "Intelligent Systems",
-        desc: "Automating repetitive friction so creative thinking can scale."
+        title: "Useful Systems",
+        desc: "AI is not the goal by itself. It serves to make creative work more efficient and ideas easier to execute."
       },
       {
-        title: "Obsessive Craft",
-        desc: "High-contrast editorial typography, restrained color harmony, and micro-precision."
+        title: "Design Craft",
+        desc: "Editorial typography, intentional negative space, and disciplined monochromatic visual hierarchy."
       },
       {
-        title: "Tangible Execution",
-        desc: "Going beyond concept Figma files to deploy live software and real physical products."
+        title: "Product Execution",
+        desc: "Thinking end-to-end from digital concepts to physical packaging and live workflows."
       }
     ]
   },
 
+  // 4-Step Process
   process: [
     {
       step: "01",
-      title: "DISCOVER",
-      desc: "Understand the problem, audience, and objective.",
+      title: "UNDERSTAND",
+      desc: "Uncover the problem, target audience, and clear creative objectives.",
       icon: "search"
     },
     {
       step: "02",
-      title: "DEFINE",
-      desc: "Turn insights into a clear direction.",
-      icon: "crosshair"
-    },
-    {
-      step: "03",
       title: "DESIGN",
-      desc: "Create the visual system and experience.",
+      desc: "Craft the visual system, typography, interface, and aesthetic direction.",
       icon: "pen"
     },
     {
-      step: "04",
+      step: "03",
       title: "BUILD",
-      desc: "Transform the concept into a working digital product.",
+      desc: "Transform concepts into functioning digital interfaces or automated pipelines.",
       icon: "code"
     },
     {
-      step: "05",
-      title: "DELIVER",
-      desc: "Mengerjakan project dengan sepenuh hati dan effisien waktu.",
+      step: "04",
+      title: "REFINE",
+      desc: "Iterate based on practical feedback, polish details, and optimize workflows.",
       icon: "rocket"
     }
   ],
 
+  // AI Statement
   statement: {
-    headline: "BUILDING WITH\nAI, NOT JUST\nTALKING ABOUT IT.",
-    subtext: "Exploring practical ways to use AI for design, content, automation, productivity, and digital products."
+    badge: "PHILOSOPHY",
+    quote: "AI is not the goal by itself. I'm interested in using it to make creative work more useful, workflows more efficient, and ideas easier to execute."
   },
 
+  // Contact Coordinates
   contact: {
-    ctaHeadline: "LET'S CREATE\nSOMETHING\nEXTRAORDINARY",
-    ctaCopy: "Punya ide, Project, tapi butuh team? mungkin saya adalah opsi terbaik!.",
-    availability: "Saya bersedia untuk kerja sama dalam bentuk freelance atau project",
+    headline: "HAVE AN IDEA\nWORTH BUILDING?",
+    subtext: "Whether you need visual design, content systems, or AI automation, let's explore how to make it happen.",
     instagram: "@Muadz_dora",
     instagramUrl: "https://instagram.com/Muadz_dora",
     whatsapp: "0857 8101 8006",
-    whatsappUrl: "https://wa.me/6285781018006?text=Hi%20Muadz,%20I'd%20love%20to%20collaborate%20on%20a%20project.",
-    email: "muadzfirdaus58@gmail.com",
-    emailMailto: "mailto:muadzfirdaus58@gmail.com",
-    location: "Indonesia / Remote Worldwide"
+    whatsappUrl: "https://wa.me/6285781018006?text=Hi%20Muadz,%20I'd%20love%20to%20discuss%20a%20project.",
+    email: "hello@muadz.design"
   },
 
+  // Footer
   footer: {
-    copyright: "© 2026 MUADZ. ALL RIGHTS RESERVED.",
-    socials: [
-      { name: "Instagram", label: "@Muadz_dora", url: "https://instagram.com/Muadz_dora" },
-      { name: "WhatsApp", label: "+62 857 8101 8006", url: "https://wa.me/6285781018006" },
-      { name: "GitHub", label: "Repositories", url: "https://github.com" },
-      { name: "Behance", label: "Portfolio", url: "https://behance.net" }
+    brand: "MUADZ",
+    subtitle: "Design · AI · Systems",
+    links: [
+      { name: "Instagram", url: "https://instagram.com/Muadz_dora" },
+      { name: "WhatsApp", url: "https://wa.me/6285781018006" }
     ]
   }
 };

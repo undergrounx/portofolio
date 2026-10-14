@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "open-design": {
+      "command": "/Applications/Open Design.app/Contents/Frameworks/Open Design Helper.app/Contents/MacOS/Open Design Helper",
+      "args": [
+        "/Applications/Open Design.app/Contents/Resources/app/prebundled/daemon/daemon-cli.mjs",
+        "mcp"
+      ],
+      "env": {
+        "OD_DATA_DIR": "/Users/macbook/Library/Application Support/Open Design/namespaces/release-stable-intel/data",
+        "OD_SIDECAR_CLIENT_ENDPOINT": "/var/folders/lx/ntqtmtws1p9569k7_vg3zzkc0000gn/T/od-sidecar-501/8b5ec7058422c946837a72e7a6b4b68c.sock",
+        "OD_MCP_BOOTSTRAP_COMMAND": "/usr/bin/open",
+        "OD_MCP_BOOTSTRAP_ARGS": "[\"-g\",\"-j\",\"/Applications/Open Design.app\",\"--args\",\"--headless\",\"--od-mcp-managed\"]",
+        "OD_MCP_DISCOVERY": "{\"daemon\":[\"/var/folders/lx/ntqtmtws1p9569k7_vg3zzkc0000gn/T/od-sidecar-501/8b5ec7058422c946837a72e7a6b4b68c.sock\",\"/var/folders/lx/ntqtmtws1p9569k7_vg3zzkc0000gn/T/od-sidecar-501/9b4049ad6b8807beb118f44fef567fcc.sock\"],\"desktop\":[\"/var/folders/lx/ntqtmtws1p9569k7_vg3zzkc0000gn/T/od-sidecar-501/63f5d4b5eeb44682c1d5cde058f1e87f.sock\",\"/var/folders/lx/ntqtmtws1p9569k7_vg3zzkc0000gn/T/od-sidecar-501/22da37053abca55bdcab37786606e2c4.sock\"]}",
+        "ELECTRON_RUN_AS_NODE": "1"
+      }
+    }
+  }
+}

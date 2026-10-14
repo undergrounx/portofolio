@@ -1,10 +1,11 @@
 /**
  * MUADZ PORTFOLIO — APP ORCHESTRATOR
+ * Built to the Antigravity Portfolio Brief: grounded, responsive, zero fabricated claims.
  */
 
 import { renderNavbar, initNavbarEvents } from "./components/Navbar.js";
 import { renderHero } from "./components/Hero.js";
-import { renderStats, initStatsAnimation } from "./components/Stats.js";
+import { renderSnapshot } from "./components/Snapshot.js";
 import { renderFeaturedProjects, initProjectCards } from "./components/FeaturedProjects.js";
 import { renderCapabilitiesAndTools } from "./components/Capabilities.js";
 import { renderAbout } from "./components/About.js";
@@ -13,19 +14,17 @@ import { renderStatement } from "./components/Statement.js";
 import { renderFinalCTA, initContactEvents } from "./components/FinalCTA.js";
 import { renderFooter } from "./components/Footer.js";
 import { HeroWebGLScene } from "./webgl-hero.js";
-import { soundManager } from "./components/Audio.js";
-import { CursorTrailer } from "./components/CursorTrailer.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const app = document.getElementById("app");
   if (!app) return;
 
-  // 1. Build Page Sections in Strict Vertical Reference Rhythm
+  // 1. Build Page Sections in Strict Reference Sequence
   app.innerHTML = `
     ${renderNavbar()}
     <main>
       ${renderHero()}
-      ${renderStats()}
+      ${renderSnapshot()}
       ${renderFeaturedProjects()}
       ${renderCapabilitiesAndTools()}
       ${renderAbout()}
@@ -34,47 +33,25 @@ document.addEventListener("DOMContentLoaded", () => {
       ${renderFinalCTA()}
     </main>
     ${renderFooter()}
-
-    <!-- Bottom Floating Audio Toggle Pill -->
-    <button id="audio-toggle-btn" class="audio-toggle-btn" aria-label="Toggle Interface Audio">
-      <span id="audio-icon">🔈</span>
-      <span id="audio-label">SOUND OFF</span>
-    </button>
   `;
 
-  // 2. Initialize WebGL 3D Interactive Centerpiece
+  // 2. Initialize Interactive 3D WebGL Centerpiece
   const canvas = document.getElementById("hero-webgl-canvas");
   const container = document.getElementById("hero-3d-container");
-  let hero3D = null;
   if (canvas && container) {
     try {
-      hero3D = new HeroWebGLScene(canvas, container);
+      new HeroWebGLScene(canvas, container);
     } catch (e) {
       console.warn("Hero WebGL init skipped:", e);
     }
   }
 
-  // 3. Initialize Interactive Features & Event Handlers
+  // 3. Initialize Interactive Features
   initNavbarEvents();
-  initStatsAnimation();
   initProjectCards();
   initContactEvents();
-  new CursorTrailer();
 
-  // 4. Audio Toggle Controller
-  const audioBtn = document.getElementById("audio-toggle-btn");
-  const audioIcon = document.getElementById("audio-icon");
-  const audioLabel = document.getElementById("audio-label");
-  if (audioBtn) {
-    audioBtn.addEventListener("click", () => {
-      const isEnabled = soundManager.toggle();
-      audioIcon.textContent = isEnabled ? "🔊" : "🔈";
-      audioLabel.textContent = isEnabled ? "SOUND ON" : "SOUND OFF";
-      audioBtn.classList.toggle("border-emerald-500/50", isEnabled);
-    });
-  }
-
-  // 5. Active Section Nav Highlight on Scroll
+  // 4. Active Section Nav Highlight on Scroll
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-link");
 
@@ -98,12 +75,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { passive: true });
 
-  // 6. Global Hover Audio Integration
-  document.addEventListener("mouseover", (e) => {
-    if (e.target.closest("a, button, .card-panel, .btn-circle-arrow")) {
-      soundManager.playHover();
-    }
-  });
-
-  console.log("✦ MUADZ Portfolio initialized with 60FPS WebGL Engine.");
+  console.log("✦ MUADZ Portfolio: Brief synchronized. No unverified claims.");
 });

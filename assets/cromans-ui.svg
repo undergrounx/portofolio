@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="cromBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111318" />
+      <stop offset="60%" stop-color="#0a0b0e" />
+      <stop offset="100%" stop-color="#050608" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="520" rx="20" fill="url(#cromBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+
+  <!-- Top Bar -->
+  <rect x="0" y="0" width="800" height="42" rx="20" fill="#0e1014" />
+  <rect x="0" y="20" width="800" height="22" fill="#0e1014" />
+  <line x1="0" y1="42" x2="800" y2="42" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+  
+  <circle cx="28" cy="21" r="5" fill="#3a3d45" />
+  <circle cx="44" cy="21" r="5" fill="#2a2c33" />
+  <circle cx="60" cy="21" r="5" fill="#22242a" />
+  <text x="400" y="25" text-anchor="middle" fill="#8f95a3" font-family="'Inter', sans-serif" font-size="11" font-weight="500" letter-spacing="0.5">CROMANS · CREATIVE &amp; AI AUTOMATION WORKFLOW</text>
+  
+  <rect x="670" y="11" width="104" height="20" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" />
+  <text x="722" y="24" text-anchor="middle" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="9" font-weight="700">WORKFLOW MAP</text>
+
+  <!-- Left Column: Content Production Matrix -->
+  <g transform="translate(24, 64)">
+    <rect x="0" y="0" width="360" height="424" rx="14" fill="#0a0b0f" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+    
+    <text x="24" y="36" fill="#64748b" font-family="'Inter', sans-serif" font-size="10" font-weight="700" letter-spacing="1">CONTENT PRODUCTION ENGINE</text>
+    <text x="24" y="60" fill="#ffffff" font-family="'Inter', sans-serif" font-size="18" font-weight="800">Short-Form Creative Pipeline</text>
+
+    <!-- Flow item 1 -->
+    <g transform="translate(24, 86)">
+      <rect x="0" y="0" width="312" height="64" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+      <circle cx="24" cy="32" r="10" fill="#1e222d" />
+      <text x="24" y="36" text-anchor="middle" fill="#60a5fa" font-size="10" font-family="'Inter', sans-serif" font-weight="700">01</text>
+      <text x="46" y="26" fill="#ffffff" font-family="'Inter', sans-serif" font-size="12" font-weight="700">Concept &amp; Script Generation</text>
+      <text x="46" y="44" fill="#8e94a0" font-family="'Inter', sans-serif" font-size="10">Audience hooks &amp; structured video scripts</text>
+    </g>
+
+    <!-- Flow item 2 -->
+    <g transform="translate(24, 162)">
+      <rect x="0" y="0" width="312" height="64" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+      <circle cx="24" cy="32" r="10" fill="#1e222d" />
+      <text x="24" y="36" text-anchor="middle" fill="#a78bfa" font-size="10" font-family="'Inter', sans-serif" font-weight="700">02</text>
+      <text x="46" y="26" fill="#ffffff" font-family="'Inter', sans-serif" font-size="12" font-weight="700">Visual Editing &amp; Cutdowns</text>
+      <text x="46" y="44" fill="#8e94a0" font-family="'Inter', sans-serif" font-size="10">CapCut / Premiere rapid vertical formatting</text>
+    </g>
+
+    <!-- Flow item 3 -->
+    <g transform="translate(24, 238)">
+      <rect x="0" y="0" width="312" height="64" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+      <circle cx="24" cy="32" r="10" fill="#1e222d" />
+      <text x="24" y="36" text-anchor="middle" fill="#34d399" font-size="10" font-family="'Inter', sans-serif" font-weight="700">03</text>
+      <text x="46" y="26" fill="#ffffff" font-family="'Inter', sans-serif" font-size="12" font-weight="700">AI Enhancement &amp; B-Roll</text>
+      <text x="46" y="44" fill="#8e94a0" font-family="'Inter', sans-serif" font-size="10">Leonardo AI visuals &amp; audio balancing</text>
+    </g>
+
+    <!-- Flow item 4 -->
+    <g transform="translate(24, 314)">
+      <rect x="0" y="0" width="312" height="64" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+      <circle cx="24" cy="32" r="10" fill="#1e222d" />
+      <text x="24" y="36" text-anchor="middle" fill="#f59e0b" font-size="10" font-family="'Inter', sans-serif" font-weight="700">04</text>
+      <text x="46" y="26" fill="#ffffff" font-family="'Inter', sans-serif" font-size="12" font-weight="700">Multi-Channel Distribution</text>
+      <text x="46" y="44" fill="#8e94a0" font-family="'Inter', sans-serif" font-size="10">Automated scheduling across TikTok &amp; IG</text>
+    </g>
+  </g>
+
+  <!-- Right Column: System Orchestration Diagram -->
+  <g transform="translate(408, 64)">
+    <rect x="0" y="0" width="368" height="424" rx="14" fill="#08090d" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+    
+    <text x="24" y="36" fill="#64748b" font-family="'Inter', sans-serif" font-size="10" font-weight="700" letter-spacing="1">AUTOMATION INTEGRATION</text>
+    <text x="24" y="60" fill="#ffffff" font-family="'Inter', sans-serif" font-size="18" font-weight="800">Operational System Model</text>
+
+    <!-- Node 1: Ingest -->
+    <g transform="translate(34, 100)">
+      <rect x="0" y="0" width="130" height="74" rx="10" fill="#131620" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+      <text x="16" y="26" fill="#8e94a0" font-family="'Inter', sans-serif" font-size="9" font-weight="700">INPUT SOURCE</text>
+      <text x="16" y="46" fill="#ffffff" font-family="'Inter', sans-serif" font-size="12" font-weight="700">Raw Media</text>
+      <text x="16" y="62" fill="#64748b" font-family="'Inter', sans-serif" font-size="9">Briefs &amp; Footage</text>
+    </g>
+
+    <!-- Connecting arrow 1 -->
+    <line x1="164" y1="137" x2="204" y2="137" stroke="#475569" stroke-width="1.5" stroke-dasharray="3 3" />
+
+    <!-- Node 2: n8n Core -->
+    <g transform="translate(204, 100)">
+      <rect x="0" y="0" width="130" height="74" rx="10" fill="#161822" stroke="rgba(52,211,153,0.3)" stroke-width="1" />
+      <text x="16" y="26" fill="#34d399" font-family="'Inter', sans-serif" font-size="9" font-weight="700">ORCHESTRATOR</text>
+      <text x="16" y="46" fill="#ffffff" font-family="'Inter', sans-serif" font-size="12" font-weight="700">n8n Pipeline</text>
+      <text x="16" y="62" fill="#64748b" font-family="'Inter', sans-serif" font-size="9">Webhook Handlers</text>
+    </g>
+
+    <!-- Down arrow -->
+    <line x1="269" y1="174" x2="269" y2="220" stroke="#475569" stroke-width="1.5" stroke-dasharray="3 3" />
+
+    <!-- Node 3: AI Processing -->
+    <g transform="translate(140, 220)">
+      <rect x="0" y="0" width="194" height="74" rx="10" fill="#131620" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+      <text x="16" y="26" fill="#8e94a0" font-family="'Inter', sans-serif" font-size="9" font-weight="700">AI PROCESSING CLUSTER</text>
+      <text x="16" y="46" fill="#ffffff" font-family="'Inter', sans-serif" font-size="12" font-weight="700">LLM + Whisper + Vision</text>
+      <text x="16" y="62" fill="#64748b" font-family="'Inter', sans-serif" font-size="9">Automated Transcription &amp; Cut</text>
+    </g>
+
+    <!-- Node 4: Output Deliverables -->
+    <g transform="translate(34, 320)">
+      <rect x="0" y="0" width="300" height="74" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+      <text x="18" y="26" fill="#8e94a0" font-family="'Inter', sans-serif" font-size="9" font-weight="700">FINAL DELIVERABLE</text>
+      <text x="18" y="48" fill="#ffffff" font-family="'Inter', sans-serif" font-size="13" font-weight="700">Ready-to-Post Multi-Platform Package</text>
+      <text x="18" y="64" fill="#64748b" font-family="'Inter', sans-serif" font-size="9">Short-form videos · Captions · Cover designs</text>
+    </g>
+  </g>
+</svg>

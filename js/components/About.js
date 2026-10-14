@@ -16,6 +16,9 @@ export function renderAbout() {
               ${a.headline.replace(/\n/g, "<br />")}
             </h2>
             <div class="w-16 h-[1px] bg-slate-600 my-6"></div>
+            <p class="text-sm text-slate-400 font-mono">
+              ${a.education.institution} · ${a.education.major}
+            </p>
           </div>
 
           <!-- Right Column: Concise Narrative & Pillars -->
@@ -30,8 +33,8 @@ export function renderAbout() {
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
               ${a.pillars.map((pillar) => `
                 <div class="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-                  <div class="text-xs font-bold text-white uppercase tracking-wider mb-1">${pillar.title}</div>
-                  <p class="text-[11px] text-slate-400 leading-relaxed">${pillar.desc}</p>
+                  <div class="text-xs font-bold text-white uppercase tracking-wider mb-1.5">${pillar.title}</div>
+                  <p class="text-[11px] text-slate-400 leading-relaxed font-normal">${pillar.desc}</p>
                 </div>
               `).join("")}
             </div>
