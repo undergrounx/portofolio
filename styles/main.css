@@ -1,19 +1,19 @@
 /* -------------------------------------------------------------
  * MUADZ PORTFOLIO — CORE DESIGN SYSTEM & THEME
- * Strictly crafted to match the reference composition & aesthetic
+ * Designed with OpenDesign Modern-Minimal (Linear / Vercel style)
  * ------------------------------------------------------------*/
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap');
 
 :root {
-  --bg-primary: #07080a;
+  --bg-primary: #080808;
   --bg-surface: #0e1015;
   --bg-surface-elevated: #14161f;
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-active: rgba(255, 255, 255, 0.22);
-  --text-primary: #f5f5f7;
-  --text-secondary: #8e94a0;
-  --text-muted: #565c69;
+  --text-primary: #f5f5f5;
+  --text-secondary: #949aab;
+  --text-muted: #5e6473;
   --accent-metallic: #e2e8f0;
 }
 
@@ -49,7 +49,7 @@ body {
 
 .font-editorial {
   font-family: 'Syne', 'Inter', sans-serif;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.025em;
 }
 
 .font-mono-code {
@@ -60,27 +60,42 @@ body {
 .bg-grid-subtle {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
 }
 
 .bg-radial-hero {
-  background: radial-gradient(circle at 65% 25%, rgba(45, 52, 68, 0.35) 0%, rgba(15, 17, 24, 0.15) 45%, transparent 70%);
+  background: radial-gradient(circle at 65% 25%, rgba(45, 52, 68, 0.28) 0%, rgba(15, 17, 24, 0.12) 45%, transparent 70%);
 }
 
-/* Reference Card Styles */
+/* OpenDesign Modern-Minimal Card Styles */
 .card-panel {
-  background: linear-gradient(180deg, rgba(20, 22, 29, 0.7) 0%, rgba(12, 14, 18, 0.85) 100%);
-  border: 1px solid var(--border-subtle);
-  border-radius: 24px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  background: linear-gradient(180deg, rgba(16, 18, 24, 0.8) 0%, rgba(9, 10, 14, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.card-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  pointer-events: none;
 }
 
 .card-panel:hover {
-  border-color: var(--border-active);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 30px -5px rgba(255, 255, 255, 0.04);
+  transform: translateY(-2px);
 }
 
 /* Pill Buttons */
@@ -120,7 +135,7 @@ body {
   border-radius: 9999px;
   background: transparent;
   color: #c4cad4;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -133,21 +148,21 @@ body {
 .btn-pill-ghost:hover {
   color: #ffffff;
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.35);
   transform: translateY(-2px);
 }
 
-/* Circular Action Arrow Button (Ref Match) */
+/* Circular Action Arrow Button */
 .btn-circle-arrow {
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: #cbd5e1;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
@@ -158,20 +173,21 @@ body {
   color: #000000;
   transform: scale(1.08) rotate(45deg);
   border-color: #ffffff;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 /* Metallic Sheen Card (Final CTA Left Box) */
 .metallic-sheen-surface {
   background: linear-gradient(135deg, 
-    #252932 0%, 
-    #4a5160 25%, 
-    #8f98a8 45%, 
-    #424855 60%, 
-    #1d2027 100%);
+    #21252d 0%, 
+    #3f4654 25%, 
+    #7a8494 45%, 
+    #373d4a 60%, 
+    #181a20 100%);
   position: relative;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .metallic-sheen-surface::after {
@@ -184,7 +200,7 @@ body {
   background: linear-gradient(
     45deg,
     transparent 45%,
-    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0.28) 50%,
     transparent 55%
   );
   transform: rotate(30deg);
@@ -212,56 +228,24 @@ body {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
 }
 
-/* Interactive Cursor */
-.custom-cursor-dot {
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: 6px;
-  background-color: #ffffff;
-  border-radius: 50%;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.08s ease;
-}
-
-.custom-cursor-ring {
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, border-color 0.2s, transform 0.18s ease-out;
-}
-
 /* Responsive Utilities */
 @media (max-width: 768px) {
   .hero-headline-title {
-    font-size: 4.8rem !important;
+    font-size: 4.4rem !important;
     line-height: 0.88 !important;
-  }
-  .custom-cursor-dot, .custom-cursor-ring {
-    display: none !important;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-headline-title {
-    font-size: 7.8rem;
+    font-size: 7.6rem;
     line-height: 0.86;
   }
 }
 
 @media (min-width: 1440px) {
   .hero-headline-title {
-    font-size: 9.4rem;
+    font-size: 8.8rem;
     line-height: 0.84;
   }
 }

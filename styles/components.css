@@ -1,13 +1,14 @@
 /* -------------------------------------------------------------
  * COMPONENT SPECIFIC STYLES & INTERACTION ANIMATIONS
+ * Modern-Minimal Linear/Vercel standard
  * ------------------------------------------------------------*/
 
 /* Sticky Navbar Glassmorphism */
 .nav-glass {
-  background: rgba(7, 8, 10, 0.72);
+  background: rgba(8, 8, 8, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .nav-link {
@@ -51,36 +52,28 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Availability Badge in Hero (Reference Match) */
+/* Availability Badge in Hero */
 .hero-availability-badge {
   border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(18, 20, 26, 0.6);
-  backdrop-filter: blur(12px);
+  background: rgba(16, 18, 24, 0.7);
+  backdrop-filter: blur(14px);
   border-radius: 16px;
   transition: all 0.3s ease;
 }
 
 .hero-availability-badge:hover {
   border-color: rgba(255, 255, 255, 0.35);
-  background: rgba(26, 29, 38, 0.85);
+  background: rgba(24, 27, 36, 0.9);
   transform: translateY(-2px);
-}
-
-/* Stats Counter Numbers */
-.stat-number {
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  color: #ffffff;
 }
 
 /* Project Card Visual Frame */
 .project-card-image-box {
   position: relative;
   overflow: hidden;
-  border-radius: 18px;
-  background: #090b0e;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  background: #090a0f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   aspect-ratio: 16 / 11;
   display: flex;
   align-items: center;
@@ -91,50 +84,20 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
 }
 
 .card-panel:hover .project-card-image-box img {
   transform: scale(1.035);
-  filter: brightness(1.06);
-}
-
-/* Audio Toggle Badge */
-.audio-toggle-btn {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 900;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  border-radius: 9999px;
-  background: rgba(15, 17, 22, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(16px);
-  color: #cbd5e1;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7);
-  transition: all 0.25s ease;
-}
-
-.audio-toggle-btn:hover {
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: scale(1.04);
+  filter: brightness(1.05);
 }
 
 /* Interactive Project Modal */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.82);
-  backdrop-filter: blur(14px);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(16px);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -155,13 +118,13 @@
   max-width: 860px;
   max-height: 90vh;
   overflow-y: auto;
-  background: #0e1016;
+  background: #0c0e14;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 24px;
   padding: 32px;
   transform: translateY(20px) scale(0.97);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.95);
 }
 
 .modal-overlay.open .modal-card {

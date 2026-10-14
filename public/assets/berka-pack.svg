@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="berkaBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14151a" />
+      <stop offset="60%" stop-color="#0b0c10" />
+      <stop offset="100%" stop-color="#050608" />
+    </linearGradient>
+    <linearGradient id="kraftGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ab8966" />
+      <stop offset="40%" stop-color="#c9a783" />
+      <stop offset="70%" stop-color="#d8ba98" />
+      <stop offset="100%" stop-color="#b8946e" />
+    </linearGradient>
+    <linearGradient id="navyPanel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#162035" />
+      <stop offset="100%" stop-color="#0d1422" />
+    </linearGradient>
+    <linearGradient id="jarGlass" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15" />
+      <stop offset="30%" stop-color="#ffffff" stop-opacity="0.04" />
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.2" />
+    </linearGradient>
+    <linearGradient id="herbalPowder" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c49a6c" />
+      <stop offset="100%" stop-color="#8a633c" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="520" rx="20" fill="url(#berkaBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+
+  <!-- Pedestal Base -->
+  <ellipse cx="400" cy="460" rx="260" ry="24" fill="#040507" opacity="0.8" />
+  <ellipse cx="400" cy="455" rx="200" ry="16" fill="#0f1118" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+
+  <!-- Item 1: Kraft Doypack Pouch (Left) -->
+  <g transform="translate(160, 80)">
+    <!-- Kraft Pouch Silhouette -->
+    <path d="M 40 40 
+             C 40 34, 45 30, 52 30 
+             L 208 30 
+             C 215 30, 220 34, 220 40 
+             L 232 355 
+             C 232 365, 210 372, 130 372 
+             C 50 372, 28 365, 28 355 
+             Z" 
+          fill="url(#kraftGrad)" 
+          stroke="rgba(255,255,255,0.12)" 
+          stroke-width="1" />
+
+    <!-- Heat Seal Top & Notch -->
+    <rect x="42" y="32" width="176" height="16" rx="2" fill="#997552" opacity="0.6" />
+    <line x1="42" y1="40" x2="218" y2="40" stroke="#7a5b3d" stroke-width="0.8" stroke-dasharray="2 2" />
+
+    <!-- Center Navy Brand Panel -->
+    <rect x="52" y="80" width="156" height="210" rx="8" fill="url(#navyPanel)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8" />
+
+    <!-- Brand Typography & Elements -->
+    <text x="130" y="115" text-anchor="middle" fill="#d8ba98" font-family="'Inter', sans-serif" font-size="10" font-weight="700" letter-spacing="3">JSR HERBAL</text>
+    <text x="130" y="148" text-anchor="middle" fill="#ffffff" font-family="'Playfair Display', Georgia, serif" font-size="24" font-weight="700" letter-spacing="2">BERKA</text>
+    <line x1="85" y1="162" x2="175" y2="162" stroke="#d8ba98" stroke-width="0.8" opacity="0.5" />
+    
+    <text x="130" y="185" text-anchor="middle" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="9" font-weight="600" letter-spacing="1">MINUMAN HERBAL ALAMI</text>
+    <text x="130" y="202" text-anchor="middle" fill="#8e94a0" font-family="'Inter', sans-serif" font-size="8" font-weight="500">Traditional Botanical Blend</text>
+
+    <!-- 80g Badge -->
+    <rect x="105" y="240" width="50" height="20" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="0.8" />
+    <text x="130" y="254" text-anchor="middle" fill="#ffffff" font-family="'Inter', sans-serif" font-size="10" font-weight="700">80 g</text>
+  </g>
+
+  <!-- Item 2: Clear Jar with White Lid (Right) -->
+  <g transform="translate(420, 150)">
+    <!-- White Minimal Lid -->
+    <rect x="36" y="20" width="188" height="34" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
+    <line x1="38" y1="38" x2="222" y2="38" stroke="#e2e8f0" stroke-width="1" />
+
+    <!-- Clear Glass Jar Body -->
+    <rect x="44" y="54" width="172" height="235" rx="14" fill="url(#jarGlass)" stroke="rgba(255,255,255,0.2)" stroke-width="1.2" />
+
+    <!-- Herbal Powder Fill inside Jar -->
+    <rect x="48" y="115" width="164" height="170" rx="10" fill="url(#herbalPowder)" opacity="0.9" />
+
+    <!-- Jar Label -->
+    <rect x="58" y="130" width="144" height="120" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="0.8" />
+    <text x="130" y="160" text-anchor="middle" fill="#1e293b" font-family="'Playfair Display', Georgia, serif" font-size="18" font-weight="700" letter-spacing="1.5">BERKA</text>
+    <text x="130" y="178" text-anchor="middle" fill="#64748b" font-family="'Inter', sans-serif" font-size="7.5" font-weight="700" letter-spacing="1">MINUMAN KESEHATAN WANITA</text>
+    <line x1="80" y1="190" x2="180" y2="190" stroke="#cbd5e1" stroke-width="0.8" />
+    <text x="130" y="210" text-anchor="middle" fill="#334155" font-family="'Inter', sans-serif" font-size="8" font-weight="500">Herbal Powder Drink</text>
+
+    <!-- 150g Badge -->
+    <text x="130" y="235" text-anchor="middle" fill="#0f172a" font-family="'Inter', sans-serif" font-size="10" font-weight="700">NETTO 150g</text>
+  </g>
+
+  <!-- Editorial Info Badge on Left -->
+  <g transform="translate(40, 60)">
+    <rect x="0" y="0" width="140" height="60" rx="10" fill="#0d0e14" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+    <text x="14" y="24" fill="#8e94a0" font-family="'Inter', sans-serif" font-size="9" font-weight="700">PROJECT SCOPE</text>
+    <text x="14" y="44" fill="#ffffff" font-family="'Inter', sans-serif" font-size="12" font-weight="700">Herbal Packaging</text>
+  </g>
+
+  <!-- Editorial Info Badge on Right -->
+  <g transform="translate(630, 60)">
+    <rect x="0" y="0" width="130" height="60" rx="10" fill="#0d0e14" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+    <text x="14" y="24" fill="#8e94a0" font-family="'Inter', sans-serif" font-size="9" font-weight="700">LABEL INTEGRITY</text>
+    <text x="14" y="44" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Visual Concept Only</text>
+  </g>
+</svg>

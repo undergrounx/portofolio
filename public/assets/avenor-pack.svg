@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="avenorBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14151a" />
+      <stop offset="50%" stop-color="#0b0c10" />
+      <stop offset="100%" stop-color="#050608" />
+    </linearGradient>
+    <linearGradient id="pouchBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#111317" />
+      <stop offset="35%" stop-color="#1c1f26" />
+      <stop offset="65%" stop-color="#232730" />
+      <stop offset="85%" stop-color="#181a21" />
+      <stop offset="100%" stop-color="#0e1014" />
+    </linearGradient>
+    <linearGradient id="metallicSilver" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="30%" stop-color="#d1d5db" />
+      <stop offset="70%" stop-color="#9ca3af" />
+      <stop offset="100%" stop-color="#e5e7eb" />
+    </linearGradient>
+    <radialGradient id="stageLight" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08" />
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.01" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <filter id="pouchShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.6 0"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="520" rx="20" fill="url(#avenorBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+  <circle cx="400" cy="240" r="280" fill="url(#stageLight)" />
+
+  <!-- Studio Pedestal Base -->
+  <ellipse cx="400" cy="460" rx="240" ry="24" fill="#06070a" filter="url(#pouchShadow)" />
+  <ellipse cx="400" cy="455" rx="180" ry="14" fill="#12141a" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+
+  <!-- The Luxury Matte Pouch -->
+  <g transform="translate(260, 50)">
+    <!-- Standup Pouch Silhouette -->
+    <path d="M 40 40 
+             C 40 34, 45 30, 52 30 
+             L 228 30 
+             C 235 30, 240 34, 240 40 
+             L 255 385 
+             C 255 396, 230 405, 140 405 
+             C 50 405, 25 396, 25 385 
+             Z" 
+          fill="url(#pouchBody)" 
+          stroke="rgba(255,255,255,0.14)" 
+          stroke-width="1.2" />
+
+    <!-- Top Heat Seal Texture & Tear Notches -->
+    <rect x="42" y="32" width="196" height="18" rx="2" fill="#14171e" stroke="rgba(255,255,255,0.08)" stroke-width="0.8" />
+    <line x1="42" y1="40" x2="238" y2="40" stroke="rgba(255,255,255,0.1)" stroke-width="0.8" stroke-dasharray="2 2" />
+    <!-- Tear Notches -->
+    <polygon points="40,46 48,50 40,54" fill="#0b0c10" />
+    <polygon points="240,46 232,50 240,54" fill="#0b0c10" />
+
+    <!-- Pouch Center Highlight Reflection (Matte Soft Sheen) -->
+    <path d="M 120 50 L 160 50 L 175 395 L 105 395 Z" fill="#ffffff" opacity="0.03" />
+
+    <!-- Brand Typography: AVENOR -->
+    <g transform="translate(140, 145)">
+      <!-- Minimalist Organic Botanical Icon / Crest -->
+      <circle cx="0" cy="-35" r="14" fill="none" stroke="url(#metallicSilver)" stroke-width="1.2" />
+      <path d="M 0 -44 C 5 -38, 5 -32, 0 -26 C -5 -32, -5 -38, 0 -44 Z" fill="url(#metallicSilver)" />
+      
+      <!-- Brand Name -->
+      <text x="0" y="8" text-anchor="middle" fill="url(#metallicSilver)" font-family="'Didot', 'Playfair Display', 'Cinzel', serif, -apple-system" font-size="28" font-weight="700" letter-spacing="8">AVENOR</text>
+      
+      <!-- Product Sub-headline -->
+      <text x="0" y="32" text-anchor="middle" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" letter-spacing="3.5">ORGANIC BLACK CHIA SEED</text>
+      <text x="0" y="46" text-anchor="middle" fill="#64748b" font-family="'Inter', sans-serif" font-size="7.5" font-weight="500" letter-spacing="2">GRADE A · PURE COLD-HARVESTED</text>
+      
+      <line x1="-50" y1="62" x2="50" y2="62" stroke="rgba(255,255,255,0.15)" stroke-width="0.8" />
+    </g>
+
+    <!-- Key Botanical Features Matrix on Pouch -->
+    <g transform="translate(68, 250)">
+      <rect x="0" y="0" width="144" height="64" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8" />
+      <text x="14" y="20" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="9" font-weight="600">HIGH OMEGA-3 ALA</text>
+      <text x="14" y="36" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="9" font-weight="600">SOLUBLE DIETARY FIBER</text>
+      <text x="14" y="52" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="9" font-weight="600">ZERO ADDITIVES · RAW</text>
+      <text x="126" y="20" text-anchor="end" fill="#ffffff" font-size="8">✦</text>
+      <text x="126" y="36" text-anchor="end" fill="#ffffff" font-size="8">✦</text>
+      <text x="126" y="52" text-anchor="end" fill="#ffffff" font-size="8">✦</text>
+    </g>
+
+    <!-- Bottom Weight Specifier -->
+    <text x="140" y="355" text-anchor="middle" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="9.5" font-weight="600" letter-spacing="2">NET WEIGHT 250g / 8.8 oz</text>
+    <text x="140" y="372" text-anchor="middle" fill="#475569" font-family="'Inter', sans-serif" font-size="8" letter-spacing="1.5">FORMULATED BY MUADZ ENTREPRENEURIAL LABS</text>
+  </g>
+
+  <!-- Left Editorial Badge: Brand Positioning -->
+  <g transform="translate(50, 150)">
+    <rect x="0" y="0" width="170" height="96" rx="14" fill="#0d0e14" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+    <text x="16" y="28" fill="#64748b" font-family="'Inter', sans-serif" font-size="9" font-weight="700" letter-spacing="1">VENTURE</text>
+    <text x="16" y="50" fill="#ffffff" font-family="'Inter', sans-serif" font-size="14" font-weight="800">Physical Product</text>
+    <text x="16" y="72" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10">End-to-end design, supplier sourcing, packaging &amp; DTC sales.</text>
+  </g>
+
+  <!-- Right Editorial Badge: Packaging Specs -->
+  <g transform="translate(580, 240)">
+    <rect x="0" y="0" width="170" height="96" rx="14" fill="#0d0e14" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+    <text x="16" y="28" fill="#64748b" font-family="'Inter', sans-serif" font-size="9" font-weight="700" letter-spacing="1">DESIGN SYSTEM</text>
+    <text x="16" y="50" fill="#ffffff" font-family="'Inter', sans-serif" font-size="14" font-weight="800">Matte Monochrome</text>
+    <text x="16" y="72" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10">Tactile soft-touch film with foil debossing and minimal dieline.</text>
+  </g>
+</svg>

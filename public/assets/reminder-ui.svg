@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="phoneBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#15171e" />
+      <stop offset="50%" stop-color="#0e1015" />
+      <stop offset="100%" stop-color="#08090d" />
+    </linearGradient>
+    <linearGradient id="circleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="60%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="800" height="520" rx="20" fill="#08090d" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+
+  <!-- Ambient Backdrop Glow -->
+  <circle cx="400" cy="240" r="180" fill="#1e222d" opacity="0.4" filter="blur(40px)" />
+
+  <!-- Centered Smartphone Device Frame -->
+  <g transform="translate(270, 25)">
+    <!-- Phone Chassis Outer -->
+    <rect x="0" y="0" width="260" height="470" rx="40" fill="#0c0d12" stroke="rgba(255,255,255,0.18)" stroke-width="2" />
+    
+    <!-- Phone Inner Screen -->
+    <rect x="8" y="8" width="244" height="454" rx="34" fill="url(#phoneBg)" />
+
+    <!-- Dynamic Island / Speaker Notch -->
+    <rect x="88" y="18" width="84" height="18" rx="9" fill="#000000" />
+    <circle cx="160" cy="27" r="3" fill="#1e293b" />
+    
+    <!-- Mobile Status Bar -->
+    <text x="32" y="31" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="10" font-weight="600">09:41</text>
+    <path d="M 216 24 L 228 24 C 230 24 231 25 231 27 L 231 31 C 231 33 230 34 228 34 L 216 34 Z" fill="none" stroke="#cbd5e1" stroke-width="1" />
+    <rect x="218" y="26" width="9" height="6" rx="1" fill="#cbd5e1" />
+
+    <!-- Mobile Header -->
+    <text x="24" y="66" fill="#64748b" font-family="'Inter', sans-serif" font-size="10" font-weight="500">GOOD MORNING,</text>
+    <text x="24" y="84" fill="#ffffff" font-family="'Inter', sans-serif" font-size="15" font-weight="800">Muadz 👋</text>
+    
+    <rect x="194" y="60" width="34" height="34" rx="17" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+    <circle cx="211" cy="74" r="5" fill="#e2e8f0" />
+    <path d="M 204 88 C 204 81 218 81 218 88" fill="none" stroke="#e2e8f0" stroke-width="1.5" />
+
+    <!-- Circular Progress Indicator (Matching Reference Ring) -->
+    <g transform="translate(130, 155)">
+      <!-- Background track -->
+      <circle cx="0" cy="0" r="52" fill="none" stroke="#1c202a" stroke-width="7" />
+      <!-- Active 72% Arc -->
+      <circle cx="0" cy="0" r="52" fill="none" stroke="url(#circleGrad)" stroke-width="7" stroke-dasharray="326.7" stroke-dashoffset="91.5" stroke-linecap="round" transform="rotate(-90)" />
+      
+      <text x="0" y="8" text-anchor="middle" fill="#ffffff" font-family="'Inter', sans-serif" font-size="24" font-weight="800">72%</text>
+      <text x="0" y="24" text-anchor="middle" fill="#64748b" font-family="'Inter', sans-serif" font-size="9" font-weight="600" letter-spacing="0.5">COMPLETED</text>
+    </g>
+
+    <!-- Sub-metrics Row (Matching Reference "Mindfulness / 120 / 48") -->
+    <g transform="translate(24, 226)">
+      <rect x="0" y="0" width="98" height="42" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="0.8" />
+      <text x="12" y="16" fill="#64748b" font-family="'Inter', sans-serif" font-size="8" font-weight="700">AI REMINDERS</text>
+      <text x="12" y="32" fill="#ffffff" font-family="'Inter', sans-serif" font-size="13" font-weight="700">12 Pending</text>
+
+      <rect x="108" y="0" width="98" height="42" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="0.8" />
+      <text x="120" y="16" fill="#64748b" font-family="'Inter', sans-serif" font-size="8" font-weight="700">SYSTEM HEALTH</text>
+      <text x="120" y="32" fill="#34d399" font-family="'Inter', sans-serif" font-size="13" font-weight="700">Optimal</text>
+    </g>
+
+    <!-- Smart Action List -->
+    <g transform="translate(24, 282)">
+      <!-- Item 1: High Priority -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="206" height="46" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+        <circle cx="18" cy="23" r="6" fill="#34d399" />
+        <text x="34" y="19" fill="#ffffff" font-family="'Inter', sans-serif" font-size="10" font-weight="700">Review n8n Webhook Logs</text>
+        <text x="34" y="33" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="8">Context: Auto-extracted clips queue</text>
+        <text x="180" y="27" fill="#64748b" font-family="'Inter', sans-serif" font-size="9">14:00</text>
+      </g>
+
+      <!-- Item 2 -->
+      <g transform="translate(0, 52)">
+        <rect x="0" y="0" width="206" height="46" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+        <circle cx="18" cy="23" r="6" fill="#60a5fa" />
+        <text x="34" y="19" fill="#e2e8f0" font-family="'Inter', sans-serif" font-size="10" font-weight="600">Avenor Batch Inventory Check</text>
+        <text x="34" y="33" fill="#64748b" font-family="'Inter', sans-serif" font-size="8">Supplier packaging shipment #48</text>
+        <text x="180" y="27" fill="#64748b" font-family="'Inter', sans-serif" font-size="9">16:30</text>
+      </g>
+
+      <!-- Item 3 -->
+      <g transform="translate(0, 104)">
+        <rect x="0" y="0" width="206" height="46" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+        <circle cx="18" cy="23" r="6" fill="#cbd5e1" />
+        <text x="34" y="19" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="10" font-weight="600">Publish Reel: AI Workflow</text>
+        <text x="34" y="33" fill="#64748b" font-family="'Inter', sans-serif" font-size="8">CapCut final render ready</text>
+        <text x="180" y="27" fill="#64748b" font-family="'Inter', sans-serif" font-size="9">19:00</text>
+      </g>
+    </g>
+
+    <!-- Bottom Navigation Bar on Phone -->
+    <g transform="translate(24, 436)">
+      <rect x="0" y="0" width="206" height="18" fill="none" />
+      <rect x="74" y="8" width="58" height="4" rx="2" fill="#475569" />
+    </g>
+  </g>
+
+  <!-- Floating Callout Badge on Left -->
+  <g transform="translate(48, 160)">
+    <rect x="0" y="0" width="180" height="70" rx="12" fill="#0d0e14" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+    <text x="16" y="24" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10" font-weight="700">INTELLIGENT CONTEXT</text>
+    <text x="16" y="44" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Auto-schedules by energy level &amp; deadlines</text>
+  </g>
+
+  <!-- Floating Callout Badge on Right -->
+  <g transform="translate(570, 260)">
+    <rect x="0" y="0" width="180" height="70" rx="12" fill="#0d0e14" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+    <text x="16" y="24" fill="#34d399" font-family="'Inter', sans-serif" font-size="10" font-weight="700">VOICE TO TASK NLP</text>
+    <text x="16" y="44" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Understands Indonesian &amp; English seamlessly</text>
+  </g>
+</svg>

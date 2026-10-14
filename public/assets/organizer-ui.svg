@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="orgBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121419" />
+      <stop offset="60%" stop-color="#0b0c10" />
+      <stop offset="100%" stop-color="#060709" />
+    </linearGradient>
+    <radialGradient id="clusterGlow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="clusterGlow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="520" rx="20" fill="url(#orgBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+
+  <!-- App Header -->
+  <rect x="0" y="0" width="800" height="42" rx="20" fill="#0f1116" />
+  <rect x="0" y="20" width="800" height="22" fill="#0f1116" />
+  <line x1="0" y1="42" x2="800" y2="42" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+  
+  <circle cx="28" cy="21" r="5" fill="#3a3d45" />
+  <circle cx="44" cy="21" r="5" fill="#2a2c33" />
+  <circle cx="60" cy="21" r="5" fill="#22242a" />
+  <text x="400" y="25" text-anchor="middle" fill="#8f95a3" font-family="'Inter', sans-serif" font-size="11" font-weight="500" letter-spacing="0.5">AI FILE ORGANIZER · EMBEDDING SPACE &amp; AUTO-STRUCTURE ENGINE</text>
+  
+  <rect x="670" y="11" width="104" height="20" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" />
+  <text x="722" y="24" text-anchor="middle" fill="#f1f5f9" font-family="'Inter', sans-serif" font-size="9" font-weight="700">1,482 FILES SYNCED</text>
+
+  <!-- Left Sidebar: Directory Structure -->
+  <rect x="20" y="58" width="210" height="444" rx="12" fill="#0d0e13" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+  <text x="36" y="86" fill="#64748b" font-family="'Inter', sans-serif" font-size="10" font-weight="700" letter-spacing="1">DIRECTORY TAXONOMY</text>
+  
+  <!-- Folder Item 1 -->
+  <g transform="translate(36, 104)">
+    <path d="M 0 4 C 0 1.8 1.8 0 4 0 L 14 0 C 16 0 17 1.5 18 3 L 22 7 L 36 7 C 38 7 40 8.8 40 11 L 40 25 C 40 27.2 38 29 36 29 L 4 29 C 1.8 29 0 27.2 0 25 Z" fill="#1e222d" />
+    <text x="48" y="15" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="600">01_Client_Projects/</text>
+    <text x="48" y="27" fill="#64748b" font-family="'Inter', sans-serif" font-size="9">42 categorized files</text>
+  </g>
+
+  <!-- Subfolder -->
+  <g transform="translate(56, 144)">
+    <line x1="-12" y1="12" x2="0" y2="12" stroke="#334155" stroke-width="1" />
+    <text x="8" y="15" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11">↳ Avenor_Brand_Assets/</text>
+  </g>
+
+  <g transform="translate(56, 172)">
+    <line x1="-12" y1="12" x2="0" y2="12" stroke="#334155" stroke-width="1" />
+    <text x="8" y="15" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11">↳ Design_Tokens_2026/</text>
+  </g>
+
+  <!-- Folder Item 2 -->
+  <g transform="translate(36, 206)">
+    <path d="M 0 4 C 0 1.8 1.8 0 4 0 L 14 0 C 16 0 17 1.5 18 3 L 22 7 L 36 7 C 38 7 40 8.8 40 11 L 40 25 C 40 27.2 38 29 36 29 L 4 29 C 1.8 29 0 27.2 0 25 Z" fill="#1e222d" />
+    <text x="48" y="15" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="600">02_Financial_Invoices/</text>
+    <text x="48" y="27" fill="#34d399" font-family="'Inter', sans-serif" font-size="9">100% OCR Indexed</text>
+  </g>
+
+  <!-- Folder Item 3 -->
+  <g transform="translate(36, 252)">
+    <path d="M 0 4 C 0 1.8 1.8 0 4 0 L 14 0 C 16 0 17 1.5 18 3 L 22 7 L 36 7 C 38 7 40 8.8 40 11 L 40 25 C 40 27.2 38 29 36 29 L 4 29 C 1.8 29 0 27.2 0 25 Z" fill="#1e222d" />
+    <text x="48" y="15" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="600">03_AI_Model_Weights/</text>
+    <text x="48" y="27" fill="#64748b" font-family="'Inter', sans-serif" font-size="9">LoRA &amp; SafeTensors</text>
+  </g>
+
+  <g transform="translate(36, 330)">
+    <rect x="0" y="0" width="178" height="154" rx="8" fill="#090a0e" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+    <text x="14" y="24" fill="#64748b" font-family="'Inter', sans-serif" font-size="9" font-weight="700">SEMANTIC PARSER STATS</text>
+    <text x="14" y="50" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11">Deduplication: <tspan fill="#34d399" font-weight="700">3.4 GB Saved</tspan></text>
+    <text x="14" y="76" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11">Disorganized: <tspan fill="#64748b">0 files</tspan></text>
+    <text x="14" y="102" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="11">Speed: <tspan fill="#ffffff" font-weight="700">420 files / sec</tspan></text>
+    <rect x="14" y="120" width="150" height="20" rx="4" fill="rgba(255,255,255,0.06)" />
+    <text x="89" y="134" text-anchor="middle" fill="#e2e8f0" font-family="'Inter', sans-serif" font-size="9" font-weight="700">AUTO-RUN DAILY: ON</text>
+  </g>
+
+  <!-- Center Stage: Vector Clustering Canvas -->
+  <rect x="242" y="58" width="538" height="300" rx="12" fill="#090a0e" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+  
+  <text x="262" y="86" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11" font-weight="700">SEMANTIC VECTOR PROJECTION (t-SNE / EMBEDDINGS)</text>
+
+  <!-- Cluster 1: Design Assets -->
+  <circle cx="360" cy="200" r="80" fill="url(#clusterGlow1)" />
+  <ellipse cx="360" cy="200" rx="70" ry="50" fill="none" stroke="rgba(56,189,248,0.25)" stroke-dasharray="3 3" />
+  <text x="360" y="145" text-anchor="middle" fill="#38bdf8" font-family="'Inter', sans-serif" font-size="10" font-weight="700">CLUSTER: UI / BRAND VECTORS</text>
+  
+  <!-- Cluster Nodes -->
+  <circle cx="330" cy="180" r="5" fill="#38bdf8" />
+  <circle cx="370" cy="175" r="4" fill="#ffffff" />
+  <circle cx="395" cy="210" r="5" fill="#38bdf8" />
+  <circle cx="340" cy="225" r="4" fill="#7dd3fc" />
+  <circle cx="360" cy="195" r="6" fill="#ffffff" />
+  <!-- Node Connection lines -->
+  <line x1="330" y1="180" x2="360" y2="195" stroke="rgba(56,189,248,0.4)" stroke-width="1" />
+  <line x1="370" y1="175" x2="360" y2="195" stroke="rgba(56,189,248,0.4)" stroke-width="1" />
+  <line x1="395" y1="210" x2="360" y2="195" stroke="rgba(56,189,248,0.4)" stroke-width="1" />
+  <line x1="340" y1="225" x2="360" y2="195" stroke="rgba(56,189,248,0.4)" stroke-width="1" />
+
+  <!-- Cluster 2: Contracts & Finance -->
+  <circle cx="610" cy="190" r="75" fill="url(#clusterGlow2)" />
+  <ellipse cx="610" cy="190" rx="65" ry="45" fill="none" stroke="rgba(52,211,153,0.25)" stroke-dasharray="3 3" />
+  <text x="610" y="135" text-anchor="middle" fill="#34d399" font-family="'Inter', sans-serif" font-size="10" font-weight="700">CLUSTER: FINANCIAL OCR</text>
+  
+  <circle cx="585" cy="180" r="5" fill="#34d399" />
+  <circle cx="625" cy="170" r="6" fill="#ffffff" />
+  <circle cx="640" cy="205" r="4" fill="#34d399" />
+  <circle cx="600" cy="215" r="5" fill="#a7f3d0" />
+  <line x1="585" y1="180" x2="625" y2="170" stroke="rgba(52,211,153,0.4)" stroke-width="1" />
+  <line x1="640" y1="205" x2="625" y2="170" stroke="rgba(52,211,153,0.4)" stroke-width="1" />
+  <line x1="600" y1="215" x2="625" y2="170" stroke="rgba(52,211,153,0.4)" stroke-width="1" />
+
+  <!-- Selected Node Detail Card Tooltip -->
+  <g transform="translate(390, 230)">
+    <rect x="0" y="0" width="220" height="60" rx="8" fill="#131620" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+    <text x="12" y="20" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="700">Hero_3D_Sculpture_v4.blend</text>
+    <text x="12" y="36" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="9">Cosine Similarity: 0.984 with Portfolio 2026</text>
+    <text x="12" y="50" fill="#38bdf8" font-family="'Inter', sans-serif" font-size="9" font-weight="600">Action: Relocated to 01_Client_Projects/3D/</text>
+  </g>
+
+  <!-- Bottom Log: Intelligent Auto-Rename Stream -->
+  <rect x="242" y="370" width="538" height="132" rx="12" fill="#0a0c10" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+  <text x="262" y="394" fill="#64748b" font-family="'Inter', sans-serif" font-size="10" font-weight="700">RECENT SMART RENAMING AUDIT LOG</text>
+  
+  <g transform="translate(262, 406)">
+    <text x="0" y="16" fill="#ef4444" font-family="monospace" font-size="10">✕ Screenshot 2026-09-12 14.10.png</text>
+    <text x="240" y="16" fill="#64748b" font-family="'Inter', sans-serif" font-size="10">→</text>
+    <text x="260" y="16" fill="#34d399" font-family="monospace" font-size="10">✓ 2026-09-12_Avenor_Packaging_Dieline_v2.png</text>
+    <rect x="475" y="6" width="36" height="14" rx="3" fill="rgba(52,211,153,0.15)" />
+    <text x="493" y="16" text-anchor="middle" fill="#34d399" font-family="'Inter', sans-serif" font-size="8" font-weight="700">AI PASS</text>
+  </g>
+
+  <g transform="translate(262, 432)">
+    <text x="0" y="16" fill="#ef4444" font-family="monospace" font-size="10">✕ doc_final_final_v3(1).pdf</text>
+    <text x="240" y="16" fill="#64748b" font-family="'Inter', sans-serif" font-size="10">→</text>
+    <text x="260" y="16" fill="#34d399" font-family="monospace" font-size="10">✓ 2026_Q3_Enterprise_Automation_SOW.pdf</text>
+    <rect x="475" y="6" width="36" height="14" rx="3" fill="rgba(52,211,153,0.15)" />
+    <text x="493" y="16" text-anchor="middle" fill="#34d399" font-family="'Inter', sans-serif" font-size="8" font-weight="700">AI PASS</text>
+  </g>
+
+  <g transform="translate(262, 458)">
+    <text x="0" y="16" fill="#ef4444" font-family="monospace" font-size="10">✕ WhatsApp_Audio_20260914.m4a</text>
+    <text x="240" y="16" fill="#64748b" font-family="'Inter', sans-serif" font-size="10">→</text>
+    <text x="260" y="16" fill="#34d399" font-family="monospace" font-size="10">✓ Memo_ChiaSeed_BulkSupplier_Negotiation.m4a</text>
+    <rect x="475" y="6" width="36" height="14" rx="3" fill="rgba(52,211,153,0.15)" />
+    <text x="493" y="16" text-anchor="middle" fill="#34d399" font-family="'Inter', sans-serif" font-size="8" font-weight="700">AI PASS</text>
+  </g>
+</svg>
