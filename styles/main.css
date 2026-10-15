@@ -3,7 +3,7 @@
  * Designed with OpenDesign Modern-Minimal (Linear / Vercel style)
  * ------------------------------------------------------------*/
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Syne:wght@700;800&display=swap');
 
 :root {
   --bg-primary: #080808;
@@ -43,13 +43,14 @@ body {
 
 /* Custom Typography Classes */
 .font-display {
-  font-family: 'Bebas Neue', 'Archivo Black', 'Syne', sans-serif;
-  letter-spacing: 0.02em;
+  font-family: 'Plus Jakarta Sans', 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.035em;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
 .font-editorial {
-  font-family: 'Syne', 'Inter', sans-serif;
-  letter-spacing: -0.025em;
+  font-family: 'Syne', 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.04em;
 }
 
 .font-mono-code {
@@ -229,58 +230,69 @@ body {
 }
 
 /* Responsive Utilities across All Devices (Mobile, Tablet, Laptop, Desktop, 4K/TV) */
+.hero-headline-title {
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: manual !important;
+}
+
 @media (max-width: 480px) {
   .hero-headline-title {
-    font-size: 3.1rem !important;
-    line-height: 0.92 !important;
-    letter-spacing: -0.015em !important;
+    font-size: 2.15rem !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.035em !important;
   }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
   .hero-headline-title {
-    font-size: 3.8rem !important;
-    line-height: 0.9 !important;
+    font-size: 2.75rem !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.035em !important;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1023px) {
   .hero-headline-title {
-    font-size: 4.8rem;
-    line-height: 0.88;
+    font-size: 3.4rem;
+    line-height: 1.04;
+    letter-spacing: -0.035em;
   }
 }
 
 /* Laptops / Compact Desktops (1024px - 1279px) */
 @media (min-width: 1024px) and (max-width: 1279px) {
   .hero-headline-title {
-    font-size: 4.6rem;
-    line-height: 0.88;
+    font-size: 3.25rem;
+    line-height: 1.04;
+    letter-spacing: -0.035em;
   }
 }
 
 /* Standard Desktops (1280px - 1535px) */
 @media (min-width: 1280px) and (max-width: 1535px) {
   .hero-headline-title {
-    font-size: 5.6rem;
-    line-height: 0.86;
+    font-size: 3.85rem;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
   }
 }
 
 /* Large Screens (1536px - 1919px) */
 @media (min-width: 1536px) and (max-width: 1919px) {
   .hero-headline-title {
-    font-size: 6.6rem;
-    line-height: 0.84;
+    font-size: 4.5rem;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
   }
 }
 
 /* Ultra-wide / 2K & 4K Smart TVs (1920px and above) */
 @media (min-width: 1920px) {
   .hero-headline-title {
-    font-size: 8rem;
-    line-height: 0.85;
-    letter-spacing: 0.01em;
+    font-size: 5.6rem;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
   }
 
   /* Automatically scale standard max-w-7xl containers gracefully on ultra-wide & TV displays */

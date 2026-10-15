@@ -27,9 +27,9 @@ export function renderHero() {
             </div>
 
             <!-- Towering Headline -->
-            <h1 class="hero-headline-title font-display font-bold text-white tracking-tight uppercase leading-[0.88] select-none break-words">
-              <span>${p.headlineLine1}</span><br />
-              <span class="text-slate-200 font-editorial tracking-tight font-extrabold">${p.headlineLine2}</span>
+            <h1 class="hero-headline-title font-display font-extrabold text-white tracking-tight uppercase select-none">
+              <span class="block text-white">${p.headlineLine1}</span>
+              <span class="block text-slate-300 font-editorial font-extrabold tracking-tight mt-1 sm:mt-1.5">${p.headlineLine2}</span>
             </h1>
 
             <!-- Supporting Paragraph -->
