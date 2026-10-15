@@ -5,7 +5,7 @@ export function renderNavbar() {
 
   return `
     <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      <div class="max-w-7xl 2xl:max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-12 2xl:px-16 h-20 2xl:h-24 flex items-center justify-between">
         
         <!-- Left: Monogram Mark & Subtitle -->
         <a href="#hero" class="flex items-center gap-2 group text-decoration-none">

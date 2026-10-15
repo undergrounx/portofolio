@@ -228,47 +228,66 @@ body {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
 }
 
-/* Responsive Utilities */
+/* Responsive Utilities across All Devices (Mobile, Tablet, Laptop, Desktop, 4K/TV) */
 @media (max-width: 480px) {
   .hero-headline-title {
-    font-size: 3.4rem !important;
-    line-height: 0.9 !important;
-    letter-spacing: -0.01em !important;
+    font-size: 3.1rem !important;
+    line-height: 0.92 !important;
+    letter-spacing: -0.015em !important;
   }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
   .hero-headline-title {
-    font-size: 4.2rem !important;
-    line-height: 0.88 !important;
+    font-size: 3.8rem !important;
+    line-height: 0.9 !important;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1023px) {
-  .hero-headline-title {
-    font-size: 5.2rem;
-    line-height: 0.88;
-  }
-}
-
-@media (min-width: 1024px) and (max-width: 1279px) {
   .hero-headline-title {
     font-size: 4.8rem;
     line-height: 0.88;
   }
 }
 
+/* Laptops / Compact Desktops (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hero-headline-title {
+    font-size: 4.6rem;
+    line-height: 0.88;
+  }
+}
+
+/* Standard Desktops (1280px - 1535px) */
 @media (min-width: 1280px) and (max-width: 1535px) {
   .hero-headline-title {
-    font-size: 5.8rem;
+    font-size: 5.6rem;
     line-height: 0.86;
   }
 }
 
-@media (min-width: 1536px) {
+/* Large Screens (1536px - 1919px) */
+@media (min-width: 1536px) and (max-width: 1919px) {
   .hero-headline-title {
-    font-size: 6.8rem;
+    font-size: 6.6rem;
     line-height: 0.84;
   }
 }
+
+/* Ultra-wide / 2K & 4K Smart TVs (1920px and above) */
+@media (min-width: 1920px) {
+  .hero-headline-title {
+    font-size: 8rem;
+    line-height: 0.85;
+    letter-spacing: 0.01em;
+  }
+
+  /* Automatically scale standard max-w-7xl containers gracefully on ultra-wide & TV displays */
+  .max-w-7xl {
+    max-width: 1680px !important;
+  }
+}
+
+
 
