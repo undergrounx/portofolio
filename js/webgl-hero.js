@@ -431,6 +431,13 @@ export class HeroWebGLScene {
   }
 
   setupListeners() {
+    // Touch & Drag state
+    this.isDragging = false;
+    this.lastTouchX = 0;
+    this.lastTouchY = 0;
+    this.touchDragDeltaX = 0;
+    this.touchDragDeltaY = 0;
+
     this.handleMouseMove = (e) => {
       const rect = this.container.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
@@ -449,6 +456,43 @@ export class HeroWebGLScene {
       this.targetMouseY = 0;
     };
 
+    // Touch events for mobile/tablet interactive spinning
+    this.handleTouchStart = (e) => {
+      if (e.touches.length === 1) {
+        this.isDragging = true;
+        this.isHovered = true;
+        this.lastTouchX = e.touches[0].clientX;
+        this.lastTouchY = e.touches[0].clientY;
+      }
+    };
+
+    this.handleTouchMove = (e) => {
+      if (!this.isDragging || e.touches.length !== 1) return;
+      const touchX = e.touches[0].clientX;
+      const touchY = e.touches[0].clientY;
+
+      const deltaX = touchX - this.lastTouchX;
+      const deltaY = touchY - this.lastTouchY;
+
+      this.lastTouchX = touchX;
+      this.lastTouchY = touchY;
+
+      // Accumulate direct rotational momentum
+      this.rotationY += deltaX * 0.012;
+      this.rotationX += deltaY * 0.012;
+
+      const rect = this.container.getBoundingClientRect();
+      const x = ((touchX - rect.left) / rect.width) * 2 - 1;
+      const y = -(((touchY - rect.top) / rect.height) * 2 - 1);
+      this.targetMouseX = Math.max(-1, Math.min(1, x));
+      this.targetMouseY = Math.max(-1, Math.min(1, y));
+    };
+
+    this.handleTouchEnd = () => {
+      this.isDragging = false;
+      this.isHovered = false;
+    };
+
     this.handleScroll = () => {
       const scrollY = window.scrollY;
       const vh = window.innerHeight;
@@ -462,6 +506,13 @@ export class HeroWebGLScene {
     window.addEventListener("mousemove", this.handleMouseMove, { passive: true });
     this.container.addEventListener("mouseenter", this.handleMouseEnter);
     this.container.addEventListener("mouseleave", this.handleMouseLeave);
+
+    // Touch listeners attached to container for silky smooth direct 3D manipulation
+    this.container.addEventListener("touchstart", this.handleTouchStart, { passive: true });
+    window.addEventListener("touchmove", this.handleTouchMove, { passive: true });
+    window.addEventListener("touchend", this.handleTouchEnd, { passive: true });
+    window.addEventListener("touchcancel", this.handleTouchEnd, { passive: true });
+
     window.addEventListener("scroll", this.handleScroll, { passive: true });
     window.addEventListener("resize", this.handleResize);
   }
@@ -734,6 +785,14 @@ export class HeroWebGLScene {
     this.isDestroyed = true;
     if (this.animationFrameId) cancelAnimationFrame(this.animationFrameId);
     window.removeEventListener("mousemove", this.handleMouseMove);
+    if (this.container) {
+      this.container.removeEventListener("mouseenter", this.handleMouseEnter);
+      this.container.removeEventListener("mouseleave", this.handleMouseLeave);
+      this.container.removeEventListener("touchstart", this.handleTouchStart);
+    }
+    window.removeEventListener("touchmove", this.handleTouchMove);
+    window.removeEventListener("touchend", this.handleTouchEnd);
+    window.removeEventListener("touchcancel", this.handleTouchEnd);
     window.removeEventListener("scroll", this.handleScroll);
     window.removeEventListener("resize", this.handleResize);
   }

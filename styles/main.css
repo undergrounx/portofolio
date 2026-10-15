@@ -229,23 +229,46 @@ body {
 }
 
 /* Responsive Utilities */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .hero-headline-title {
-    font-size: 4.4rem !important;
+    font-size: 3.4rem !important;
+    line-height: 0.9 !important;
+    letter-spacing: -0.01em !important;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero-headline-title {
+    font-size: 4.2rem !important;
     line-height: 0.88 !important;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1023px) {
   .hero-headline-title {
-    font-size: 7.6rem;
+    font-size: 5.2rem;
+    line-height: 0.88;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hero-headline-title {
+    font-size: 4.8rem;
+    line-height: 0.88;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .hero-headline-title {
+    font-size: 5.8rem;
     line-height: 0.86;
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1536px) {
   .hero-headline-title {
-    font-size: 8.8rem;
+    font-size: 6.8rem;
     line-height: 0.84;
   }
 }
+
