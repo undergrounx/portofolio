@@ -162,7 +162,7 @@ export const portfolioData = {
       title: "Berka Herbal Product Visuals",
       category: "PACKAGING & VISUALS",
       status: "Packaging Concept",
-      image: "assets/media-tiktok.jpg",
+      image: "assets/berka-pack.svg",
       shortDesc: "Product mockup and packaging-visual exploration for a traditional herbal powder wellness drink.",
       details: {
         context: "Crafting a clean, natural packaging aesthetic for traditional Indonesian herbal formulations (JSR).",
@@ -177,6 +177,45 @@ export const portfolioData = {
       }
     }
   ],
+
+  // Dedicated "Media Creative" Showcase Section
+  mediaCreative: {
+    badge: "CONTENT PRODUCTION & REACH",
+    title: "MEDIA CREATIVE",
+    subtext: "Eksplorasi pembuatan konten visual dan sistem distribusi media sosial yang konsisten untuk TikTok dan Instagram.",
+    channels: [
+      {
+        id: "channel-instagram",
+        platform: "INSTAGRAM",
+        handle: "@Muadz_dora",
+        url: "https://www.instagram.com/Muadz_dora",
+        tag: "FEED & CAROUSEL DIRECTION",
+        metrics: "Visual Aesthetics · Storytelling · Brand Presence",
+        image: "assets/media-instagram.jpg",
+        description: "Kurasi visual feed, eksplorasi tipografi editorial, dan tata letak grid konten untuk membangun identitas visual yang profesional dan berkarakter.",
+        features: [
+          "Editorial feed layout & palette discipline",
+          "Carousel slide typography & messaging hierarchy",
+          "Visual identity consistency across campaigns"
+        ]
+      },
+      {
+        id: "channel-tiktok",
+        platform: "TIKTOK",
+        handle: "@Muadz",
+        url: "https://www.tiktok.com",
+        tag: "SHORT-FORM & AI VIDEO SYSTEMS",
+        metrics: "High-Retention Video · Fast-Paced Edits · AI Hooks",
+        image: "assets/media-tiktok.jpg",
+        description: "Produksi video pendek vertikal (9:16) berbasis alur kerja AI dan editing dinamis untuk menjangkau audiens secara luas dan meningkatkan retensi tontonan.",
+        features: [
+          "Fast-paced cutting & dynamic motion graphics",
+          "AI prompt scripting & automated audio hooks",
+          "Vertical 9:16 mobile-first visual composition"
+        ]
+      }
+    ]
+  },
 
   // 4 Core Capabilities
   capabilities: [

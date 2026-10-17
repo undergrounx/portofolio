@@ -19,8 +19,9 @@ export function renderNavbar() {
         </a>
 
         <!-- Center: Nav Items (Desktop) -->
-        <nav class="hidden md:flex items-center gap-8 lg:gap-10">
+        <nav class="hidden md:flex items-center gap-7 lg:gap-8">
           <a href="#work" class="nav-link" data-section="work">WORK</a>
+          <a href="#media-creative" class="nav-link" data-section="media-creative">MEDIA</a>
           <a href="#about" class="nav-link" data-section="about">ABOUT</a>
           <a href="#capabilities" class="nav-link" data-section="capabilities">CAPABILITIES</a>
           <a href="#process" class="nav-link" data-section="process">PROCESS</a>
@@ -46,6 +47,7 @@ export function renderNavbar() {
       <div id="mobile-drawer" class="hidden md:hidden fixed inset-0 top-20 bg-[#080808]/98 backdrop-blur-2xl border-t border-white/10 p-8 flex-col justify-between z-40">
         <div class="flex flex-col gap-6 pt-4">
           <a href="#work" class="mobile-nav-link text-2xl font-bold tracking-tight text-white hover:text-slate-400">WORK ↗</a>
+          <a href="#media-creative" class="mobile-nav-link text-2xl font-bold tracking-tight text-white hover:text-slate-400">MEDIA CREATIVE ↗</a>
           <a href="#about" class="mobile-nav-link text-2xl font-bold tracking-tight text-white hover:text-slate-400">ABOUT ↗</a>
           <a href="#capabilities" class="mobile-nav-link text-2xl font-bold tracking-tight text-white hover:text-slate-400">CAPABILITIES ↗</a>
           <a href="#process" class="mobile-nav-link text-2xl font-bold tracking-tight text-white hover:text-slate-400">PROCESS ↗</a>
