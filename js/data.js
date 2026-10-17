@@ -66,7 +66,8 @@ export const portfolioData = {
       title: "AI Infrastructure for Clipping",
       category: "AI SYSTEMS / CONTENT WORKFLOW",
       status: "Concept Exploration",
-      image: "assets/clipping-ui.svg",
+      image: "assets/editing-video.jpg",
+      video: "assets/editing-with-ai.mp4",
       shortDesc: "Exploring AI-supported infrastructure for organizing, extracting, and producing clipping workflows.",
       details: {
         context: "Creators and media teams spend excessive hours manually scrubbing long-form footage to find compelling video moments.",
@@ -104,7 +105,7 @@ export const portfolioData = {
       title: "AI Reminder Companion",
       category: "AI ASSISTANT / PRODUCTIVITY",
       status: "Concept",
-      image: "assets/reminder-ui.svg",
+      image: "assets/foto-kosong.jpg",
       shortDesc: "A reminder and follow-up concept designed to support consistent creative execution and daily routines.",
       details: {
         context: "Standard to-do lists are static and often fail to support dynamic, multi-disciplinary daily workflows.",
@@ -123,7 +124,7 @@ export const portfolioData = {
       title: "Avenor Chia Seed",
       category: "BRANDING & PRODUCT",
       status: "Active Project",
-      image: "assets/avenor-pack.svg",
+      image: "assets/avenor-chia-seed.jpg",
       shortDesc: "A product-brand project spanning packaging direction, product visuals, and e-commerce marketing exploration.",
       details: {
         context: "Exploring the intersection of modern minimal aesthetics, superfood branding, and digital commerce.",
@@ -142,7 +143,7 @@ export const portfolioData = {
       title: "Cromans Creative & AI Automation",
       category: "CREATIVE PARTNER / SYSTEMS",
       status: "Creative Direction",
-      image: "assets/cromans-ui.svg",
+      image: "assets/media-instagram.jpg",
       shortDesc: "A creative and AI automation direction connecting content production with practical workflow systems.",
       details: {
         context: "Businesses and personal brands need both polished short-form creative assets and automated systems to sustain posting frequency.",
@@ -161,7 +162,7 @@ export const portfolioData = {
       title: "Berka Herbal Product Visuals",
       category: "PACKAGING & VISUALS",
       status: "Packaging Concept",
-      image: "assets/berka-pack.svg",
+      image: "assets/media-tiktok.jpg",
       shortDesc: "Product mockup and packaging-visual exploration for a traditional herbal powder wellness drink.",
       details: {
         context: "Crafting a clean, natural packaging aesthetic for traditional Indonesian herbal formulations (JSR).",

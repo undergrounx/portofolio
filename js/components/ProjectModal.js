@@ -56,8 +56,12 @@ export class ProjectModal {
     const contentBox = this.overlay.querySelector("#modal-content");
     contentBox.innerHTML = `
       <div class="rounded-xl overflow-hidden border border-white/10 bg-black/60 aspect-video flex items-center justify-center relative">
-        <img src="${project.image}" alt="${project.title}" class="w-full h-full object-contain p-2" />
-        <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/80 border border-white/20 text-[9px] font-mono text-slate-200 font-bold uppercase tracking-wider">
+        ${project.video ? `
+          <video src="${project.video}" controls autoplay muted loop playsinline class="w-full h-full object-contain"></video>
+        ` : `
+          <img src="${project.image}" alt="${project.title}" class="w-full h-full object-contain p-2" onerror="this.onerror=null; this.src='./${project.image}';" />
+        `}
+        <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/80 border border-white/20 text-[9px] font-mono text-slate-200 font-bold uppercase tracking-wider backdrop-blur-md">
           ${project.status}
         </div>
       </div>
