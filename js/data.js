@@ -7,7 +7,7 @@
 export const portfolioData = {
   profile: {
     name: "MUADZ",
-    monogram: "Mz",
+    monogram: "M",
     brandLabel: "DESIGN × AI × SYSTEMS",
     role: "Visual Designer · AI Controller",
     eyebrow: "VISUAL DESIGNER × AI CONTROLLER",
