@@ -86,7 +86,7 @@ export const portfolioData = {
       title: "AI File Organizer",
       category: "AI TOOLS / PRODUCTIVITY",
       status: "Concept",
-      image: "assets/organizer-ui.svg",
+      image: "assets/ai-file-organizer.png",
       shortDesc: "An AI-assisted concept for making digital files easier to organize, categorize, and retrieve.",
       details: {
         context: "Creative practitioners generate large volumes of raw exports, design tokens, and unorganized media downloads.",
@@ -177,6 +177,47 @@ export const portfolioData = {
       }
     }
   ],
+
+  // Dedicated "Brands I'm Handling as Designer" Section
+  brandsImHandling: {
+    badge: "DIRECT CLIENT & BRAND HANDLING",
+    title: "BRANDS I'M HANDLING AS DESIGNER",
+    subtext: "Brand nyata yang saya tangani secara langsung dalam perancangan identitas visual, kemasan produk, dan materi visual pemasaran.",
+    brands: [
+      {
+        id: "brand-berka",
+        name: "BERKA HERBAL",
+        category: "HERBAL WELLNESS & PACKAGING",
+        role: "Visual & Packaging Designer",
+        status: "Active Brand Handling",
+        image: "assets/berka-pack.svg",
+        tag: "HERBAL DRINK & POWDER",
+        description: "Perancangan identitas visual dan sistem kemasan untuk lini minuman herbal alami (JSR). Menggabungkan nuansa alami kraft paper dengan panel warna modern agar tampil bersih, premium, dan terpercaya di pasar kesehatan.",
+        highlights: [
+          "Tata letak pouch 80g & desain label jar 150g",
+          "Hierarki tipografi herbal minimalis",
+          "Visual mockup produk untuk materi promosi digital"
+        ],
+        tags: ["Packaging Design", "Herbal Wellness", "Brand Direction"]
+      },
+      {
+        id: "brand-lumaskin",
+        name: "LUMASKIN",
+        category: "SKINCARE & BEAUTY AESTHETICS",
+        role: "Lead Creative Designer",
+        status: "Active Brand Handling",
+        image: "assets/lumaskin.png",
+        tag: "PREMIUM DERMA SKINCARE",
+        description: "Pengembangan arah visual kreatif untuk brand perawatan kulit Lumaskin. Berfokus pada estetika minimalis, modern, dan elegan yang mencerminkan kemurnian formula perawatan kulit klinis dan daya tarik konsumen modern.",
+        highlights: [
+          "Arah visual identitas merek & estetika kemasan",
+          "Desain feed & materi kampanye produk digital",
+          "Konsistensi palet warna derma-clean yang mewah"
+        ],
+        tags: ["Skincare Branding", "Digital Assets", "Creative Direction"]
+      }
+    ]
+  },
 
   // Dedicated "Media Creative" Showcase Section
   mediaCreative: {
