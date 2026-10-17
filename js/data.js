@@ -156,25 +156,6 @@ export const portfolioData = {
         ],
         tags: ["Content Production", "Automation", "Workflow Systems", "In Progress"]
       }
-    },
-    {
-      id: "berka-product-visuals",
-      title: "Berka Herbal Product Visuals",
-      category: "PACKAGING & VISUALS",
-      status: "Packaging Concept",
-      image: "assets/berka-pack.svg",
-      shortDesc: "Product mockup and packaging-visual exploration for a traditional herbal powder wellness drink.",
-      details: {
-        context: "Crafting a clean, natural packaging aesthetic for traditional Indonesian herbal formulations (JSR).",
-        approach: "Explored kraft beige doypack pouches with contrasting navy panels alongside clear powder jars.",
-        highlights: [
-          "80g kraft standup pouch packaging layout",
-          "150g clear jar label typography and composition",
-          "Minimalist herbal branding hierarchy",
-          "Photorealistic 3D/2D packaging visualization"
-        ],
-        tags: ["Packaging Mockup", "Herbal Wellness", "Visual Exploration", "Concept"]
-      }
     }
   ],
 
