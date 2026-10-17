@@ -188,7 +188,7 @@ export const portfolioData = {
         id: "channel-instagram",
         platform: "INSTAGRAM",
         handle: "@Cromans_id",
-        url: "https://www.instagram.com/Muadz_dora",
+        url: "https://www.instagram.com/cromans_id",
         tag: "FEED & CAROUSEL DIRECTION",
         metrics: "Visual Aesthetics · Storytelling · Brand Presence",
         image: "assets/media-instagram.jpg",
