@@ -171,7 +171,7 @@ export const portfolioData = {
         category: "HERBAL WELLNESS & PACKAGING",
         role: "Visual & Packaging Designer",
         status: "Active Brand Handling",
-        image: "assets/berka-pack.svg",
+        image: "assets/berka-pouch.png",
         tag: "HERBAL DRINK & POWDER",
         description: "Perancangan identitas visual dan sistem kemasan untuk lini minuman herbal alami (JSR). Menggabungkan nuansa alami kraft paper dengan panel warna modern agar tampil bersih, premium, dan terpercaya di pasar kesehatan.",
         highlights: [
