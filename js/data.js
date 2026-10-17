@@ -116,7 +116,7 @@ export const portfolioData = {
           "Daily focus progress visualization",
           "Adaptive routine scheduling concept"
         ],
-        tags: ["Mobile UI", "AI Assistant", "Daily Routines", "Concept"]
+        tags: ["AI Assistant", "Daily Routines", "Concept"]
       }
     },
     {
