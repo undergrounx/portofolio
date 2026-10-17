@@ -187,7 +187,7 @@ export const portfolioData = {
       {
         id: "channel-instagram",
         platform: "INSTAGRAM",
-        handle: "@Muadz_dora",
+        handle: "@Cromans_id",
         url: "https://www.instagram.com/Muadz_dora",
         tag: "FEED & CAROUSEL DIRECTION",
         metrics: "Visual Aesthetics · Storytelling · Brand Presence",
@@ -202,8 +202,8 @@ export const portfolioData = {
       {
         id: "channel-tiktok",
         platform: "TIKTOK",
-        handle: "@Muadz",
-        url: "https://www.tiktok.com",
+        handle: "@hamura_media",
+        url: "https://www.tiktok.com/@hamura_media",
         tag: "SHORT-FORM & AI VIDEO SYSTEMS",
         metrics: "High-Retention Video · Fast-Paced Edits · AI Hooks",
         image: "assets/media-tiktok.jpg",
