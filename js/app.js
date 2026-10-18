@@ -6,6 +6,7 @@
 import { renderNavbar, initNavbarEvents } from "./components/Navbar.js";
 import { renderHero } from "./components/Hero.js";
 import { renderSnapshot } from "./components/Snapshot.js";
+import { renderShowcaseGallery } from "./components/ShowcaseGallery.js";
 import { renderFeaturedProjects, initProjectCards } from "./components/FeaturedProjects.js";
 import { renderBrandsHandling } from "./components/BrandsHandling.js";
 import { renderMediaCreative } from "./components/MediaCreative.js";
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <main>
       ${renderHero()}
       ${renderSnapshot()}
+      ${renderShowcaseGallery()}
       ${renderFeaturedProjects()}
       ${renderBrandsHandling()}
       ${renderMediaCreative()}
@@ -83,11 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { passive: true });
 
-  console.log("✦ MUADZ Portfolio: Slush Theme Active — Inflatable Sticker Universe.");
-});
-
-// IntersectionObserver for scroll-reveal animations across devices
-document.addEventListener("DOMContentLoaded", () => {
+  // IntersectionObserver for scroll-reveal animations across devices
   const cards = document.querySelectorAll(".slush-card, section h2, section .grid > div");
   cards.forEach(el => el.classList.add("slush-reveal"));
 
@@ -108,4 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     cards.forEach(el => el.classList.add("is-visible"));
   }
+
+  console.log("✦ MUADZ Portfolio: Slush Theme Active with Live Media Showcase Gallery.");
 });

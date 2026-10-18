@@ -39,6 +39,7 @@ export function renderNavbar() {
 
         <!-- Pill Nav: Center Links -->
         <nav class="hidden md:flex items-center gap-1.5 bg-white/50 p-1.5 rounded-full border border-black">
+          <a href="#gallery" class="nav-link" data-section="gallery">KARYA</a>
           <a href="#work" class="nav-link" data-section="work">WORK</a>
           <a href="#brands-handling" class="nav-link" data-section="brands-handling">BRANDS</a>
           <a href="#media-creative" class="nav-link" data-section="media-creative">MEDIA</a>
@@ -70,6 +71,7 @@ export function renderNavbar() {
 
       <!-- Mobile Navigation Drawer -->
       <div id="mobile-drawer" class="hidden md:hidden fixed inset-x-0 top-[90px] bg-white border-b-2 border-black p-6 flex-col gap-4 shadow-xl z-40">
+        <a href="#gallery" class="mobile-nav-link text-lg font-bold tracking-tight text-black hover:text-[#4da2ff]">HASIL KARYA &amp; VIDEO ↗</a>
         <a href="#work" class="mobile-nav-link text-lg font-bold tracking-tight text-black hover:text-[#4da2ff]">SELECTED WORK ↗</a>
         <a href="#brands-handling" class="mobile-nav-link text-lg font-bold tracking-tight text-black hover:text-[#4da2ff]">BRANDS ↗</a>
         <a href="#media-creative" class="mobile-nav-link text-lg font-bold tracking-tight text-black hover:text-[#4da2ff]">MEDIA CREATIVE ↗</a>
