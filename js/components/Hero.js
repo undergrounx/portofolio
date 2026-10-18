@@ -4,18 +4,31 @@ export function renderHero() {
   const p = portfolioData.profile;
 
   return `
-    <section id="hero" class="relative min-h-[92vh] bg-[#dceeff] pt-12 pb-20 px-4 sm:px-8 overflow-hidden flex flex-col justify-center items-center text-center">
+    <section id="hero" class="relative min-h-[90vh] bg-[#dceeff] pt-12 pb-20 px-4 sm:px-8 overflow-hidden flex flex-col justify-center items-center text-center">
       
-      <!-- Custom JPEG Background from Assets with Cover & Subtle Blending -->
-      <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <img 
-          src="assets/BACKGROUND.jpeg" 
-          alt="Slush Universe Background" 
-          class="w-full h-full object-cover object-center select-none"
-          onerror="this.onerror=null; this.src='./assets/BACKGROUND.jpeg';"
-        />
-        <!-- Optional soft paper wash overlay to maintain contrast & crisp text -->
-        <div class="absolute inset-0 bg-[#dceeff]/20 backdrop-blur-[0.5px]"></div>
+      <!-- 3D Ribbon Elements (Rendered SVG tubular forms with subtle breathing animation) -->
+      <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
+        <svg class="animate-ribbon-breath w-[1200px] h-[600px] max-w-none opacity-90 select-none" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="ribbonShine" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#72b6ff" />
+              <stop offset="40%" stop-color="#4da2ff" />
+              <stop offset="80%" stop-color="#2382f0" />
+              <stop offset="100%" stop-color="#145ebb" />
+            </linearGradient>
+          </defs>
+          <path d="M 50 350 C 250 100, 450 480, 700 200 C 850 40, 950 300, 980 220" 
+                stroke="url(#ribbonShine)" 
+                stroke-width="110" 
+                stroke-linecap="round" 
+                stroke-linejoin="round" />
+          <path d="M 50 350 C 250 100, 450 480, 700 200 C 850 40, 950 300, 980 220" 
+                stroke="#000000" 
+                stroke-width="114" 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                class="opacity-15 -translate-y-2 -translate-x-1" />
+        </svg>
       </div>
 
       <!-- Floating Playful Stickers with Smooth Levitation Animation -->
@@ -71,7 +84,7 @@ export function renderHero() {
         </div>
 
         <!-- Tagline Subhead -->
-        <p class="mt-6 text-sm sm:text-lg md:text-xl text-black/90 max-w-2xl font-medium leading-snug px-4">
+        <p class="mt-6 text-sm sm:text-lg md:text-xl text-black/85 max-w-2xl font-medium leading-snug px-4">
           ${p.supportingLine}
         </p>
 
