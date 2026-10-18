@@ -22,35 +22,87 @@ export function renderShowcaseGallery() {
       span: "lg:col-span-4",
       aspect: "aspect-[4/5]"
     },
+    // --- LUMASKIN MARKETPLACE SERIES ---
     {
       type: "image",
-      title: "Lumaskin Acne Series — Marketplace Feed",
+      title: "Lumaskin Acne Series — Feed & Benefit Breakdown",
       category: "MARKETPLACE DESIGN",
       src: "assets/lumaaskin acne.png",
-      desc: "Desain visual listing & feed marketplace Shopee/Tokopedia untuk varian Acne Series, dioptimalkan untuk click-through rate (CTR) dan konversi penjualan produk skincare.",
-      tag: "E-COMMERCE LISTING",
+      desc: "Marketplace slide breakdown formula klinis, solusi jerawat, dan keunggulan bahan aktif untuk memandu keputusan beli konsumen di Shopee/Tokopedia.",
+      tag: "BENEFIT BREAKDOWN",
       span: "lg:col-span-4",
       aspect: "aspect-[4/5]"
     },
     {
       type: "image",
-      title: "Lumaskin Brightening Series — Marketplace Hero",
+      title: "Lumaskin Acne Series — Product Listing Hero",
+      category: "MARKETPLACE DESIGN",
+      src: "assets/LUMASKIN acne.png",
+      desc: "Main hero listing marketplace varian Acne Series dengan visual packaging realistis dan badge klaim dermatologis terpercaya.",
+      tag: "PRODUCT LISTING",
+      span: "lg:col-span-4",
+      aspect: "aspect-[4/5]"
+    },
+    {
+      type: "image",
+      title: "Lumaskin Acne Series — Usage Guide & Feature Card",
+      category: "MARKETPLACE DESIGN",
+      src: "assets/lumaskin acne 1.png",
+      desc: "Visual edukasi panduan langkah pemakaian dan kompatibilitas jenis kulit untuk mengurangi keraguan pembeli pada etalase e-commerce.",
+      tag: "USAGE INFOGRAPHIC",
+      span: "lg:col-span-4",
+      aspect: "aspect-[4/5]"
+    },
+    {
+      type: "image",
+      title: "Lumaskin Brightening Series — Hero Banner Display",
       category: "MARKETPLACE DESIGN",
       src: "assets/lumaskinnn bright.png",
-      desc: "Desain banner hero dan katalog marketplace beresolusi tinggi dengan penekanan benefit produk, formula klinis, dan estetika visual premium.",
-      tag: "SHOPEE / TOKOPEDIA",
+      desc: "Desain etalase utama varian Brightening Series berestetika glow elegan dengan penekanan hasil uji efikasi mencerahkan kulit.",
+      tag: "HERO SHOWCASE",
       span: "lg:col-span-4",
       aspect: "aspect-[4/5]"
     },
     {
       type: "image",
-      title: "Loka Cibiru — Brand & Promotional Visual",
-      category: "MARKETPLACE & PROMO DESIGN",
-      src: "assets/lokacibiru.png",
-      desc: "Materi visual promosi dan display marketplace komprehensif yang memadukan tipografi bold, penawaran menarik, dan komposisi produk yang stand out.",
-      tag: "PROMO BANNER",
+      title: "Lumaskin Brightening Series — Key Active Ingredients",
+      category: "MARKETPLACE DESIGN",
+      src: "assets/Lumaskin brightt.png",
+      desc: "Slide katalog informatif yang membedah bahan pencerah aktif (Niacinamide/Vitamin C) secara visual, bersih, dan meyakinkan calon konsumen.",
+      tag: "ACTIVE FORMULA",
       span: "lg:col-span-4",
       aspect: "aspect-[4/5]"
+    },
+    {
+      type: "image",
+      title: "Lumaskin Brightening Series — Variant Bundle Showcase",
+      category: "MARKETPLACE DESIGN",
+      src: "assets/lumaskinn bright.png",
+      desc: "Desain paket bundling hemat marketplace untuk menaikkan Average Order Value (AOV) dengan layout perbandingan produk yang rapi.",
+      tag: "BUNDLE PROMO",
+      span: "lg:col-span-4",
+      aspect: "aspect-[4/5]"
+    },
+    {
+      type: "image",
+      title: "Lumaskin Brand Identity & Creative Direction",
+      category: "BRAND IDENTITY",
+      src: "assets/LUMASKIN.png",
+      desc: "Master art direction, sistem tipografi, dan palet warna pastel minimalis yang menjadi acuan seluruh aset visual brand Lumaskin.",
+      tag: "MASTER IDENTITY",
+      span: "lg:col-span-6",
+      aspect: "aspect-[16/11]"
+    },
+    // --- OTHER FEATURED WORK ---
+    {
+      type: "image",
+      title: "Loka Cibiru — Marketplace Promo Banner",
+      category: "MARKETPLACE & PROMO DESIGN",
+      src: "assets/lokacibiru.png",
+      desc: "Display banner promosi marketplace yang memadukan tipografi bold, promo flash-sale, dan komposisi produk yang eye-catching.",
+      tag: "CAMPAIGN BANNER",
+      span: "lg:col-span-6",
+      aspect: "aspect-[16/11]"
     },
     {
       type: "image",
@@ -69,8 +121,8 @@ export function renderShowcaseGallery() {
       src: "assets/berka-pouch.png",
       desc: "Struktur layout kemasan retail pouch siap produksi massal.",
       tag: "RETAIL DIELINE",
-      span: "lg:col-span-6",
-      aspect: "aspect-[16/11]"
+      span: "lg:col-span-4",
+      aspect: "aspect-[4/5]"
     },
     {
       type: "image",
@@ -79,8 +131,8 @@ export function renderShowcaseGallery() {
       src: "assets/media-instagram.jpg",
       desc: "Sistem visual konten editorial untuk distribusi multi-platform Instagram & TikTok.",
       tag: "CONTENT LAB",
-      span: "lg:col-span-6",
-      aspect: "aspect-[16/11]"
+      span: "lg:col-span-12",
+      aspect: "aspect-[21/9]"
     }
   ];
 
@@ -105,16 +157,16 @@ export function renderShowcaseGallery() {
           
           <div class="flex flex-col items-start md:items-end gap-3">
             <p class="text-sm font-normal text-[#555555] max-w-sm leading-relaxed md:text-right">
-              Gallery wall in motion. Karya video edit, desain marketplace e-commerce, kemasan fisik, dan sistem digital yang dikurasi langsung.
+              Gallery wall in motion. Seri desain marketplace e-commerce lengkap (hero listing, benefit formula, bundle promo), video edit kinetik, dan kemasan fisik.
             </p>
             <span class="text-[11px] font-mono uppercase tracking-tight text-[#555555]">
-              [ 08 EXHIBITION TILES ]
+              [ 13 EXHIBITION TILES · LUMASKIN MARKETPLACE SUITE ]
             </span>
           </div>
         </div>
 
         <!-- Asymmetric Portfolio Mosaic Layout (Studio.Design Art-Board Collage) -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 items-start">
           ${mediaItems.map((item, idx) => `
             <div class="${item.span} group flex flex-col justify-between">
               
@@ -139,7 +191,7 @@ export function renderShowcaseGallery() {
                   />
                 `}
 
-                <!-- Top Edge Metadata Badge (Minimal Charcoal Ink #222222 Pill/Badge) -->
+                <!-- Top Edge Metadata Badge -->
                 <div class="absolute top-4 left-4 z-10 pointer-events-none">
                   <span class="px-3 py-1 rounded-[4px] bg-[#222222]/90 backdrop-blur-md text-[10px] font-semibold tracking-[-0.2px] text-white uppercase">
                     ${item.tag}
@@ -148,20 +200,20 @@ export function renderShowcaseGallery() {
 
                 <div class="absolute top-4 right-4 z-10 pointer-events-none">
                   <span class="px-2 py-0.5 rounded-[4px] bg-white/90 text-[10px] font-mono font-bold text-[#222222]">
-                    0${idx + 1}
+                    ${idx < 9 ? '0' : ''}${idx + 1}
                   </span>
                 </div>
 
               </div>
 
-              <!-- Editorial Typography Caption (Charcoal Ink #222222, Inter tightly tracked) -->
+              <!-- Editorial Typography Caption -->
               <div class="mt-4 flex flex-col justify-between">
                 <div class="flex items-center justify-between border-b border-[#222222]/15 pb-2.5">
                   <span class="text-[11px] font-semibold tracking-[-0.2px] text-[#555555] uppercase">
                     ${item.category}
                   </span>
                   <span class="text-[11px] font-mono text-[#555555]">
-                    ${item.type === "video" ? "MOTION REEL" : "MARKETPLACE / DESIGN"}
+                    ${item.type === "video" ? "MOTION REEL" : "MARKETPLACE SUITE"}
                   </span>
                 </div>
 
@@ -175,7 +227,7 @@ export function renderShowcaseGallery() {
                     </p>
                   </div>
 
-                  <!-- Compact Dark Arrow Control (Studio.Design 4px/8px button) -->
+                  <!-- Compact Dark Arrow Control -->
                   <a href="#contact" class="flex-shrink-0 mt-1 w-9 h-9 rounded-[4px] bg-[#222222] hover:bg-black text-white flex items-center justify-center text-xs transition-colors" title="Discuss Project">
                     ↗
                   </a>
