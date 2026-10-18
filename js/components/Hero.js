@@ -5,90 +5,108 @@ export function renderHero() {
   const b = p.availabilityBadge;
 
   return `
-    <section id="hero" class="relative min-h-[100dvh] pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-36 lg:pb-24 2xl:pt-44 2xl:pb-32 flex items-center justify-center overflow-hidden bg-radial-hero">
+    <section id="hero" class="relative min-h-[90vh] bg-[#dceeff] pt-12 pb-20 px-4 sm:px-8 overflow-hidden flex flex-col justify-center items-center text-center">
       
-      <!-- Background Ambient Glow & Lighting -->
-      <div class="absolute top-1/4 left-1/4 w-72 h-72 sm:w-96 sm:h-96 2xl:w-[500px] 2xl:h-[500px] bg-slate-800/15 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute top-1/3 right-1/4 w-60 h-60 sm:w-80 sm:h-80 2xl:w-[450px] 2xl:h-[450px] bg-slate-700/10 rounded-full blur-3xl pointer-events-none"></div>
+      <!-- 3D Ribbon Elements (Rendered SVG tubular forms in Electric Blue #4da2ff) -->
+      <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
+        <!-- Background Giant Inflatable 3D Ribbon Curve -->
+        <svg class="w-[1200px] h-[600px] max-w-none opacity-90 transform -rotate-6 translate-y-8 select-none" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="ribbonShine" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#72b6ff" />
+              <stop offset="40%" stop-color="#4da2ff" />
+              <stop offset="80%" stop-color="#2382f0" />
+              <stop offset="100%" stop-color="#145ebb" />
+            </linearGradient>
+            <filter id="grainy" x="0" y="0" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" result="noise" />
+              <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.12 0" />
+              <feComposite in2="SourceGraphic" in="gl" operator="in" />
+            </filter>
+          </defs>
+          <!-- Chunky 3D tubular ribbon path -->
+          <path d="M 50 350 C 250 100, 450 480, 700 200 C 850 40, 950 300, 980 220" 
+                stroke="url(#ribbonShine)" 
+                stroke-width="110" 
+                stroke-linecap="round" 
+                stroke-linejoin="round" />
+          <path d="M 50 350 C 250 100, 450 480, 700 200 C 850 40, 950 300, 980 220" 
+                stroke="#000000" 
+                stroke-width="114" 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                class="opacity-15 -translate-y-2 -translate-x-1" />
+        </svg>
+      </div>
 
-      <div class="max-w-7xl 2xl:max-w-[1700px] w-full mx-auto px-5 sm:px-8 lg:px-12 2xl:px-16 relative z-10">
+      <!-- Floating Playful Stickers (Confetti Rainbow Palette) -->
+      <!-- Sticker 1: Rocket in Ember #fb4903 -->
+      <div class="absolute top-12 left-6 sm:left-16 z-20 transform -rotate-12 hover:rotate-0 transition-transform cursor-pointer">
+        <div class="slush-sticker bg-[#fb4903] text-white shadow-none">
+          <span class="text-base">🚀</span>
+          <span>AI SYSTEMS</span>
+        </div>
+      </div>
+
+      <!-- Sticker 2: Coin in Sunburst #ffd731 -->
+      <div class="absolute top-20 right-6 sm:right-20 z-20 transform rotate-12 hover:rotate-0 transition-transform cursor-pointer">
+        <div class="slush-sticker bg-[#ffd731] text-black">
+          <span class="text-base">🪙</span>
+          <span>HIGH VALUE</span>
+        </div>
+      </div>
+
+      <!-- Sticker 3: Wallet in Voltage Violet #5c4ade -->
+      <div class="absolute bottom-28 left-4 sm:left-24 z-20 transform rotate-6 hover:rotate-0 transition-transform cursor-pointer">
+        <div class="slush-sticker bg-[#5c4ade] text-white">
+          <span class="text-base">⚡</span>
+          <span>PROMPT LAB</span>
+        </div>
+      </div>
+
+      <!-- Sticker 4: Checkmark in Mint Pop #55db9c -->
+      <div class="absolute bottom-24 right-4 sm:right-28 z-20 transform -rotate-6 hover:rotate-0 transition-transform cursor-pointer">
+        <div class="slush-sticker bg-[#55db9c] text-black">
+          <span class="text-base">✅</span>
+          <span>DKV CERTIFIED</span>
+        </div>
+      </div>
+
+      <!-- Main Headline Content: Sculptural Lateral Block -->
+      <div class="relative z-10 max-w-[1280px] mx-auto flex flex-col items-center">
         
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 2xl:gap-16 items-center min-h-[70vh] 2xl:min-h-[75vh]">
-          
-          <!-- Left Column: Towering Editorial Typography -->
-          <div class="lg:col-span-7 2xl:col-span-7 flex flex-col justify-center select-none pt-2 sm:pt-4 lg:pr-6 2xl:pr-12 z-10">
-            
-            <!-- Eyebrow -->
-            <div class="flex items-center gap-2.5 sm:gap-3 mb-3.5 sm:mb-4 lg:mb-6">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span class="text-[10px] sm:text-[11px] lg:text-xs 2xl:text-sm font-bold tracking-[0.2em] text-slate-300 uppercase">
-                ${p.eyebrow}
-              </span>
-            </div>
+        <!-- Live Tagline Subhead -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-black mb-6">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#55db9c] border border-black animate-pulse"></span>
+          <span class="text-xs font-bold tracking-wider uppercase text-black">VISUAL DESIGNER × AI CONTROLLER</span>
+        </div>
 
-            <!-- Towering Headline -->
-            <h1 class="hero-headline-title font-display font-extrabold text-white tracking-tight uppercase select-none">
-              <span class="block text-white">${p.headlineLine1}</span>
-              <span class="block text-slate-300 font-editorial font-extrabold tracking-tight mt-1 sm:mt-1.5">${p.headlineLine2}</span>
-            </h1>
+        <!-- Monumental Crushed Display Headline (Lateral 800 at 120-240px, line-height 0.78) -->
+        <h1 class="font-display-lateral text-[72px] sm:text-[140px] md:text-[180px] lg:text-[220px] text-black leading-[0.78] tracking-tight uppercase select-none drop-shadow-sm">
+          MUADZ
+        </h1>
 
-            <!-- Supporting Paragraph -->
-            <p class="mt-5 sm:mt-6 lg:mt-8 2xl:mt-10 text-sm sm:text-base lg:text-lg 2xl:text-xl text-slate-300 max-w-xl 2xl:max-w-2xl font-normal leading-relaxed">
-              ${p.supportingLine}
-            </p>
+        <!-- Secondary crushed title block -->
+        <div class="font-display-lateral text-[28px] sm:text-[46px] md:text-[60px] text-black leading-[0.85] tracking-tight uppercase mt-4">
+          CRAFTING FORM · DIRECTING INTELLIGENCE
+        </div>
 
-            <!-- Positioning Subtext -->
-            <div class="mt-2.5 sm:mt-3 2xl:mt-4 text-xs sm:text-sm 2xl:text-base text-slate-400 font-mono">
-              ${p.descriptor}
-            </div>
+        <!-- Tagline Subhead: Aeonik Pro 500 at 18-24px -->
+        <p class="mt-6 text-base sm:text-xl text-black/85 max-w-2xl font-medium leading-snug">
+          ${p.supportingLine}
+        </p>
 
-            <!-- Hero Action Buttons -->
-            <div class="mt-7 sm:mt-8 lg:mt-10 2xl:mt-12 flex flex-wrap items-center gap-3.5 sm:gap-4">
-              <a href="#work" class="btn-pill-primary 2xl:text-xs 2xl:py-3.5 2xl:px-8">
-                ${p.ctaPrimary} ↗
-              </a>
-              <a href="#contact" class="btn-pill-ghost 2xl:text-xs 2xl:py-3.5 2xl:px-8">
-                ${p.ctaSecondary} ↗
-              </a>
-            </div>
-
-          </div>
-
-          <!-- Right Column: Interactive 3D WebGL Centerpiece + Availability Badge -->
-          <div class="lg:col-span-5 2xl:col-span-5 relative flex items-center justify-center min-h-[320px] sm:min-h-[400px] lg:min-h-[540px] 2xl:min-h-[680px]">
-            
-            <!-- WebGL Canvas Container -->
-            <div id="hero-3d-container" class="w-full h-[320px] sm:h-[400px] lg:h-[540px] 2xl:h-[680px] relative flex items-center justify-center cursor-grab active:cursor-grabbing touch-none select-none">
-              <canvas id="hero-webgl-canvas" class="w-full h-full block"></canvas>
-              
-              <!-- Subtle 3D Hint Badge -->
-              <div class="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 px-2.5 py-1 sm:px-3 rounded-full bg-black/60 border border-white/10 backdrop-blur-md text-[8.5px] sm:text-[9px] 2xl:text-[10px] font-mono text-slate-300 uppercase tracking-widest pointer-events-none flex items-center gap-1.5 shadow-lg">
-                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
-                <span>✦ 3D SCULPTURE · DRAG / TOUCH</span>
-              </div>
-            </div>
-
-            <!-- Editorial Availability Badge (Triggers 24-Hour Workflow Modal) -->
-            <div class="hidden sm:block absolute right-0 -bottom-3 sm:-bottom-4 lg:right-0 lg:bottom-4 2xl:bottom-8 z-20 pointer-events-auto">
-              <button id="open-workflow-btn" type="button" aria-label="Open 24-Hour Workflow" class="hero-availability-badge block p-3.5 sm:p-4 lg:p-5 2xl:p-6 text-right no-underline group shadow-2xl cursor-pointer w-full">
-                <div class="flex items-center justify-end gap-2 mb-1">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                  <span class="text-[9px] font-bold tracking-widest text-emerald-400 uppercase">
-                    ${b.tag}
-                  </span>
-                  <span class="text-white text-xs group-hover:rotate-45 transition-transform">✦</span>
-                </div>
-                <div class="text-xs lg:text-sm font-bold text-white tracking-wider uppercase">
-                  ${b.title}
-                </div>
-                <div class="text-[10px] font-semibold text-slate-300 tracking-wider uppercase group-hover:text-cyan-400 transition-colors">
-                  ${b.sub}
-                </div>
-              </button>
-            </div>
-
-          </div>
-
+        <!-- Ghost Action Buttons -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <a href="#work" class="btn-slush-filled text-sm sm:text-base px-8 py-3.5">
+            ${p.ctaPrimary} ↗
+          </a>
+          <a href="#contact" class="btn-slush-ghost text-sm sm:text-base px-8 py-3.5">
+            ${p.ctaSecondary} ↗
+          </a>
+          <button id="open-workflow-btn" type="button" class="btn-slush-ghost bg-[#e9ccff] text-sm sm:text-base px-8 py-3.5 hover:bg-[#d8b4fe]">
+            24H SCHEDULE ↗
+          </button>
         </div>
 
       </div>

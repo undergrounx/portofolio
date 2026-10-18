@@ -3,121 +3,80 @@ import { projectModal } from "./ProjectModal.js";
 
 export function renderFeaturedProjects() {
   const projects = portfolioData.featuredProjects;
-
-  const getStatusBadge = (status) => {
-    switch (status) {
-      case "Active Project":
-        return `
-          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-[9px] font-mono font-bold text-emerald-400 uppercase tracking-wider backdrop-blur-md">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            ${status}
-          </span>
-        `;
-      case "Creative Direction":
-        return `
-          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/25 text-[9px] font-mono font-bold text-purple-300 uppercase tracking-wider backdrop-blur-md">
-            <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
-            ${status}
-          </span>
-        `;
-      case "Packaging Concept":
-        return `
-          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-[9px] font-mono font-bold text-amber-300 uppercase tracking-wider backdrop-blur-md">
-            <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-            ${status}
-          </span>
-        `;
-      default:
-        return `
-          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[9px] font-mono font-bold text-blue-300 uppercase tracking-wider backdrop-blur-md">
-            <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
-            ${status}
-          </span>
-        `;
-    }
-  };
+  const stickerAccents = ["#ffd731", "#55db9c", "#e9ccff", "#4da2ff", "#fb4903", "#5c4ade"];
 
   return `
-    <section id="work" class="relative py-16 lg:py-28">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <!-- Section Ground: Concrete Gray #cccccc Band -->
+    <section id="work" class="relative py-20 bg-[#cccccc] border-b border-black">
+      <div class="max-w-[1440px] mx-auto px-6 sm:px-12">
         
-        <!-- Header Row (OpenDesign Editorial Hierarchy) -->
-        <div class="flex items-end justify-between mb-12 lg:mb-16 border-b border-white/[0.06] pb-6">
+        <!-- Header Row -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-black pb-6 gap-4">
           <div>
-            <div class="flex items-center gap-2 mb-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-white/60"></span>
-              <span class="text-[10px] font-mono font-bold tracking-[0.25em] text-slate-400 uppercase">PROOF OF WORK &amp; CONCEPTS</span>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-black text-xs font-bold uppercase mb-3">
+              <span class="w-2 h-2 rounded-full bg-[#fb4903] border border-black"></span>
+              <span>VERIFIED WORK</span>
             </div>
-            <h2 class="font-display text-4xl lg:text-5xl font-bold tracking-tight text-white uppercase">
-              SELECTED WORK
+            <h2 class="font-display-lateral text-4xl sm:text-6xl text-black leading-none uppercase">
+              SELECTED PROJECTS
             </h2>
           </div>
           
-          <a href="#contact" class="hidden sm:flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-slate-400 hover:text-white uppercase transition-colors group">
-            <span>START A CONVERSATION</span>
-            <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+          <a href="#contact" class="btn-slush-ghost text-xs self-start md:self-auto">
+            START COLLABORATION ↗
           </a>
         </div>
 
-        <!-- Curated Project Grid (Linear / Modern Minimal Grade) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          
+        <!-- Project Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           ${projects.map((project, idx) => `
-            <div class="card-panel p-5 lg:p-6 flex flex-col justify-between cursor-pointer group hover:border-white/20 transition-all duration-300" data-project-id="${project.id}">
+            <div class="slush-card p-6 flex flex-col justify-between cursor-pointer group bg-white" data-project-id="${project.id}">
               
-              <!-- Card Visual Container with Inner Frame -->
-              <div class="project-card-image-box mb-6 relative overflow-hidden rounded-xl bg-[#090b0e] border border-white/[0.06] aspect-[16/11] flex items-center justify-center">
-                
-                <!-- Project Image with Fallback and Smooth Render -->
-                <img 
-                  src="${project.image}" 
-                  alt="${project.title}" 
-                  loading="lazy" 
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  onerror="this.onerror=null; this.src='./${project.image}';"
-                />
+              <div>
+                <!-- Image Container with 1px black outline -->
+                <div class="relative overflow-hidden rounded-[16px] border border-black mb-5 aspect-[16/11] bg-[#e9e9e9] flex items-center justify-center">
+                  <img 
+                    src="${project.image}" 
+                    alt="${project.title}" 
+                    loading="lazy" 
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    onerror="this.onerror=null; this.src='./${project.image}';"
+                  />
 
-                <!-- Top Floating Status Badge -->
-                <div class="absolute top-3 left-3 z-10">
-                  ${getStatusBadge(project.status)}
+                  <!-- Floating Sticker Tag -->
+                  <div class="absolute top-3 left-3">
+                    <span class="slush-sticker text-[10px]" style="background-color: ${stickerAccents[idx % stickerAccents.length]}; color: ${idx % stickerAccents.length === 5 ? '#ffffff' : '#000000'};">
+                      ${project.status}
+                    </span>
+                  </div>
+
+                  <div class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white border border-black flex items-center justify-center font-bold text-xs">
+                    0${idx + 1}
+                  </div>
                 </div>
 
-                <!-- Subtle Number Tag -->
-                <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/60 border border-white/10 text-[9px] font-mono font-bold text-slate-400 backdrop-blur-md">
-                  0${idx + 1}
+                <!-- Category & Title -->
+                <div class="text-[11px] font-bold tracking-wider text-black/60 uppercase mb-1">
+                  ${project.category}
                 </div>
-
+                <h3 class="font-display-lateral text-xl sm:text-2xl text-black leading-tight uppercase group-hover:text-[#4da2ff] transition-colors">
+                  ${project.title}
+                </h3>
+                <p class="text-xs text-black/80 mt-2 font-medium line-clamp-2 leading-relaxed">
+                  ${project.shortDesc}
+                </p>
               </div>
 
-              <!-- Card Content Details -->
-              <div class="flex-1 flex flex-col justify-between">
-                <div>
-                  <div class="text-[10px] font-mono font-bold tracking-widest text-slate-500 uppercase mb-2">
-                    ${project.category}
-                  </div>
-                  <h3 class="text-xl font-bold text-white tracking-tight group-hover:text-slate-100 transition-colors">
-                    ${project.title}
-                  </h3>
-                  <p class="text-xs text-slate-400 mt-2.5 line-clamp-2 leading-relaxed font-normal">
-                    ${project.shortDesc}
-                  </p>
-                </div>
-
-                <!-- Bottom Action Row -->
-                <div class="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between">
-                  <span class="text-[10px] font-mono font-semibold text-slate-400 group-hover:text-white uppercase tracking-wider transition-colors flex items-center gap-1.5">
-                    <span>INSPECT CONTEXT</span>
-                  </span>
-                  
-                  <div class="w-9 h-9 rounded-full bg-white/[0.04] border border-white/10 flex items-center justify-center text-slate-300 group-hover:bg-white group-hover:text-black group-hover:rotate-45 group-hover:border-white transition-all duration-300 shadow-sm">
-                    ↗
-                  </div>
-                </div>
+              <!-- Action Row -->
+              <div class="mt-6 pt-4 border-t border-black flex items-center justify-between">
+                <span class="text-xs font-bold uppercase tracking-wider">INSPECT BRIEF</span>
+                <span class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-xs group-hover:bg-[#4da2ff] group-hover:text-black transition-colors">
+                  ↗
+                </span>
               </div>
 
             </div>
           `).join("")}
-
         </div>
 
       </div>

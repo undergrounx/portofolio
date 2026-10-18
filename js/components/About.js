@@ -4,60 +4,71 @@ export function renderAbout() {
   const a = portfolioData.about;
 
   return `
-    <section id="about" class="relative py-16 lg:py-24 border-t border-white/[0.06]">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <!-- Section Ground: Concrete Gray #cccccc Band -->
+    <section id="about" class="relative py-20 bg-[#cccccc] border-b border-black">
+      <div class="max-w-[1440px] mx-auto px-6 sm:px-12">
         
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
-          <!-- Left Column: Portrait & Ethos -->
-          <div class="lg:col-span-5 flex flex-col space-y-6">
-            <div class="text-[10px] font-bold tracking-[0.25em] text-slate-500 uppercase">ETHOS &amp; IDENTITY</div>
-            
-            <!-- Real Profile Portrait Photo -->
-            <div class="relative w-full max-w-sm rounded-2xl overflow-hidden border border-white/10 bg-slate-900/60 shadow-2xl aspect-[4/5] group">
+          <!-- Left: Portrait Photo as Physical Sticker Card -->
+          <div class="lg:col-span-5 flex flex-col space-y-5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-black text-xs font-bold uppercase self-start">
+              <span>ETHOS &amp; IDENTITY</span>
+            </div>
+
+            <!-- Hand-cut Photo Card with Black Border -->
+            <div class="relative w-full max-w-sm rounded-[24px] overflow-hidden border-2 border-black bg-white shadow-none aspect-[4/5] transform -rotate-1 hover:rotate-0 transition-transform">
               <img 
                 src="assets/muadz-profile.jpg" 
-                alt="Muadz - Visual Designer & AI Controller" 
-                class="w-full h-full object-cover object-top filter grayscale contrast-110 hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                alt="Muadz" 
+                class="w-full h-full object-cover object-top filter contrast-105"
                 onerror="this.onerror=null; this.src='./assets/muadz-profile.jpg';"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
-              <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white z-10">
+              <div class="absolute bottom-4 left-4 right-4 bg-white/95 border border-black rounded-full px-4 py-2 flex items-center justify-between">
                 <div>
-                  <div class="text-xs font-bold uppercase tracking-wider">MUADZ</div>
-                  <div class="text-[9px] font-mono text-emerald-400">DESIGNER &amp; AI CONTROLLER</div>
+                  <div class="text-xs font-bold text-black uppercase">MUADZ</div>
+                  <div class="text-[10px] font-bold text-[#5c4ade]">DKV × AI CONTROLLER</div>
                 </div>
-                <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+                <span class="w-3 h-3 rounded-full bg-[#55db9c] border border-black"></span>
               </div>
             </div>
 
             <div>
-              <h2 class="font-display text-4xl lg:text-5xl font-bold text-white tracking-tight uppercase leading-[0.95]">
+              <h2 class="font-display-lateral text-3xl sm:text-5xl text-black leading-none uppercase">
                 ${a.headline.replace(/\n/g, "<br />")}
               </h2>
-              <div class="w-12 h-[1px] bg-slate-600 my-4"></div>
-              <p class="text-xs text-slate-400 font-mono">
+              <div class="mt-3 text-xs font-bold uppercase text-black/75">
                 ${a.education.institution} · ${a.education.major}
-              </p>
+              </div>
             </div>
           </div>
 
-          <!-- Right Column: Concise Narrative & Pillars -->
+          <!-- Right: Pillars in Rainbow Sticker Cards -->
           <div class="lg:col-span-7 space-y-6">
-            <p class="text-base lg:text-lg text-slate-200 font-normal leading-relaxed">
-              ${a.paragraph1}
-            </p>
-            <p class="text-sm lg:text-base text-slate-400 font-normal leading-relaxed">
-              ${a.paragraph2}
-            </p>
+            <div class="slush-card p-6 bg-white">
+              <p class="text-base sm:text-lg text-black font-medium leading-relaxed mb-4">
+                ${a.paragraph1}
+              </p>
+              <p class="text-sm text-black/80 font-medium leading-relaxed">
+                ${a.paragraph2}
+              </p>
+            </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-              ${a.pillars.map((pillar) => `
-                <div class="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-                  <div class="text-xs font-bold text-white uppercase tracking-wider mb-1.5">${pillar.title}</div>
-                  <p class="text-[11px] text-slate-400 leading-relaxed font-normal">${pillar.desc}</p>
-                </div>
-              `).join("")}
+            <!-- Pillars -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              ${a.pillars.map((pillar, idx) => {
+                const bgColors = ["#ffd731", "#e9ccff", "#55db9c"];
+                return `
+                  <div class="slush-card p-5" style="background-color: ${bgColors[idx % bgColors.length]};">
+                    <div class="text-xs font-bold text-black uppercase mb-2">
+                      ${pillar.title}
+                    </div>
+                    <p class="text-xs text-black/85 font-medium leading-relaxed">
+                      ${pillar.desc}
+                    </p>
+                  </div>
+                `;
+              }).join("")}
             </div>
           </div>
 

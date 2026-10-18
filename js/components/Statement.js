@@ -4,17 +4,20 @@ export function renderStatement() {
   const s = portfolioData.statement;
 
   return `
-    <section id="creative-statement" class="relative py-16 lg:py-24 border-t border-white/[0.06]">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center select-none">
+    <!-- Section Ground: Voltage Violet #5c4ade Band -->
+    <section id="creative-statement" class="relative py-20 bg-[#5c4ade] text-white border-b border-black">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-12 text-center">
         
-        <div class="text-[10px] font-bold tracking-[0.25em] text-slate-500 uppercase mb-6">${s.badge}</div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-black border border-black text-xs font-bold uppercase mb-8">
+          <span>${s.badge}</span>
+        </div>
         
-        <blockquote class="font-display text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight uppercase leading-[1.05] max-w-4xl mx-auto">
+        <blockquote class="font-display-lateral text-3xl sm:text-5xl lg:text-6xl leading-[0.95] uppercase max-w-4xl mx-auto drop-shadow-sm">
           "${s.quote}"
         </blockquote>
 
-        <div class="mt-8 text-xs font-mono text-slate-400 uppercase tracking-widest">
-          MUADZ · DESIGN × AI × SYSTEMS
+        <div class="mt-8 text-xs font-bold tracking-widest uppercase text-white/80">
+          MUADZ · VISUAL DESIGNER × AI CONTROLLER
         </div>
 
       </div>

@@ -1,20 +1,36 @@
 /* -------------------------------------------------------------
- * MUADZ PORTFOLIO — CORE DESIGN SYSTEM & THEME
- * Designed with OpenDesign Modern-Minimal (Linear / Vercel style)
+ * MUADZ PORTFOLIO — SLUSH DESIGN SYSTEM
+ * Inflatable sticker universe on pastel paper
  * ------------------------------------------------------------*/
 
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Bowlby+One&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap');
 
 :root {
-  --bg-primary: #080808;
-  --bg-surface: #0e1015;
-  --bg-surface-elevated: #14161f;
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-active: rgba(255, 255, 255, 0.22);
-  --text-primary: #f5f5f5;
-  --text-secondary: #949aab;
-  --text-muted: #5e6473;
-  --accent-metallic: #e2e8f0;
+  /* Tokens — Colors */
+  --color-carbon: #000000;
+  --color-paper-white: #ffffff;
+  --color-sky-wash: #dceeff;
+  --color-concrete-gray: #cccccc;
+  --color-soft-mist: #e9e9e9;
+  --color-electric-blue: #4da2ff;
+  --color-mint-pop: #55db9c;
+  --color-lavender: #e9ccff;
+  --color-ember: #fb4903;
+  --color-sunburst: #ffd731;
+  --color-voltage-violet: #5c4ade;
+
+  /* Typography */
+  --font-lateral: 'Bowlby One', 'Antonio', -apple-system, sans-serif;
+  --font-aeonik-pro: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Radii */
+  --radius-nav: 1600px;
+  --radius-body: 30px;
+  --radius-cards: 20px;
+  --radius-pills: 1600px;
+  --radius-buttons: 1600px;
+  --radius-wallet-icon: 16px;
+  --radius-cards-elevated: 40px;
 }
 
 *, *::before, *::after {
@@ -25,281 +41,172 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-sky-wash);
+  color: var(--color-carbon);
+  font-family: var(--font-aeonik-pro);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  background-color: var(--color-sky-wash);
+  color: var(--color-carbon);
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
 }
 
-/* Custom Typography Classes */
-.font-display {
-  font-family: 'Plus Jakarta Sans', 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
-  letter-spacing: -0.035em;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-}
-
-.font-editorial {
-  font-family: 'Syne', 'Plus Jakarta Sans', sans-serif;
-  letter-spacing: -0.04em;
-}
-
-.font-mono-code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-}
-
-/* Background Ambient Gradient Grid */
-.bg-grid-subtle {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
-}
-
-.bg-radial-hero {
-  background: radial-gradient(circle at 65% 25%, rgba(45, 52, 68, 0.28) 0%, rgba(15, 17, 24, 0.12) 45%, transparent 70%);
-}
-
-/* OpenDesign Modern-Minimal Card Styles */
-.card-panel {
-  background: linear-gradient(180deg, rgba(16, 18, 24, 0.8) 0%, rgba(9, 10, 14, 0.95) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-}
-
-.card-panel::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  pointer-events: none;
-}
-
-.card-panel:hover {
-  border-color: rgba(255, 255, 255, 0.22);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 30px -5px rgba(255, 255, 255, 0.04);
-  transform: translateY(-2px);
-}
-
-/* Pill Buttons */
-.btn-pill-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 26px;
-  border-radius: 9999px;
-  background: linear-gradient(135deg, #2b2e38 0%, #15171e 100%);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+/* Lateral crushed display typography */
+.font-display-lateral {
+  font-family: var(--font-lateral);
+  line-height: 0.8;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
+  color: var(--color-carbon);
+}
+
+.font-body-aeonik {
+  font-family: var(--font-aeonik-pro);
+  letter-spacing: -0.01em;
+}
+
+/* Nav Pill Buttons */
+.nav-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pills);
+  border: 1px solid var(--color-carbon);
+  background: var(--color-paper-white);
+  color: var(--color-carbon);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.032em;
+  padding: 10px 16px;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
-  transition: all 0.25s ease;
-  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
-.btn-pill-primary:hover {
-  background: linear-gradient(135deg, #3c4150 0%, #1c1f28 100%);
-  border-color: rgba(255, 255, 255, 0.5);
+.nav-pill-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  background-color: var(--color-soft-mist);
 }
 
-.btn-pill-ghost {
+/* Filled CTA Button */
+.btn-slush-filled {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  border-radius: 40px;
+  background: var(--color-carbon);
+  color: var(--color-paper-white);
+  border: 1px solid var(--color-carbon);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.032em;
   padding: 12px 24px;
-  border-radius: 9999px;
-  background: transparent;
-  color: #c4cad4;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: transform 0.15s ease, opacity 0.15s ease;
   cursor: pointer;
 }
 
-.btn-pill-ghost:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.35);
+.btn-slush-filled:hover {
   transform: translateY(-2px);
+  opacity: 0.92;
 }
 
-/* Circular Action Arrow Button */
-.btn-circle-arrow {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  display: flex;
+/* Outlined Ghost Button */
+.btn-slush-ghost {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #cbd5e1;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 8px;
+  border-radius: var(--radius-buttons);
+  border: 1px solid var(--color-carbon);
+  background: var(--color-paper-white);
+  color: var(--color-carbon);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.032em;
+  padding: 12px 24px;
+  text-decoration: none;
+  transition: transform 0.15s ease, background-color 0.15s ease;
   cursor: pointer;
 }
 
-.card-panel:hover .btn-circle-arrow,
-.btn-circle-arrow:hover {
-  background: #ffffff;
-  color: #000000;
-  transform: scale(1.08) rotate(45deg);
-  border-color: #ffffff;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+.btn-slush-ghost:hover {
+  transform: translateY(-2px);
+  background: var(--color-soft-mist);
 }
 
-/* Metallic Sheen Card (Final CTA Left Box) */
-.metallic-sheen-surface {
-  background: linear-gradient(135deg, 
-    #21252d 0%, 
-    #3f4654 25%, 
-    #7a8494 45%, 
-    #373d4a 60%, 
-    #181a20 100%);
+/* Slush Hand-cut Sticker Card */
+.slush-card {
+  background: var(--color-paper-white);
+  border: 1px solid var(--color-carbon);
+  border-radius: var(--radius-cards);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
+}
+
+.slush-card:hover {
+  transform: translateY(-3px);
+}
+
+.slush-card-elevated {
+  border-radius: var(--radius-cards-elevated);
+}
+
+/* Flat Sticker Badges */
+.slush-sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--color-carbon);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.032em;
+  text-transform: uppercase;
+}
+
+/* Continuous Marquee Banner */
+.slush-marquee-track {
+  display: flex;
   overflow: hidden;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  user-select: none;
+  white-space: nowrap;
+  background: var(--color-carbon);
+  border-top: 1px solid var(--color-carbon);
+  border-bottom: 1px solid var(--color-carbon);
+  color: var(--color-paper-white);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.032em;
+  text-transform: uppercase;
+  padding: 10px 0;
 }
 
-.metallic-sheen-surface::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent 45%,
-    rgba(255, 255, 255, 0.28) 50%,
-    transparent 55%
-  );
-  transform: rotate(30deg);
-  animation: metallicGlint 8s infinite cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none;
+.slush-marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  gap: 32px;
+  animation: slushMarqueeScroll 25s linear infinite;
 }
 
-@keyframes metallicGlint {
-  0%, 70% {
-    transform: translateX(-100%) rotate(30deg);
+@keyframes slushMarqueeScroll {
+  from {
+    transform: translateX(0);
   }
-  100% {
-    transform: translateX(100%) rotate(30deg);
+  to {
+    transform: translateX(-100%);
   }
 }
 
-/* Hairline dividers */
-.hairline-divider-v {
-  width: 1px;
-  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+/* 3D Inflatable Ribbon SVG effects */
+.inflatable-ribbon-hero {
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.12));
 }
-
-.hairline-divider-h {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
-}
-
-/* Responsive Utilities across All Devices (Mobile, Tablet, Laptop, Desktop, 4K/TV) */
-.hero-headline-title {
-  word-break: normal !important;
-  overflow-wrap: normal !important;
-  hyphens: manual !important;
-}
-
-@media (max-width: 480px) {
-  .hero-headline-title {
-    font-size: 2.15rem !important;
-    line-height: 1.08 !important;
-    letter-spacing: -0.035em !important;
-  }
-}
-
-@media (min-width: 481px) and (max-width: 768px) {
-  .hero-headline-title {
-    font-size: 2.75rem !important;
-    line-height: 1.05 !important;
-    letter-spacing: -0.035em !important;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1023px) {
-  .hero-headline-title {
-    font-size: 3.4rem;
-    line-height: 1.04;
-    letter-spacing: -0.035em;
-  }
-}
-
-/* Laptops / Compact Desktops (1024px - 1279px) */
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .hero-headline-title {
-    font-size: 3.25rem;
-    line-height: 1.04;
-    letter-spacing: -0.035em;
-  }
-}
-
-/* Standard Desktops (1280px - 1535px) */
-@media (min-width: 1280px) and (max-width: 1535px) {
-  .hero-headline-title {
-    font-size: 3.85rem;
-    line-height: 1.02;
-    letter-spacing: -0.04em;
-  }
-}
-
-/* Large Screens (1536px - 1919px) */
-@media (min-width: 1536px) and (max-width: 1919px) {
-  .hero-headline-title {
-    font-size: 4.5rem;
-    line-height: 1.02;
-    letter-spacing: -0.04em;
-  }
-}
-
-/* Ultra-wide / 2K & 4K Smart TVs (1920px and above) */
-@media (min-width: 1920px) {
-  .hero-headline-title {
-    font-size: 5.6rem;
-    line-height: 1.02;
-    letter-spacing: -0.035em;
-  }
-
-  /* Automatically scale standard max-w-7xl containers gracefully on ultra-wide & TV displays */
-  .max-w-7xl {
-    max-width: 1680px !important;
-  }
-}
-
-
 

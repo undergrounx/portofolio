@@ -5,101 +5,90 @@ export function renderBrandsHandling() {
   if (!b) return "";
 
   return `
-    <section id="brands-handling" class="relative py-16 lg:py-28 border-t border-white/[0.06]">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <!-- Section Ground: Sky Wash #dceeff Band -->
+    <section id="brands-handling" class="relative py-20 bg-[#dceeff] border-b border-black">
+      <div class="max-w-[1440px] mx-auto px-6 sm:px-12">
         
-        <!-- Header Row -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 lg:mb-16 border-b border-white/[0.06] pb-6 gap-4">
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-black pb-6 gap-4">
           <div>
-            <div class="flex items-center gap-2 mb-2">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span class="text-[10px] font-mono font-bold tracking-[0.25em] text-slate-400 uppercase">
-                ${b.badge}
-              </span>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-black text-xs font-bold uppercase mb-3">
+              <span class="w-2 h-2 rounded-full bg-[#55db9c] border border-black"></span>
+              <span>${b.badge}</span>
             </div>
-            <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white uppercase">
+            <h2 class="font-display-lateral text-4xl sm:text-6xl text-black leading-none uppercase">
               ${b.title}
             </h2>
           </div>
-          
-          <p class="text-xs sm:text-sm text-slate-400 max-w-md font-normal leading-relaxed">
+          <p class="text-xs sm:text-sm text-black/80 max-w-md font-medium leading-relaxed">
             ${b.subtext}
           </p>
         </div>
 
-        <!-- 2-Column Responsive Brands Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+        <!-- 2 Column Slush Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           ${b.brands.map((brand, idx) => `
-            <div class="card-panel p-6 sm:p-8 flex flex-col justify-between group hover:border-white/20 transition-all duration-300">
+            <div class="slush-card p-6 sm:p-8 flex flex-col justify-between bg-white">
               
               <div>
-                <!-- Brand Top Meta -->
-                <div class="flex items-center justify-between mb-5">
-                  <div class="flex items-center gap-2.5">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-[9px] font-mono font-bold text-emerald-400 uppercase tracking-wider backdrop-blur-md">
-                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                      ${brand.status}
-                    </span>
-                  </div>
-                  <span class="text-[10px] font-mono text-slate-500">0${idx + 1}</span>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="slush-sticker bg-[#55db9c] text-black">
+                    ${brand.status}
+                  </span>
+                  <span class="w-8 h-8 rounded-full bg-[#ffd731] border border-black flex items-center justify-center font-bold text-xs">
+                    0${idx + 1}
+                  </span>
                 </div>
 
-                <!-- Showcase Visual Container -->
-                <div class="relative overflow-hidden rounded-xl bg-[#090b0e] border border-white/[0.08] mb-6 aspect-[16/11] flex items-center justify-center group-hover:border-white/25 transition-all">
+                <!-- Product Visual Preview -->
+                <div class="relative overflow-hidden rounded-[16px] border border-black mb-6 aspect-[16/11] bg-[#e9ccff]/30 flex items-center justify-center">
                   <img 
                     src="${brand.image}" 
-                    alt="${brand.name} Packaging & Brand Direction" 
-                    class="w-full h-full object-contain p-3 filter contrast-105 group-hover:scale-105 transition-transform duration-700"
+                    alt="${brand.name}" 
+                    class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform"
                     loading="lazy"
                     onerror="this.onerror=null; this.src='./${brand.image}';"
                   />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
-                  
-                  <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white z-10 pointer-events-none">
-                    <span class="px-2.5 py-1 rounded bg-black/75 border border-white/15 text-[9px] font-mono text-slate-200 uppercase tracking-widest backdrop-blur-md">
+                  <div class="absolute bottom-3 left-3">
+                    <span class="slush-sticker bg-white text-[10px]">
                       ${brand.tag}
                     </span>
                   </div>
                 </div>
 
-                <!-- Title & Role -->
-                <div class="mb-3">
-                  <div class="text-[10px] font-mono font-bold tracking-widest text-slate-500 uppercase mb-1">
-                    ${brand.category} · ${brand.role}
-                  </div>
-                  <h3 class="text-2xl font-bold text-white tracking-tight group-hover:text-slate-100 transition-colors">
-                    ${brand.name}
-                  </h3>
+                <!-- Brand Name & Role -->
+                <div class="text-xs font-bold text-black/60 uppercase tracking-wider mb-1">
+                  ${brand.category} · ${brand.role}
                 </div>
-
-                <!-- Description -->
-                <p class="text-sm text-slate-300 leading-relaxed font-normal mb-5">
+                <h3 class="font-display-lateral text-2xl sm:text-3xl text-black leading-tight uppercase mb-3">
+                  ${brand.name}
+                </h3>
+                <p class="text-xs sm:text-sm text-black/85 font-medium leading-relaxed mb-5">
                   ${brand.description}
                 </p>
 
                 <!-- Highlights -->
                 <div class="space-y-2 mb-6">
                   ${brand.highlights.map(h => `
-                    <div class="flex items-center gap-2 text-xs text-slate-400 font-mono">
-                      <span class="text-emerald-400">✦</span>
+                    <div class="flex items-center gap-2 text-xs font-medium text-black">
+                      <span class="text-[#fb4903]">✦</span>
                       <span>${h}</span>
                     </div>
                   `).join("")}
                 </div>
               </div>
 
-              <!-- Bottom Tags Row -->
-              <div class="pt-5 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-3">
-                <div class="flex flex-wrap gap-2">
+              <!-- Tags -->
+              <div class="pt-4 border-t border-black flex flex-wrap items-center justify-between gap-3">
+                <div class="flex flex-wrap gap-1.5">
                   ${brand.tags.map(t => `
-                    <span class="px-2 py-0.5 rounded bg-white/[0.03] border border-white/10 text-[9px] font-mono text-slate-400">
+                    <span class="slush-sticker bg-[#e9e9e9] text-[9px] py-1 px-2.5">
                       ${t}
                     </span>
                   `).join("")}
                 </div>
-                <a href="#contact" class="text-[10px] font-mono font-bold tracking-wider text-slate-400 hover:text-white uppercase transition-colors inline-flex items-center gap-1 group-hover:text-emerald-400">
-                  <span>DISCUSS SIMILAR PROJECT</span>
-                  <span>↗</span>
+                <a href="#contact" class="btn-slush-filled text-[11px] py-2 px-4">
+                  TALK PACKAGING ↗
                 </a>
               </div>
 

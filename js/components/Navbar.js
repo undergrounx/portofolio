@@ -4,87 +4,87 @@ export function renderNavbar() {
   const p = portfolioData.profile;
 
   return `
-    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      <div class="max-w-7xl 2xl:max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-12 2xl:px-16 h-20 2xl:h-24 flex items-center justify-between">
+    <!-- Top Announcement Marquee Strip -->
+    <div class="slush-marquee-track">
+      <div class="slush-marquee-content">
+        <span>✦ MUADZ — VISUAL DESIGNER × AI CONTROLLER</span>
+        <span>✦ INFLATABLE STICKER UNIVERSE</span>
+        <span>✦ CRAFTING FORM · DIRECTING INTELLIGENCE</span>
+        <span>✦ 24-HOUR AUTONOMOUS &amp; DESIGN PIPELINES</span>
+        <span>✦ OPEN FOR HIGH-IMPACT COLLABORATIONS</span>
+      </div>
+      <div class="slush-marquee-content" aria-hidden="true">
+        <span>✦ MUADZ — VISUAL DESIGNER × AI CONTROLLER</span>
+        <span>✦ INFLATABLE STICKER UNIVERSE</span>
+        <span>✦ CRAFTING FORM · DIRECTING INTELLIGENCE</span>
+        <span>✦ 24-HOUR AUTONOMOUS &amp; DESIGN PIPELINES</span>
+        <span>✦ OPEN FOR HIGH-IMPACT COLLABORATIONS</span>
+      </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header id="site-header" class="sticky top-0 z-50 bg-[#dceeff]/90 backdrop-blur-md py-3 px-4 sm:px-8 border-b border-black">
+      <div class="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
         
-        <!-- Left: Monogram Mark & Subtitle -->
-        <a href="#hero" class="flex items-center gap-2 group text-decoration-none">
-          <div class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center transition-all group-hover:border-white/30 group-hover:bg-white/[0.08]">
-            <span class="monogram-mark text-xl font-bold tracking-tighter">${p.monogram}</span>
+        <!-- Logo Mark: Circular black-outlined 'M' badge -->
+        <a href="#hero" class="flex items-center gap-2.5 no-underline group">
+          <div class="w-11 h-11 rounded-full bg-white border border-black flex items-center justify-center font-bold text-lg text-black group-hover:scale-105 transition-transform">
+            M
           </div>
-          <div class="flex flex-col">
-            <span class="text-xs font-bold tracking-widest text-white uppercase">${p.name}</span>
-            <span class="text-[9px] font-medium tracking-wider text-slate-400 uppercase">${p.brandLabel}</span>
+          <div class="hidden sm:flex flex-col">
+            <span class="text-xs font-bold tracking-wider text-black uppercase">${p.name}</span>
+            <span class="text-[10px] font-medium tracking-tight text-black/70">DESIGN × AI</span>
           </div>
         </a>
 
-        <!-- Center: Nav Items (Desktop) -->
-        <nav class="hidden md:flex items-center gap-6 lg:gap-7">
+        <!-- Pill Nav: Center Links -->
+        <nav class="hidden md:flex items-center gap-1.5 bg-white/50 p-1.5 rounded-full border border-black">
           <a href="#work" class="nav-link" data-section="work">WORK</a>
           <a href="#brands-handling" class="nav-link" data-section="brands-handling">BRANDS</a>
           <a href="#media-creative" class="nav-link" data-section="media-creative">MEDIA</a>
           <a href="#about" class="nav-link" data-section="about">ABOUT</a>
           <a href="#capabilities" class="nav-link" data-section="capabilities">CAPABILITIES</a>
-          <a href="#process" class="nav-link" data-section="process">PROCESS</a>
           <a href="#contact" class="nav-link" data-section="contact">CONTACT</a>
         </nav>
 
-        <!-- Right: CTA & Live Workflow Trigger -->
-        <div class="flex items-center gap-3 sm:gap-4">
-          <button id="nav-workflow-trigger" type="button" aria-label="View 24-Hour Workflow" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-emerald-400/40 text-[10px] font-mono text-slate-300 hover:text-white transition-all cursor-pointer">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>24H LIVE STATUS</span>
+        <!-- Right Side: 24H Live Status + Primary Action -->
+        <div class="flex items-center gap-2.5">
+          <button id="nav-workflow-trigger" type="button" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white border border-black text-xs font-bold tracking-wide hover:bg-[#e9ccff] transition-colors cursor-pointer">
+            <span class="w-2 h-2 rounded-full bg-[#55db9c] border border-black animate-pulse"></span>
+            <span>24H STATUS</span>
           </button>
 
-          <a href="#contact" class="btn-pill-primary hidden sm:inline-flex">
+          <!-- Filled CTA Button: Primary Action -->
+          <a href="#contact" class="btn-slush-filled text-xs">
             LET'S TALK ↗
           </a>
 
           <!-- Mobile Hamburger -->
-          <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="md:hidden w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex flex-col items-center justify-center gap-1.5 text-white">
-            <span class="w-5 h-[1.5px] bg-white transition-all"></span>
-            <span class="w-5 h-[1.5px] bg-white transition-all"></span>
+          <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="md:hidden w-10 h-10 rounded-full bg-white border border-black flex flex-col items-center justify-center gap-1">
+            <span class="w-4 h-[2px] bg-black"></span>
+            <span class="w-4 h-[2px] bg-black"></span>
           </button>
         </div>
 
       </div>
 
       <!-- Mobile Navigation Drawer -->
-      <div id="mobile-drawer" class="hidden md:hidden fixed inset-0 top-20 bg-[#080808]/98 backdrop-blur-2xl border-t border-white/10 p-8 flex-col justify-between z-40">
-        <div class="flex flex-col gap-5 pt-4">
-          <a href="#work" class="mobile-nav-link text-2xl font-bold tracking-tight text-white hover:text-slate-400">WORK ↗</a>
-          <a href="#brands-handling" class="mobile-nav-link text-2xl font-bold tracking-tight text-white hover:text-slate-400">BRANDS I'M HANDLING ↗</a>
-          <a href="#media-creative" class="mobile-nav-link text-2xl font-bold tracking-tight text-white hover:text-slate-400">MEDIA CREATIVE ↗</a>
-          <a href="#about" class="mobile-nav-link text-2xl font-bold tracking-tight text-white hover:text-slate-400">ABOUT ↗</a>
-          <a href="#capabilities" class="mobile-nav-link text-2xl font-bold tracking-tight text-white hover:text-slate-400">CAPABILITIES ↗</a>
-          <a href="#process" class="mobile-nav-link text-2xl font-bold tracking-tight text-white hover:text-slate-400">PROCESS ↗</a>
-          <a href="#contact" class="mobile-nav-link text-2xl font-bold tracking-tight text-white hover:text-slate-400">CONTACT ↗</a>
-        </div>
-        <div class="pt-8 border-t border-white/10 flex flex-col gap-4">
-          <div class="text-xs text-slate-500 uppercase tracking-widest">Connect with Muadz</div>
-          <div class="flex gap-6">
-            <a href="${portfolioData.contact.whatsappUrl}" target="_blank" class="text-sm font-semibold text-emerald-400">WhatsApp ↗</a>
-            <a href="${portfolioData.contact.instagramUrl}" target="_blank" class="text-sm font-semibold text-slate-300">Instagram ↗</a>
-          </div>
-        </div>
+      <div id="mobile-drawer" class="hidden md:hidden fixed inset-x-0 top-[90px] bg-white border-b-2 border-black p-6 flex-col gap-4 shadow-xl z-40">
+        <a href="#work" class="mobile-nav-link text-lg font-bold tracking-tight text-black hover:text-[#4da2ff]">SELECTED WORK ↗</a>
+        <a href="#brands-handling" class="mobile-nav-link text-lg font-bold tracking-tight text-black hover:text-[#4da2ff]">BRANDS ↗</a>
+        <a href="#media-creative" class="mobile-nav-link text-lg font-bold tracking-tight text-black hover:text-[#4da2ff]">MEDIA CREATIVE ↗</a>
+        <a href="#about" class="mobile-nav-link text-lg font-bold tracking-tight text-black hover:text-[#4da2ff]">ABOUT MUADZ ↗</a>
+        <a href="#capabilities" class="mobile-nav-link text-lg font-bold tracking-tight text-black hover:text-[#4da2ff]">CAPABILITIES ↗</a>
+        <a href="#contact" class="mobile-nav-link text-lg font-bold tracking-tight text-black hover:text-[#4da2ff]">CONTACT ↗</a>
       </div>
     </header>
   `;
 }
 
 export function initNavbarEvents() {
-  const header = document.getElementById("site-header");
   const menuBtn = document.getElementById("mobile-menu-btn");
   const drawer = document.getElementById("mobile-drawer");
   const navLinks = document.querySelectorAll(".nav-link, .mobile-nav-link");
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 40) {
-      header.classList.add("nav-glass");
-    } else {
-      header.classList.remove("nav-glass");
-    }
-  }, { passive: true });
 
   if (menuBtn && drawer) {
     menuBtn.addEventListener("click", () => {

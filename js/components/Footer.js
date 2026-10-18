@@ -5,24 +5,27 @@ export function renderFooter() {
   const currentYear = new Date().getFullYear();
 
   return `
-    <footer class="py-10 border-t border-white/10 text-slate-500 text-xs">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <!-- Section Ground: Paper White #ffffff Band -->
+    <footer class="py-12 bg-white text-black border-t border-black">
+      <div class="max-w-[1440px] mx-auto px-6 sm:px-12 flex flex-col sm:flex-row items-center justify-between gap-6">
         
-        <!-- Left: Brand & Dynamic Year -->
-        <div class="text-[11px] font-mono tracking-wider text-slate-400">
-          © ${currentYear} ${f.brand} · ${f.subtitle}
+        <!-- Left Brand & Monogram -->
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs">
+            M
+          </div>
+          <div class="text-xs font-bold uppercase tracking-wider">
+            © ${currentYear} ${f.brand} · INFLATABLE STICKER UNIVERSE
+          </div>
         </div>
 
-        <!-- Right: Verified Social Links -->
-        <div class="flex items-center gap-6">
-          <span class="text-[10px] font-bold tracking-widest text-slate-500 uppercase">CONNECT</span>
-          <div class="flex items-center gap-4">
-            ${f.links.map(s => `
-              <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors text-xs font-medium">
-                ${s.name} ↗
-              </a>
-            `).join("")}
-          </div>
+        <!-- Right: Pill Links -->
+        <div class="flex items-center gap-3">
+          ${f.links.map(s => `
+            <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="nav-pill-btn text-xs py-2 px-4">
+              ${s.name} ↗
+            </a>
+          `).join("")}
         </div>
 
       </div>

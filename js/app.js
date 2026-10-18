@@ -1,6 +1,6 @@
 /**
- * MUADZ PORTFOLIO — APP ORCHESTRATOR
- * Built to the Antigravity Portfolio Brief: grounded, responsive, zero fabricated claims.
+ * MUADZ PORTFOLIO — SLUSH REDESIGN
+ * Inflatable sticker universe on pastel paper
  */
 
 import { renderNavbar, initNavbarEvents } from "./components/Navbar.js";
@@ -15,14 +15,13 @@ import { renderProcess } from "./components/Process.js";
 import { renderStatement } from "./components/Statement.js";
 import { renderFinalCTA, initContactEvents } from "./components/FinalCTA.js";
 import { renderFooter } from "./components/Footer.js";
-import { HeroWebGLScene } from "./webgl-hero.js";
 import { workflowModal } from "./components/WorkflowModal.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const app = document.getElementById("app");
   if (!app) return;
 
-  // 1. Build Page Sections in Strict Reference Sequence
+  // Render Page Sections in Slush Color Banding Sequence
   app.innerHTML = `
     ${renderNavbar()}
     <main>
@@ -40,23 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
     ${renderFooter()}
   `;
 
-  // 2. Initialize Interactive 3D WebGL Centerpiece
-  const canvas = document.getElementById("hero-webgl-canvas");
-  const container = document.getElementById("hero-3d-container");
-  if (canvas && container) {
-    try {
-      new HeroWebGLScene(canvas, container);
-    } catch (e) {
-      console.warn("Hero WebGL init skipped:", e);
-    }
-  }
-
-  // 3. Initialize Interactive Features
+  // Initialize Interactive Features
   initNavbarEvents();
   initProjectCards();
   initContactEvents();
 
-  // 4. Initialize 24-Hour Workflow Modal Triggers
+  // 24-Hour Workflow Modal Triggers
   const openWorkflowBtn = document.getElementById("open-workflow-btn");
   if (openWorkflowBtn) {
     openWorkflowBtn.addEventListener("click", () => {
@@ -71,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 4. Active Section Nav Highlight on Scroll
+  // Active Section Nav Highlight on Scroll
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-link");
 
@@ -95,5 +83,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { passive: true });
 
-  console.log("✦ MUADZ Portfolio: Brief synchronized. No unverified claims.");
+  console.log("✦ MUADZ Portfolio: Slush Theme Active — Inflatable Sticker Universe.");
 });
