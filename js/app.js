@@ -16,6 +16,7 @@ import { renderStatement } from "./components/Statement.js";
 import { renderFinalCTA, initContactEvents } from "./components/FinalCTA.js";
 import { renderFooter } from "./components/Footer.js";
 import { HeroWebGLScene } from "./webgl-hero.js";
+import { workflowModal } from "./components/WorkflowModal.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const app = document.getElementById("app");
@@ -54,6 +55,21 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavbarEvents();
   initProjectCards();
   initContactEvents();
+
+  // 4. Initialize 24-Hour Workflow Modal Triggers
+  const openWorkflowBtn = document.getElementById("open-workflow-btn");
+  if (openWorkflowBtn) {
+    openWorkflowBtn.addEventListener("click", () => {
+      workflowModal.open();
+    });
+  }
+
+  const navWorkflowTrigger = document.getElementById("nav-workflow-trigger");
+  if (navWorkflowTrigger) {
+    navWorkflowTrigger.addEventListener("click", () => {
+      workflowModal.open();
+    });
+  }
 
   // 4. Active Section Nav Highlight on Scroll
   const sections = document.querySelectorAll("section[id]");

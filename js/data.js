@@ -20,11 +20,90 @@ export const portfolioData = {
     ctaPrimary: "Lihat Karya",
     ctaSecondary: "Hubungi Saya",
     availabilityBadge: {
-      tag: "AVAILABLE FOR",
-      title: "COLLABORATIONS",
-      sub: "LET'S TALK ↗",
-      link: "#contact"
-    }
+      tag: "LIVE STATUS",
+      title: "24-HOUR WORKFLOW",
+      sub: "VIEW SCHEDULE ↗",
+      link: "#"
+    },
+    daily24hActivity: [
+      {
+        time: "07:00 - 09:00",
+        phase: "CREATIVE INTAKE & VISUAL AUDIT",
+        status: "Focus & Review",
+        icon: "🌅",
+        color: "text-amber-400",
+        borderColor: "border-amber-400/20",
+        bgColor: "bg-amber-400/10",
+        task: "Kurasi referensi desain, review feedback klien (Avenor, Berka, Lumaskin), dan analisis tren visual harian.",
+        tools: ["Refero", "Dribbble", "Cosmos", "Figma"]
+      },
+      {
+        time: "09:00 - 12:30",
+        phase: "DEEP DESIGN & PACKAGING SYSTEMS",
+        status: "Active Production",
+        icon: "🎨",
+        color: "text-blue-400",
+        borderColor: "border-blue-400/20",
+        bgColor: "bg-blue-400/10",
+        task: "Perancangan UI/UX, tata letak kemasan produk fisik (dielines), typography pairing, dan iterasi aset vektor.",
+        tools: ["Figma", "Illustrator", "Photoshop"]
+      },
+      {
+        time: "12:30 - 13:30",
+        phase: "RECHARGE & SYNC",
+        status: "Break / Personal",
+        icon: "☕",
+        color: "text-slate-400",
+        borderColor: "border-slate-500/20",
+        bgColor: "bg-slate-500/10",
+        task: "Istirahat siang, quick sync pesan WhatsApp/email, dan relaksasi visual.",
+        tools: ["Notion", "WhatsApp"]
+      },
+      {
+        time: "13:30 - 17:00",
+        phase: "AI WORKFLOWS & VIDEO PRODUCTION",
+        status: "Generative Lab",
+        icon: "⚡",
+        color: "text-cyan-400",
+        borderColor: "border-cyan-400/20",
+        bgColor: "bg-cyan-400/10",
+        task: "Prompt engineering, sintesis visual generative, short-form vertical video cutting, dan sinkronisasi audio kinetik.",
+        tools: ["Leonardo AI", "ChatGPT / Gemini", "CapCut", "Premiere"]
+      },
+      {
+        time: "17:00 - 19:30",
+        phase: "AUTOMATION & PIPELINES",
+        status: "Systems & Ops",
+        icon: "⚙️",
+        color: "text-purple-400",
+        borderColor: "border-purple-400/20",
+        bgColor: "bg-purple-400/10",
+        task: "Penyusunan workflow otomasi konten, webhook n8n, organisasi aset digital, dan distribusi konten terjadwal.",
+        tools: ["n8n", "Make", "Google Drive API"]
+      },
+      {
+        time: "19:30 - 22:00",
+        phase: "CLIENT HANDOFF & COMMUNITY",
+        status: "Handoff & Connect",
+        icon: "🤝",
+        color: "text-emerald-400",
+        borderColor: "border-emerald-400/20",
+        bgColor: "bg-emerald-400/10",
+        task: "Pengiriman deliverables, presentasi konsep ke klien, engagement media sosial (Instagram @Muadz_dora & TikTok).",
+        tools: ["Instagram", "TikTok", "Discord"]
+      },
+      {
+        time: "22:00 - 07:00",
+        phase: "REST & SYSTEM DOWNTIME",
+        status: "Standby Mode",
+        icon: "🌙",
+        color: "text-indigo-400",
+        borderColor: "border-indigo-400/20",
+        bgColor: "bg-indigo-400/10",
+        task: "Otomasi sistem berjalan mandiri di cloud; desainer offline beristirahat untuk kesiapan optimal esok hari.",
+        tools: ["Cloud Automations", "Background Jobs"]
+      }
+    ]
   },
 
   // Strategic Focus Pillars (Snapshot — No fake numbers or fabricated client counts)

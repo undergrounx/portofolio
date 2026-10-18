@@ -68,11 +68,12 @@ export function renderHero() {
               </div>
             </div>
 
-            <!-- Editorial Availability Badge -->
+            <!-- Editorial Availability Badge (Triggers 24-Hour Workflow Modal) -->
             <div class="hidden sm:block absolute right-0 -bottom-3 sm:-bottom-4 lg:right-0 lg:bottom-4 2xl:bottom-8 z-20 pointer-events-auto">
-              <a href="${b.link}" class="hero-availability-badge block p-3.5 sm:p-4 lg:p-5 2xl:p-6 text-right no-underline group shadow-2xl">
+              <button id="open-workflow-btn" type="button" aria-label="Open 24-Hour Workflow" class="hero-availability-badge block p-3.5 sm:p-4 lg:p-5 2xl:p-6 text-right no-underline group shadow-2xl cursor-pointer w-full">
                 <div class="flex items-center justify-end gap-2 mb-1">
-                  <span class="text-[9px] font-bold tracking-widest text-slate-400 uppercase">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span class="text-[9px] font-bold tracking-widest text-emerald-400 uppercase">
                     ${b.tag}
                   </span>
                   <span class="text-white text-xs group-hover:rotate-45 transition-transform">✦</span>
@@ -80,10 +81,10 @@ export function renderHero() {
                 <div class="text-xs lg:text-sm font-bold text-white tracking-wider uppercase">
                   ${b.title}
                 </div>
-                <div class="text-[10px] font-semibold text-slate-300 tracking-wider uppercase group-hover:text-emerald-400 transition-colors">
+                <div class="text-[10px] font-semibold text-slate-300 tracking-wider uppercase group-hover:text-cyan-400 transition-colors">
                   ${b.sub}
                 </div>
-              </a>
+              </button>
             </div>
 
           </div>

@@ -29,8 +29,13 @@ export function renderNavbar() {
           <a href="#contact" class="nav-link" data-section="contact">CONTACT</a>
         </nav>
 
-        <!-- Right: CTA Button -->
-        <div class="flex items-center gap-4">
+        <!-- Right: CTA & Live Workflow Trigger -->
+        <div class="flex items-center gap-3 sm:gap-4">
+          <button id="nav-workflow-trigger" type="button" aria-label="View 24-Hour Workflow" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-emerald-400/40 text-[10px] font-mono text-slate-300 hover:text-white transition-all cursor-pointer">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>24H LIVE STATUS</span>
+          </button>
+
           <a href="#contact" class="btn-pill-primary hidden sm:inline-flex">
             LET'S TALK ↗
           </a>
