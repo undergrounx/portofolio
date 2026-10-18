@@ -210,3 +210,143 @@ body {
   filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.12));
 }
 
+
+/* -------------------------------------------------------------
+ * SLUSH MICRO-ANIMATIONS & INTERACTION POLISH
+ * Subtle physics, float effects, smooth button hovers
+ * ------------------------------------------------------------*/
+
+/* Floating Sticker Animation (Physics-like levitation) */
+@keyframes stickerFloat1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(-12deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-9deg);
+  }
+}
+
+@keyframes stickerFloat2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(12deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(15deg);
+  }
+}
+
+@keyframes stickerFloat3 {
+  0%, 100% {
+    transform: translateY(0px) rotate(6deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(3deg);
+  }
+}
+
+@keyframes stickerFloat4 {
+  0%, 100% {
+    transform: translateY(0px) rotate(-6deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(-3deg);
+  }
+}
+
+.animate-sticker-1 {
+  animation: stickerFloat1 4.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-sticker-2 {
+  animation: stickerFloat2 5.2s ease-in-out infinite 0.5s;
+  will-change: transform;
+}
+
+.animate-sticker-3 {
+  animation: stickerFloat3 4.8s ease-in-out infinite 1s;
+  will-change: transform;
+}
+
+.animate-sticker-4 {
+  animation: stickerFloat4 5.5s ease-in-out infinite 1.5s;
+  will-change: transform;
+}
+
+/* Inflatable Ribbon Breathing Animation */
+@keyframes ribbonBreath {
+  0%, 100% {
+    transform: rotate(-6deg) translateY(28px) scale(1);
+  }
+  50% {
+    transform: rotate(-5deg) translateY(20px) scale(1.02);
+  }
+}
+
+.animate-ribbon-breath {
+  animation: ribbonBreath 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Tactile Button Press Animation */
+.btn-slush-filled:active,
+.btn-slush-ghost:active,
+.nav-pill-btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Scroll-triggered reveal animations */
+.slush-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.slush-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cross-OS / Cross-Device Fixes */
+/* 1. iOS Safari safe-area-inset & notch padding */
+body {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 2. Safari font rendering & tap highlight disable */
+html, body, button, a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* 3. Momentum scrolling for iOS */
+.overflow-y-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 4. Responsive display headline scaling for ultra-small to 4K displays */
+@media (max-width: 480px) {
+  .font-display-lateral {
+    word-break: break-word;
+  }
+}
+
+/* 5. Reduced motion support for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .slush-marquee-content,
+  .animate-sticker-1,
+  .animate-sticker-2,
+  .animate-sticker-3,
+  .animate-sticker-4,
+  .animate-ribbon-breath {
+    animation: none !important;
+  }
+  .slush-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

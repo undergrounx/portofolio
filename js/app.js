@@ -85,3 +85,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log("✦ MUADZ Portfolio: Slush Theme Active — Inflatable Sticker Universe.");
 });
+
+// IntersectionObserver for scroll-reveal animations across devices
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".slush-card, section h2, section .grid > div");
+  cards.forEach(el => el.classList.add("slush-reveal"));
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    });
+
+    cards.forEach(el => observer.observe(el));
+  } else {
+    cards.forEach(el => el.classList.add("is-visible"));
+  }
+});
