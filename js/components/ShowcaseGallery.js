@@ -24,11 +24,31 @@ export function renderShowcaseGallery() {
     },
     {
       type: "image",
-      title: "Lumaskin Aesthetic Direction",
-      category: "BRAND IDENTITY",
-      src: "assets/LUMASKIN.png",
-      desc: "Eksplorasi visual identity dan palette lembut untuk clean beauty brand.",
-      tag: "ART DIRECTION",
+      title: "Lumaskin Acne Series — Marketplace Feed",
+      category: "MARKETPLACE DESIGN",
+      src: "assets/lumaaskin acne.png",
+      desc: "Desain visual listing & feed marketplace Shopee/Tokopedia untuk varian Acne Series, dioptimalkan untuk click-through rate (CTR) dan konversi penjualan produk skincare.",
+      tag: "E-COMMERCE LISTING",
+      span: "lg:col-span-4",
+      aspect: "aspect-[4/5]"
+    },
+    {
+      type: "image",
+      title: "Lumaskin Brightening Series — Marketplace Hero",
+      category: "MARKETPLACE DESIGN",
+      src: "assets/lumaskinnn bright.png",
+      desc: "Desain banner hero dan katalog marketplace beresolusi tinggi dengan penekanan benefit produk, formula klinis, dan estetika visual premium.",
+      tag: "SHOPEE / TOKOPEDIA",
+      span: "lg:col-span-4",
+      aspect: "aspect-[4/5]"
+    },
+    {
+      type: "image",
+      title: "Loka Cibiru — Brand & Promotional Visual",
+      category: "MARKETPLACE & PROMO DESIGN",
+      src: "assets/lokacibiru.png",
+      desc: "Materi visual promosi dan display marketplace komprehensif yang memadukan tipografi bold, penawaran menarik, dan komposisi produk yang stand out.",
+      tag: "PROMO BANNER",
       span: "lg:col-span-4",
       aspect: "aspect-[4/5]"
     },
@@ -85,10 +105,10 @@ export function renderShowcaseGallery() {
           
           <div class="flex flex-col items-start md:items-end gap-3">
             <p class="text-sm font-normal text-[#555555] max-w-sm leading-relaxed md:text-right">
-              Gallery wall in motion. Karya video edit, desain kemasan fisik, dan sistem antarmuka digital yang dikurasi langsung.
+              Gallery wall in motion. Karya video edit, desain marketplace e-commerce, kemasan fisik, dan sistem digital yang dikurasi langsung.
             </p>
             <span class="text-[11px] font-mono uppercase tracking-tight text-[#555555]">
-              [ 06 EXHIBITION TILES ]
+              [ 08 EXHIBITION TILES ]
             </span>
           </div>
         </div>
@@ -141,7 +161,7 @@ export function renderShowcaseGallery() {
                     ${item.category}
                   </span>
                   <span class="text-[11px] font-mono text-[#555555]">
-                    ${item.type === "video" ? "MOTION REEL" : "STATIC ASSET"}
+                    ${item.type === "video" ? "MOTION REEL" : "MARKETPLACE / DESIGN"}
                   </span>
                 </div>
 
