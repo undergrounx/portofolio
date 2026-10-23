@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>COSMOS — Curated Gallery Wall</title>
-  <meta name="description" content="Linen gallery wall with floating polaroids: visual discovery by Muadz." />
+  <title>FARLINE / MUADZ — Interactive Visual Canvas &amp; Photo Table</title>
+  <meta name="description" content="Interactive 3D Perspective Clothesline & Draggable Photo Table gallery featuring works by Muadz." />
   <meta name="author" content="Muadz" />
 
-  <!-- Google Fonts: GT Super / Fraunces Substitute with Whisper Weight 350, Inter for labels -->
+  <!-- Google Fonts: Bebas Neue / Antonio / Anton for Bold Display, Inter for Minimal UI -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,350;0,9..144,400;0,9..144,500;1,9..144,350&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -20,20 +20,14 @@
       theme: {
         extend: {
           colors: {
-            'linen-canvas': '#f7f5f3',
-            'ink-black': '#0d0d0d',
-            'paper-white': '#ffffff',
-            'stone-muted': '#6e6a69',
-            'pebble-subtle': '#9a9796',
+            'canvas-bg': '#fcfcfc',
+            'ink': '#0d0d0d',
+            'muted': '#71717a',
+            'subtle': '#e4e4e7',
           },
           fontFamily: {
-            cosmos: ['"Fraunces"', 'Georgia', 'serif'],
+            headline: ['"Bebas Neue"', '"Anton"', 'sans-serif'],
             sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-          },
-          borderRadius: {
-            'signature': '16px',
-            'imagetiles': '12px',
-            'pill': '9999px',
           }
         }
       }
@@ -41,678 +35,681 @@
   </script>
 
   <style>
-    /* Cosmos CSS Tokens */
-    :root {
-      --color-linen-canvas: #f7f5f3;
-      --color-ink-black: #0d0d0d;
-      --color-paper-white: #ffffff;
-      --color-stone: #6e6a69;
-      --color-pebble: #9a9796;
-      --font-cosmosoracle: "Fraunces", Georgia, serif;
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     body {
-      background-color: #f7f5f3;
+      background-color: #fbfbfb;
       color: #0d0d0d;
-      font-family: var(--font-cosmosoracle);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      font-family: 'Inter', sans-serif;
       overflow-x: hidden;
+      user-select: none;
     }
 
-    ::selection {
-      background: #0d0d0d;
-      color: #ffffff;
+    /* 3D Perspective Stage for Hanging Clothesline */
+    .clothesline-stage {
+      perspective: 1200px;
+      perspective-origin: 50% 38%;
+      transform-style: preserve-3d;
     }
 
-    /* Whisper weight 350 display typography */
-    .font-whisper {
-      font-weight: 350;
-      font-optical-sizing: auto;
-    }
-
-    /* Negative tracking scale strictly mapped from MD */
-    .tracking-74 { letter-spacing: -3.7px; }
-    .tracking-58 { letter-spacing: -2.32px; }
-    .tracking-38 { letter-spacing: -1.52px; }
-    .tracking-33 { letter-spacing: -1.32px; }
-    .tracking-24 { letter-spacing: -0.48px; }
-    .tracking-18 { letter-spacing: -0.2px; }
-    .tracking-16 { letter-spacing: -0.18px; }
-
-    /* Line height scale strictly mapped from MD */
-    .leading-display-xl { line-height: 0.80; }
-    .leading-display { line-height: 1.06; }
-    .leading-heading-lg { line-height: 1.08; }
-    .leading-heading { line-height: 1.10; }
-    .leading-subheading { line-height: 1.29; }
-    .leading-body { line-height: 1.50; }
-
-    /* Floating Image Tile Component (Hero Collage)
-       Rule: 60-140px, 12px border-radius, slight 2-4° rotation, NO BORDER, NO SHADOW.
-       The image IS the component. */
-    .floating-tile {
-      border-radius: 12px;
-      overflow: hidden;
-      cursor: pointer;
+    .clothesline-track {
       position: absolute;
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-      will-change: transform;
-    }
-
-    .floating-tile:hover {
-      transform: scale(1.08) translateY(-4px) rotate(0deg) !important;
-      z-index: 50 !important;
-      box-shadow: 0 16px 32px rgba(13, 13, 13, 0.12);
-    }
-
-    /* Primary Filled Button
-       Role: Main conversion action
-       Ink Black fill, Paper White text, cosmosOracle weight 500, 16px font-size, 16px radius, 16px vertical / 24px horizontal. No shadow, no border. */
-    .cosmos-btn-primary {
-      background-color: #0d0d0d;
-      color: #ffffff;
-      font-family: var(--font-cosmosoracle);
-      font-weight: 500;
-      font-size: 16px;
-      border-radius: 16px;
-      padding: 16px 24px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      text-decoration: none;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-      border: none;
-    }
-
-    .cosmos-btn-primary:hover {
-      opacity: 0.88;
-      transform: translateY(-1px);
-    }
-
-    /* Secondary Outlined Button
-       Role: Secondary action
-       Paper White fill, 1px Ink Black border at ~15% opacity, Ink Black text, 16px radius, 16px/24px padding. Identical sizing to primary. */
-    .cosmos-btn-secondary {
-      background-color: #ffffff;
-      color: #0d0d0d;
-      border: 1px solid rgba(13, 13, 13, 0.15);
-      font-family: var(--font-cosmosoracle);
-      font-weight: 500;
-      font-size: 16px;
-      border-radius: 16px;
-      padding: 16px 24px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      text-decoration: none;
-      transition: background-color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .cosmos-btn-secondary:hover {
-      background-color: #f7f5f3;
-      border-color: rgba(13, 13, 13, 0.35);
-    }
-
-    /* Feature Image Card:
-       Large image-first card with 16px radius. Image fills card edge-to-edge;
-       below it sits cosmosOracle weight 400 label at 18px (e.g. 'By color').
-       No visible border, no shadow, no background color — the image defines the card. */
-    .feature-image-card {
-      border-radius: 16px;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      cursor: pointer;
-    }
-
-    .feature-image-wrapper {
-      border-radius: 16px;
-      overflow: hidden;
-      background: #ffffff;
-      aspect-ratio: 4/5;
-    }
-
-    .feature-image-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform-style: preserve-3d;
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .feature-image-card:hover .feature-image-wrapper img {
-      transform: scale(1.035);
+    /* Slanted Diagonal Wire String */
+    .hanging-wire-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
     }
 
-    /* AI Content Detection Overlay Component
-       Paper White surface with 12px radius, ~280px wide, positioned top-right inside a feature card. */
-    .ai-content-overlay {
+    /* Hanging Card with Wooden Peg/Clip */
+    .hanging-card {
+      position: absolute;
+      transform-style: preserve-3d;
+      cursor: pointer;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease, opacity 0.4s ease;
+      will-change: transform;
+    }
+
+    /* Wooden Clothes Peg */
+    .wooden-peg {
+      position: absolute;
+      top: -18px;
+      left: 28px;
+      width: 12px;
+      height: 38px;
+      background: linear-gradient(135deg, #d8bc98 0%, #ba986e 100%);
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      z-index: 30;
+      transform-origin: center top;
+    }
+
+    .wooden-peg::after {
+      content: '';
       position: absolute;
       top: 14px;
-      right: 14px;
-      width: 270px;
-      background-color: #ffffff;
-      border-radius: 12px;
-      padding: 14px 16px;
-      border: 1px solid rgba(13, 13, 13, 0.08);
-      box-shadow: 0 4px 14px rgba(13, 13, 13, 0.06);
-      z-index: 20;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #7a5d3b;
+      opacity: 0.6;
     }
 
-    /* 8-Dot Cluster Glyph */
-    .cluster-logo {
-      display: inline-grid;
-      grid-template-columns: repeat(3, 4.5px);
-      grid-template-rows: repeat(3, 4.5px);
-      gap: 3px;
-      width: 19.5px;
-      height: 19.5px;
-      align-items: center;
-      justify-items: center;
+    /* White Matte Photo Frame */
+    .photo-frame-inner {
+      background: #ffffff;
+      padding: 10px 10px 12px 10px;
+      border-radius: 4px;
+      box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.14), 0 3px 10px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      transition: box-shadow 0.3s ease;
     }
-    .cluster-dot {
-      width: 4.5px;
-      height: 4.5px;
-      border-radius: 50%;
+
+    .hanging-card:hover .photo-frame-inner {
+      box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.25), 0 6px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Draggable Photo Prints Table View */
+    .table-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      cursor: grab;
+      overflow: hidden;
+    }
+
+    .table-container:active {
+      cursor: grabbing;
+    }
+
+    .table-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2500px;
+      height: 1800px;
+      transform-origin: 0 0;
+      will-change: transform;
+    }
+
+    .scattered-print {
+      position: absolute;
+      background: #ffffff;
+      padding: 8px 8px 10px 8px;
+      border-radius: 4px;
+      box-shadow: 0 8px 24px -4px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.04);
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      will-change: transform;
+    }
+
+    .scattered-print:hover {
+      transform: scale(1.08) translateY(-6px) rotate(0deg) !important;
+      z-index: 99 !important;
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.25);
+    }
+
+    /* Pill Navigation Button Active */
+    .tab-pill.active {
       background-color: #0d0d0d;
-    }
-    .cluster-dot.white {
-      background-color: #ffffff;
+      color: #ffffff;
     }
 
-    /* Modal Backdrop */
-    .cosmos-modal-backdrop {
-      background-color: rgba(13, 13, 13, 0.75);
-      backdrop-filter: blur(8px);
+    /* Detail Modal */
+    .modal-backdrop {
+      background-color: rgba(13, 13, 13, 0.85);
+      backdrop-filter: blur(12px);
     }
   </style>
-
-  <!-- Favicon 8-dot cluster logo -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%23f7f5f3%22/><g fill=%22%230d0d0d%22><circle cx=%2230%22 cy=%2230%22 r=%228%22/><circle cx=%2250%22 cy=%2230%22 r=%228%22/><circle cx=%2270%22 cy=%2230%22 r=%228%22/><circle cx=%2230%22 cy=%2250%22 r=%228%22/><circle cx=%2270%22 cy=%2250%22 r=%228%22/><circle cx=%2230%22 cy=%2270%22 r=%228%22/><circle cx=%2250%22 cy=%2270%22 r=%228%22/><circle cx=%2270%22 cy=%2270%22 r=%228%22/></g></svg>">
 </head>
-<body class="bg-[#f7f5f3] text-[#0d0d0d] min-h-screen">
+<body class="h-screen w-screen overflow-hidden bg-[#fbfbfb]">
 
-  <!-- ==================== PILL NAVIGATION BAR ====================
-       Role: Top-of-page floating navigation
-       Contains: logo (8-dot cluster), Explore / Archive links, centered search input, and Login/Sign up.
-       Background: Paper White (#ffffff) with subtle border, 9999px radius, hovers below top edge, NO SHADOW.
-  ================================================================== -->
-  <header class="fixed top-5 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
-    <nav class="pointer-events-auto bg-[#ffffff] border border-[#0d0d0d]/12 rounded-[9999px] px-6 py-3 flex items-center justify-between gap-6 max-w-[1120px] w-full">
-      
-      <!-- Left: 8-dot cluster logo + Brand links -->
-      <div class="flex items-center gap-6">
-        <a href="../" class="flex items-center gap-3 no-underline group text-[#0d0d0d]" title="Cosmos Archive">
-          <div class="cluster-logo">
-            <span class="cluster-dot"></span><span class="cluster-dot"></span><span class="cluster-dot"></span>
-            <span class="cluster-dot"></span><span style="opacity: 0;"></span><span class="cluster-dot"></span>
-            <span class="cluster-dot"></span><span class="cluster-dot"></span><span class="cluster-dot"></span>
-          </div>
-          <span class="font-whisper text-lg tracking-[-0.03em] font-medium">Cosmos</span>
-        </a>
+  <!-- ==================== TOP BAR ==================== -->
+  <header class="absolute top-0 inset-x-0 z-40 px-6 sm:px-10 py-6 flex items-center justify-between pointer-events-none">
+    
+    <!-- Top Left: Farline Brand Pill -->
+    <div class="pointer-events-auto">
+      <a href="../" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-black/15 bg-white text-xs font-bold tracking-wider text-black hover:bg-black hover:text-white transition-colors shadow-sm">
+        <span>FARLINE / MUADZ</span>
+      </a>
+    </div>
 
-        <div class="hidden md:flex items-center gap-5 text-sm font-sans text-[#6e6a69]">
-          <a href="#exhibits" class="hover:text-[#0d0d0d] transition-colors">Explore</a>
-          <a href="#video-film" class="hover:text-[#0d0d0d] transition-colors">Film</a>
-          <a href="../" class="hover:text-[#0d0d0d] transition-colors">Portfolio</a>
-        </div>
+    <!-- Top Right: Frame Counter Counter Badge -->
+    <div class="pointer-events-auto flex items-center gap-3">
+      <div id="counter-badge" class="px-3.5 py-1.5 rounded-full border border-black/15 bg-white text-xs font-mono font-medium text-black shadow-sm">
+        <span id="active-frame-num">01</span> — <span id="total-frames-num">10</span>
       </div>
-
-      <!-- Center: Search Input
-           Borderless text input with leading magnifier icon, placeholder 'Search Cosmos...' in Stone (#6e6a69), transparent fill, 16px text, weight 400 -->
-      <div class="hidden sm:flex items-center gap-2.5 bg-[#f7f5f3] rounded-[9999px] px-4 py-1.5 w-64 border border-transparent focus-within:border-[#0d0d0d]/15">
-        <svg class="w-4 h-4 text-[#6e6a69] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
-        <input type="text" id="cosmos-search" placeholder="Search Cosmos..." class="bg-transparent border-none outline-none text-[15px] text-[#0d0d0d] placeholder-[#6e6a69] font-sans w-full" />
-      </div>
-
-      <!-- Right: Category Filter Pills + Action -->
-      <div class="flex items-center gap-3">
-        <a href="../" class="cosmos-btn-secondary !text-sm !py-2 !px-4 !rounded-[9999px] hidden sm:inline-flex">
-          <span>Main Site</span>
-        </a>
-        <a href="../#contact" class="cosmos-btn-primary !text-sm !py-2 !px-4 !rounded-[9999px]">
-          <span>Get in touch</span>
-        </a>
-      </div>
-
-    </nav>
+    </div>
   </header>
 
-  <!-- ==================== HERO SECTION ====================
-       Role: Full-bleed positioning for scattered image tiles (60-140px, 12px radius, rotated 2-4°, no border, no shadow).
-       Centered text stack: Eyebrow ('COSMOS') → 74px headline (weight 350, -3.7px tracking, 0.80 line-height) → two-button row.
-  =========================================================== -->
-  <section class="relative pt-40 pb-28 md:pt-48 md:pb-36 overflow-hidden min-h-[92vh] flex items-center justify-center">
+  <!-- ==================== VIEW 1: MAIN (3D HANGING CLOTHESLINE) ==================== -->
+  <main id="view-main" class="relative w-full h-full flex items-center overflow-hidden transition-opacity duration-500">
     
-    <!-- SCATTERED HERO IMAGE TILES (60-140px, 12px radius, rotated 2-4°, zero border, zero shadow) -->
-    
-    <!-- Tile 1: Top Left - Lumaskin Brightening (130px, -3.5deg) -->
-    <div class="floating-tile top-24 left-[5%] sm:left-[8%] md:left-[11%] w-28 sm:w-32 md:w-36 aspect-[4/5] -rotate-[3.5deg] hidden sm:block" data-title="Lumaskin Brightening Series" data-cat="Marketplace Hero" data-src="../assets/lumaskinnn%20bright.png" data-desc="Hero storefront display marketplace Lumaskin Brightening Series.">
-      <img src="../assets/lumaskinnn%20bright.png" alt="Lumaskin Bright" class="w-full h-full object-cover" />
-    </div>
-
-    <!-- Tile 2: Far Top Left - Avenor Packaging (80px, 2.5deg) -->
-    <div class="floating-tile top-16 left-[2%] w-20 sm:w-24 aspect-square rotate-[2.5deg] hidden lg:block" data-title="Avenor Chia Seed" data-cat="Packaging" data-src="../assets/avenor-chia-seed.jpg" data-desc="Superfood pouch dielines & botanical emblem.">
-      <img src="../assets/avenor-chia-seed.jpg" alt="Avenor Chia Seed" class="w-full h-full object-cover" />
-    </div>
-
-    <!-- Tile 3: Mid Left - Berka Herbal Pouch (120px, 2deg) -->
-    <div class="floating-tile top-1/2 -translate-y-1/2 left-[1%] sm:left-[3%] md:left-[5%] w-24 sm:w-28 md:w-32 aspect-[4/5] rotate-[2deg]" data-title="Berka Herbal Stand Pouch" data-cat="Packaging Architecture" data-src="../assets/berka-pouch.png" data-desc="Retail ready packaging dielines.">
-      <img src="../assets/berka-pouch.png" alt="Berka Herbal" class="w-full h-full object-cover" />
-    </div>
-
-    <!-- Tile 4: Bottom Left - Lumaskin Ingredients (105px, -2.5deg) -->
-    <div class="floating-tile bottom-12 left-[6%] sm:left-[9%] md:left-[12%] w-24 sm:w-28 aspect-square -rotate-[2.5deg] hidden sm:block" data-title="Clinical Formula Slide" data-cat="Marketplace Infographic" data-src="../assets/Lumaskin%20brightt.png" data-desc="Clinical active ingredient breakdown.">
-      <img src="../assets/Lumaskin%20brightt.png" alt="Lumaskin Ingredients" class="w-full h-full object-cover" />
-    </div>
-
-    <!-- Tile 5: Top Right - Lumaskin Acne Solution (130px, 3.5deg) -->
-    <div class="floating-tile top-24 right-[5%] sm:right-[8%] md:right-[11%] w-28 sm:w-32 md:w-36 aspect-[4/5] rotate-[3.5deg] hidden sm:block" data-title="Lumaskin Acne Solution" data-cat="Marketplace Slide" data-src="../assets/lumaaskin%20acne.png" data-desc="Acne solution benefit breakdown.">
-      <img src="../assets/lumaaskin%20acne.png" alt="Lumaskin Acne Solution" class="w-full h-full object-cover" />
-    </div>
-
-    <!-- Tile 6: Far Top Right - Loka Cibiru Flash Sale (90px, -2deg) -->
-    <div class="floating-tile top-16 right-[2%] w-20 sm:w-24 aspect-[16/11] -rotate-[2deg] hidden lg:block" data-title="Loka Cibiru Promo" data-cat="Campaign Design" data-src="../assets/lokacibiru.png" data-desc="Marketplace high-conversion banner.">
-      <img src="../assets/lokacibiru.png" alt="Loka Cibiru" class="w-full h-full object-cover" />
-    </div>
-
-    <!-- Tile 7: Mid Right - AI File Organizer (125px, -2.5deg) -->
-    <div class="floating-tile top-1/2 -translate-y-1/2 right-[1%] sm:right-[3%] md:right-[5%] w-24 sm:w-28 md:w-32 aspect-[16/11] -rotate-[2.5deg]" data-title="AI File Organizer" data-cat="Product Interface" data-src="../assets/ai-file-organizer.png" data-desc="Semantic desktop taxonomy interface.">
-      <img src="../assets/ai-file-organizer.png" alt="AI File Organizer" class="w-full h-full object-cover" />
-    </div>
-
-    <!-- Tile 8: Bottom Right - Lumaskin Usage Guide (110px, 2deg) -->
-    <div class="floating-tile bottom-12 right-[6%] sm:right-[9%] md:right-[12%] w-24 sm:w-28 aspect-square rotate-[2deg] hidden sm:block" data-title="Customer Routine Guide" data-cat="Marketplace Guide" data-src="../assets/lumaskin%20acne%201.png" data-desc="Step-by-step skincare routine infographic.">
-      <img src="../assets/lumaskin%20acne%201.png" alt="Lumaskin Guide" class="w-full h-full object-cover" />
-    </div>
-
-    <!-- CENTER HERO TEXT STACK -->
-    <div class="max-w-[840px] mx-auto px-6 text-center relative z-30">
+    <!-- Left Fixed Editorial Sidebar -->
+    <div class="absolute left-6 sm:left-12 top-28 sm:top-36 z-30 max-w-sm pointer-events-auto">
       
-      <!-- Eyebrow Label: cosmosOracle weight 500, 15-16px, tracked at 0em, rendered as 'COSMOS' -->
-      <div class="mb-5">
-        <span class="font-whisper text-base tracking-[0em] font-medium text-[#0d0d0d] uppercase">
-          COSMOS
-        </span>
-      </div>
-
-      <!-- Headline: 74px cosmosOracle weight 350 in #0d0d0d with letter-spacing -3.7px and line-height 0.80 -->
-      <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-[74px] font-whisper text-[#0d0d0d] tracking-74 leading-display-xl mb-9">
-        A gallery for visual discovery.
+      <!-- Huge Farline Display Headline -->
+      <h1 class="text-6xl sm:text-7xl md:text-8xl font-headline tracking-wide text-black uppercase leading-[0.85] mb-6">
+        FARLINE
       </h1>
 
-      <!-- Supporting Body Text: Stone #6e6a69, 16px, weight 400, line-height 1.5, letter-spacing -0.18px -->
-      <p class="font-whisper text-base md:text-[18px] text-[#6e6a69] tracking-16 leading-body max-w-lg mx-auto mb-10">
-        A canvas for visual discovery where the chrome is invisible so the images can shout. Curated by Muadz.
-      </p>
+      <div class="border-t border-black/15 pt-5 space-y-2">
+        <h2 id="active-title" class="text-2xl sm:text-3xl font-bold text-black tracking-tight leading-tight">
+          Lumaskin Brightening
+        </h2>
+        <div id="active-meta" class="text-xs font-mono text-zinc-500 uppercase tracking-wider">
+          MARKETPLACE HERO · 2026
+        </div>
+        <p id="active-desc" class="text-xs sm:text-sm text-zinc-600 leading-relaxed pt-2 max-w-xs font-normal">
+          Desain etalase utama varian Brightening Series berestetika glow elegan dengan penekanan hasil uji efikasi mencerahkan kulit di Shopee & Tokopedia.
+        </p>
 
-      <!-- Two-Button Row: Primary Filled (Ink Black) + Secondary Outlined (Paper White 1px 15% opacity), identical radius 16px, identical padding 16px/24px -->
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="#exhibits" class="cosmos-btn-primary">
-          <span>Explore gallery</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </a>
-        <a href="#video-film" class="cosmos-btn-secondary">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M8 5v14l11-7z" />
-          </svg>
-          <span>Watch the film</span>
-        </a>
+        <!-- Action Buttons -->
+        <div class="pt-4 flex items-center gap-3">
+          <button id="btn-inspect-active" class="px-4 py-2 rounded-full bg-black text-white text-xs font-medium tracking-wide hover:bg-zinc-800 transition-colors flex items-center gap-1.5">
+            <span>VIEW PRINT</span>
+            <span>→</span>
+          </button>
+          <a href="../" class="px-3.5 py-2 rounded-full border border-black/15 bg-white text-black text-xs font-medium hover:bg-zinc-100 transition-colors">
+            Portfolio
+          </a>
+        </div>
       </div>
 
     </div>
-  </section>
 
-  <!-- ==================== VIDEO CONTAINER COMPONENT ====================
-       Role: Full-bleed film/video embed
-       A 16px-radius container spanning the page max-width (1280px), holding a video poster with a 9-dot loading animation overlaid in white at center.
-       Split text overlay: 'Watch' left-aligned and 'the film' right-aligned at 38px weight 350, with a play triangle between.
-       Small caption 'featuring Muadz' centered near bottom.
-  ======================================================================== -->
-  <section id="video-film" class="max-w-[1280px] mx-auto px-4 sm:px-6 mb-28">
-    <div class="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-[16px] overflow-hidden bg-[#0d0d0d] group">
+    <!-- Right: Interactive 3D Clothesline Stage -->
+    <div class="clothesline-stage absolute inset-0 w-full h-full pointer-events-auto">
       
-      <!-- Video Element -->
-      <video id="cosmos-video-player" class="w-full h-full object-cover opacity-80 group-hover:opacity-90 transition-opacity" loop playsinline preload="metadata" poster="../assets/editing-video.jpg">
-        <source src="../assets/editing-with-ai.mp4" type="video/mp4" />
-      </video>
+      <!-- SVG Diagonal Hanging Wires across space -->
+      <svg class="hanging-wire-svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <path d="M 400 480 Q 850 420 1440 320" fill="none" stroke="#222222" stroke-width="1.8" stroke-linecap="round" opacity="0.65" />
+        <path d="M 520 620 Q 950 560 1440 460" fill="none" stroke="#222222" stroke-width="1.4" stroke-linecap="round" opacity="0.45" />
+      </svg>
 
-      <!-- Split Text Overlay Container -->
-      <div id="video-overlay" class="absolute inset-0 bg-black/25 flex flex-col justify-between p-8 sm:p-12 text-white cursor-pointer transition-all">
-        
-        <!-- Split text overlay: 'Watch' left-aligned and 'the film' right-aligned at 38px weight 350 -->
-        <div class="flex items-center justify-between w-full">
-          <span class="font-whisper text-2xl sm:text-[38px] text-white tracking-38 leading-heading-lg">Watch</span>
-          <span class="font-whisper text-2xl sm:text-[38px] text-white tracking-38 leading-heading-lg">the film</span>
-        </div>
-
-        <!-- Center 9-dot cluster glyph with play triangle between -->
-        <div class="self-center flex flex-col items-center gap-4">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-[16px] bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-105 transition-transform">
-            <svg class="w-6 h-6 sm:w-7 sm:h-7 text-white fill-current ml-1" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </div>
-          <!-- 8-dot cluster icon overlaid in white -->
-          <div class="cluster-logo" style="opacity: 0.85;">
-            <span class="cluster-dot white"></span><span class="cluster-dot white"></span><span class="cluster-dot white"></span>
-            <span class="cluster-dot white"></span><span style="opacity: 0;"></span><span class="cluster-dot white"></span>
-            <span class="cluster-dot white"></span><span class="cluster-dot white"></span><span class="cluster-dot white"></span>
-          </div>
-        </div>
-
-        <!-- Small caption centered near the bottom in white at 70% opacity -->
-        <div class="text-center">
-          <p class="font-whisper text-sm text-white/70 tracking-14">
-            featuring Muadz — kinetic visual direction &amp; generative media
-          </p>
-        </div>
-
+      <!-- Clothesline Track containing Hanging Frames -->
+      <div id="clothesline-track" class="clothesline-track">
+        <!-- Injected via JavaScript for perspective layering -->
       </div>
 
     </div>
-  </section>
 
-  <!-- ==================== THREE-COLUMN FEATURE ROW ====================
-       Role: Three-up feature row showing product capabilities
-       Large image-first card with 16px radius. Image fills card edge-to-edge;
-       below it sits cosmosOracle weight 400 label at 18px (e.g. 'By color').
-       No visible border, no shadow, no background color — the image defines the card.
-       Three cards sit in a 3-column grid with 24px gap.
-  ======================================================================== -->
-  <section id="exhibits" class="max-w-[1280px] mx-auto px-4 sm:px-6 mb-28">
+    <!-- Navigation Arrows for Clothesline Slider -->
+    <div class="absolute bottom-24 right-8 sm:right-16 z-30 flex items-center gap-2">
+      <button id="btn-prev-slide" class="w-10 h-10 rounded-full border border-black/20 bg-white hover:bg-black hover:text-white transition-colors flex items-center justify-center text-sm shadow-sm" aria-label="Previous">
+        ←
+      </button>
+      <button id="btn-next-slide" class="w-10 h-10 rounded-full border border-black/20 bg-white hover:bg-black hover:text-white transition-colors flex items-center justify-center text-sm shadow-sm" aria-label="Next">
+        →
+      </button>
+    </div>
+
+  </main>
+
+  <!-- ==================== VIEW 2: GALLERY (DRAGGABLE PHOTO TABLE CANVAS) ==================== -->
+  <section id="view-gallery" class="absolute inset-0 w-full h-full opacity-0 pointer-events-none transition-opacity duration-500 overflow-hidden bg-[#fafafa]">
     
-    <!-- Section Header (Subtle editorial title) -->
-    <div class="flex items-baseline justify-between mb-10 pb-4 border-b border-[#0d0d0d]/10">
-      <h2 class="font-whisper text-3xl sm:text-[33px] text-[#0d0d0d] tracking-33 leading-heading">
-        Featured curation
-      </h2>
-      <span class="font-sans text-sm text-[#6e6a69]">01 — 06</span>
-    </div>
-
-    <!-- 3-Column Grid with 24px Gap -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Gallery Header Text & Category Filters -->
+    <div class="absolute top-24 left-8 sm:left-14 z-30 pointer-events-auto max-w-md">
+      <h1 class="text-6xl sm:text-7xl font-headline tracking-wide text-black uppercase leading-none mb-4">
+        GALLERY
+      </h1>
+      <p class="text-xs sm:text-sm text-zinc-500 max-w-sm leading-relaxed mb-4">
+        Out-takes and curated frames laid out on the table. Drag canvas to explore, hover to lift a print, click to inspect closer.
+      </p>
       
-      <!-- Card 1: By Marketplace / Lumaskin Brightening (WITH AI CONTENT DETECTION OVERLAY) -->
-      <article class="feature-image-card relative" data-title="Lumaskin Brightening Series" data-cat="Marketplace Hero" data-src="../assets/lumaskinnn%20bright.png" data-desc="Desain etalase utama varian Brightening Series dengan penekanan hasil uji efikasi mencerahkan kulit di platform e-commerce.">
-        
-        <!-- AI Content Detection Overlay Component (Paper White surface with 12px radius, ~280px wide, positioned top-right inside feature card) -->
-        <div class="ai-content-overlay hidden sm:block">
-          <div class="flex items-center justify-between mb-1">
-            <span class="font-sans font-medium text-[16px] text-[#0d0d0d]">AI content</span>
-            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-          </div>
-          <p class="font-sans text-[14px] text-[#6e6a69] leading-tight mb-3">
-            Content detected as likely generated by AI
-          </p>
-          <div class="flex items-center gap-2">
-            <button class="bg-[#0d0d0d] text-white text-xs font-sans px-3 py-1 rounded-[16px]">Show</button>
-            <button class="text-[#6e6a69] hover:text-[#0d0d0d] text-xs font-sans px-2 py-1">Blur</button>
-            <button class="text-[#6e6a69] hover:text-[#0d0d0d] text-xs font-sans px-2 py-1">Hide</button>
-          </div>
-        </div>
+      <div class="flex items-center gap-2 text-[10px] font-mono tracking-widest text-zinc-400 uppercase mb-3">
+        <span>— DRAG TO EXPLORE</span>
+      </div>
 
-        <div class="feature-image-wrapper">
-          <img src="../assets/lumaskinnn%20bright.png" alt="Lumaskin Brightening" loading="lazy" />
-        </div>
-        <div class="mt-4">
-          <p class="font-whisper text-[18px] text-[#0d0d0d] tracking-18">
-            By marketplace
-          </p>
-        </div>
-      </article>
-
-      <!-- Card 2: By Packaging / Avenor Chia Seed -->
-      <article class="feature-image-card" data-title="Avenor Chia Seed" data-cat="Packaging Architecture" data-src="../assets/avenor-chia-seed.jpg" data-desc="Tactile matte pouch dielines dan minimal botanical typography untuk produk superfood modern.">
-        <div class="feature-image-wrapper">
-          <img src="../assets/avenor-chia-seed.jpg" alt="Avenor Chia Seed" loading="lazy" />
-        </div>
-        <div class="mt-4">
-          <p class="font-whisper text-[18px] text-[#0d0d0d] tracking-18">
-            By packaging
-          </p>
-        </div>
-      </article>
-
-      <!-- Card 3: By Color / Lumaskin Acne Solution -->
-      <article class="feature-image-card" data-title="Lumaskin Acne Solution" data-cat="Clinical Active Formula" data-src="../assets/lumaaskin%20acne.png" data-desc="Marketplace slide breakdown formula klinis dan solusi jerawat untuk memandu keputusan beli konsumen.">
-        <div class="feature-image-wrapper">
-          <img src="../assets/lumaaskin%20acne.png" alt="Lumaskin Acne" loading="lazy" />
-        </div>
-        <div class="mt-4">
-          <p class="font-whisper text-[18px] text-[#0d0d0d] tracking-18">
-            By formula
-          </p>
-        </div>
-      </article>
-
-      <!-- Card 4: Berka Herbal Stand Pouch -->
-      <article class="feature-image-card" data-title="Berka Herbal Stand Pouch" data-cat="Retail Architecture" data-src="../assets/berka-pouch.png" data-desc="Struktur layout kemasan retail pouch siap produksi massal dengan aksen botanical modern.">
-        <div class="feature-image-wrapper">
-          <img src="../assets/berka-pouch.png" alt="Berka Herbal" loading="lazy" />
-        </div>
-        <div class="mt-4">
-          <p class="font-whisper text-[18px] text-[#0d0d0d] tracking-18">
-            By dieline
-          </p>
-        </div>
-      </article>
-
-      <!-- Card 5: Loka Cibiru Promo Campaign -->
-      <article class="feature-image-card" data-title="Loka Cibiru Campaign" data-cat="Promotional Banner" data-src="../assets/lokacibiru.png" data-desc="Display banner promosi marketplace yang memadukan tipografi bold dan promo flash-sale.">
-        <div class="feature-image-wrapper">
-          <img src="../assets/lokacibiru.png" alt="Loka Cibiru" loading="lazy" />
-        </div>
-        <div class="mt-4">
-          <p class="font-whisper text-[18px] text-[#0d0d0d] tracking-18">
-            By campaign
-          </p>
-        </div>
-      </article>
-
-      <!-- Card 6: AI File Organizer System -->
-      <article class="feature-image-card" data-title="AI File Organizer" data-cat="Product UI Systems" data-src="../assets/ai-file-organizer.png" data-desc="Arsitektur antarmuka sistem otomatisasi file media berbasis AI dan semantic taxonomy.">
-        <div class="feature-image-wrapper">
-          <img src="../assets/ai-file-organizer.png" alt="AI File Organizer" loading="lazy" />
-        </div>
-        <div class="mt-4">
-          <p class="font-whisper text-[18px] text-[#0d0d0d] tracking-18">
-            By interface
-          </p>
-        </div>
-      </article>
-
+      <!-- Filter Pills -->
+      <div class="flex flex-wrap items-center gap-2 font-sans text-xs">
+        <button class="filter-pill active px-3.5 py-1.5 rounded-full bg-black text-white font-medium shadow-sm transition-colors" data-tag="all">
+          ALL (10)
+        </button>
+        <button class="filter-pill px-3.5 py-1.5 rounded-full bg-white border border-black/15 text-zinc-700 hover:text-black font-medium transition-colors" data-tag="marketplace">
+          MARKETPLACE
+        </button>
+        <button class="filter-pill px-3.5 py-1.5 rounded-full bg-white border border-black/15 text-zinc-700 hover:text-black font-medium transition-colors" data-tag="packaging">
+          PACKAGING
+        </button>
+        <button class="filter-pill px-3.5 py-1.5 rounded-full bg-white border border-black/15 text-zinc-700 hover:text-black font-medium transition-colors" data-tag="systems">
+          AI SYSTEMS
+        </button>
+      </div>
     </div>
+
+    <!-- Draggable Infinite Surface Table -->
+    <div id="table-drag-container" class="table-container">
+      <div id="table-canvas" class="table-canvas">
+        <!-- Scattered photos injected via JavaScript -->
+      </div>
+    </div>
+
   </section>
 
-  <!-- ==================== SECOND 3-COLUMN ROW ==================== -->
-  <section class="max-w-[1280px] mx-auto px-4 sm:px-6 mb-28">
-    <div class="flex items-baseline justify-between mb-10 pb-4 border-b border-[#0d0d0d]/10">
-      <h2 class="font-whisper text-3xl sm:text-[33px] text-[#0d0d0d] tracking-33 leading-heading">
-        Archive studies
-      </h2>
-      <span class="font-sans text-sm text-[#6e6a69]">07 — 09</span>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Card 7: Lumaskin Ingredients -->
-      <article class="feature-image-card" data-title="Active Formula Breakdown" data-cat="Scientific Catalog" data-src="../assets/Lumaskin%20brightt.png" data-desc="Slide katalog informatif yang membedah bahan pencerah aktif secara visual dan bersih.">
-        <div class="feature-image-wrapper">
-          <img src="../assets/Lumaskin%20brightt.png" alt="Active Formula" loading="lazy" />
-        </div>
-        <div class="mt-4">
-          <p class="font-whisper text-[18px] text-[#0d0d0d] tracking-18">
-            By active formula
-          </p>
-        </div>
-      </article>
-
-      <!-- Card 8: Lumaskin Routine Guide -->
-      <article class="feature-image-card" data-title="Customer Routine Guide" data-cat="Infographic Routine" data-src="../assets/lumaskin%20acne%201.png" data-desc="Visual edukasi panduan langkah pemakaian produk untuk mengurangi keraguan pembeli.">
-        <div class="feature-image-wrapper">
-          <img src="../assets/lumaskin%20acne%201.png" alt="Routine Guide" loading="lazy" />
-        </div>
-        <div class="mt-4">
-          <p class="font-whisper text-[18px] text-[#0d0d0d] tracking-18">
-            By routine
-          </p>
-        </div>
-      </article>
-
-      <!-- Card 9: Editorial Content Lab -->
-      <article class="feature-image-card" data-title="Editorial Content Ecosystem" data-cat="Content Lab" data-src="../assets/media-instagram.jpg" data-desc="Sistem visual konten editorial untuk distribusi multi-platform Instagram & TikTok.">
-        <div class="feature-image-wrapper">
-          <img src="../assets/media-instagram.jpg" alt="Editorial Media" loading="lazy" />
-        </div>
-        <div class="mt-4">
-          <p class="font-whisper text-[18px] text-[#0d0d0d] tracking-18">
-            By media
-          </p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- ==================== FOOTER ==================== -->
-  <footer class="border-t border-[#0d0d0d]/10 py-16 px-6 bg-[#f7f5f3]">
-    <div class="max-w-[1280px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-sm font-sans text-[#6e6a69]">
-      <div class="flex items-center gap-3">
-        <div class="cluster-logo">
-          <span class="cluster-dot"></span><span class="cluster-dot"></span><span class="cluster-dot"></span>
-          <span class="cluster-dot"></span><span style="opacity: 0;"></span><span class="cluster-dot"></span>
-          <span class="cluster-dot"></span><span class="cluster-dot"></span><span class="cluster-dot"></span>
-        </div>
-        <span class="font-medium text-[#0d0d0d]">Cosmos</span>
-        <span>•</span>
-        <span>A gallery-wrapped canvas for visual discovery</span>
-      </div>
-      <div class="flex items-center gap-6">
-        <a href="../" class="hover:text-[#0d0d0d] transition-colors">Portfolio</a>
-        <a href="../#contact" class="hover:text-[#0d0d0d] transition-colors">Contact</a>
-        <a href="https://instagram.com/Muadz_dora" target="_blank" class="hover:text-[#0d0d0d] transition-colors">Instagram ↗</a>
-      </div>
+  <!-- ==================== BOTTOM FLOATING PILL NAVIGATION ==================== -->
+  <footer class="fixed bottom-6 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
+    <div class="pointer-events-auto bg-white/95 backdrop-blur-md border border-black/15 rounded-full p-1.5 flex items-center gap-1 shadow-lg">
+      <button id="tab-main" class="tab-pill active px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all">
+        MAIN
+      </button>
+      <button id="tab-gallery" class="tab-pill px-4 py-2 rounded-full text-xs font-semibold tracking-wide text-zinc-600 hover:text-black transition-all">
+        GALLERY
+      </button>
+      <a href="../#work" class="px-4 py-2 rounded-full text-xs font-semibold tracking-wide text-zinc-600 hover:text-black transition-colors">
+        WORK
+      </a>
+      <a href="../#about" class="px-4 py-2 rounded-full text-xs font-semibold tracking-wide text-zinc-600 hover:text-black transition-colors hidden sm:inline-block">
+        ABOUT
+      </a>
+      <a href="../#contact" class="px-4 py-2 rounded-full text-xs font-semibold tracking-wide text-zinc-600 hover:text-black transition-colors">
+        CONTACT
+      </a>
     </div>
   </footer>
 
   <!-- ==================== DETAIL MODAL VIEWER ==================== -->
-  <div id="image-modal" class="fixed inset-0 z-[100] cosmos-modal-backdrop flex items-center justify-center p-4 sm:p-8 opacity-0 pointer-events-none transition-all duration-300">
-    <div class="bg-white rounded-[16px] max-w-4xl w-full max-h-[92vh] overflow-hidden flex flex-col border border-[#0d0d0d]/15 shadow-2xl transition-transform duration-300 scale-95" id="modal-card">
+  <div id="print-modal" class="fixed inset-0 z-[100] modal-backdrop flex items-center justify-center p-4 sm:p-8 opacity-0 pointer-events-none transition-all duration-300">
+    <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[92vh] overflow-hidden flex flex-col border border-black/15 shadow-2xl transition-transform duration-300 scale-95" id="modal-card">
       
-      <div class="p-5 px-7 border-b border-[#0d0d0d]/10 flex items-center justify-between bg-white">
+      <div class="p-4 px-6 border-b border-black/10 flex items-center justify-between">
         <div>
-          <span id="modal-cat" class="text-xs font-sans text-[#6e6a69] uppercase tracking-wider block">EXHIBIT</span>
-          <h3 id="modal-title" class="font-whisper text-2xl text-[#0d0d0d] tracking-24">Title</h3>
+          <span id="modal-meta" class="text-[10px] font-mono uppercase text-zinc-500 tracking-wider block">SERIES CATEGORY</span>
+          <h3 id="modal-title" class="text-xl font-bold text-black tracking-tight">Print Title</h3>
         </div>
-        <button id="modal-close" class="w-9 h-9 rounded-full bg-[#f7f5f3] hover:bg-[#0d0d0d] hover:text-white transition-colors flex items-center justify-center text-sm font-sans cursor-pointer">
+        <button id="modal-close" class="w-8 h-8 rounded-full bg-zinc-100 hover:bg-black hover:text-white transition-colors flex items-center justify-center text-sm font-sans cursor-pointer">
           ✕
         </button>
       </div>
 
-      <div class="p-8 overflow-y-auto flex-1 flex flex-col items-center bg-[#f7f5f3]">
-        <div class="max-w-2xl w-full flex items-center justify-center bg-white p-3 rounded-[16px] border border-[#0d0d0d]/10">
-          <img id="modal-img" src="" alt="Detail Preview" class="max-h-[62vh] object-contain rounded-[12px]" />
+      <div class="p-6 overflow-y-auto flex-1 flex flex-col items-center bg-[#f4f4f5]">
+        <div class="max-w-2xl w-full flex items-center justify-center bg-white p-3 rounded-xl border border-black/10 shadow-sm">
+          <img id="modal-img" src="" alt="Detail Preview" class="max-h-[62vh] object-contain rounded-lg" />
         </div>
-        <p id="modal-desc" class="font-whisper text-base text-[#0d0d0d] mt-6 max-w-xl text-center leading-body font-normal"></p>
+        <p id="modal-desc" class="text-xs sm:text-sm text-zinc-700 mt-5 max-w-xl text-center leading-relaxed font-normal"></p>
       </div>
 
     </div>
   </div>
 
-  <!-- Interactive Scripts -->
+  <!-- JavaScript Orchestrator -->
   <script>
-    // Video Player
-    const video = document.getElementById('cosmos-video-player');
-    const overlay = document.getElementById('video-overlay');
-    if (video && overlay) {
-      overlay.addEventListener('click', () => {
-        if (video.paused) {
-          video.play();
-          video.muted = false;
-          overlay.classList.add('opacity-0', 'pointer-events-none');
-        } else {
-          video.pause();
-          overlay.classList.remove('opacity-0', 'pointer-events-none');
-        }
+    // Gallery Items Dataset (Muadz authentic works)
+    const galleryItems = [
+      {
+        id: 0,
+        title: "Lumaskin Brightening Series",
+        meta: "MARKETPLACE HERO · 2026",
+        tag: "marketplace",
+        src: "../assets/lumaskinnn%20bright.png",
+        desc: "Desain etalase utama varian Brightening Series berestetika glow elegan dengan penekanan hasil uji efikasi mencerahkan kulit di Shopee & Tokopedia.",
+        wireOffset: 0
+      },
+      {
+        id: 1,
+        title: "Avenor Chia Seed Pouch",
+        meta: "TACTILE PACKAGING · 2026",
+        tag: "packaging",
+        src: "../assets/avenor-chia-seed.jpg",
+        desc: "Tactile matte pouch dielines dan minimal botanical typography untuk produk superfood modern berkarakter premium dan clean.",
+        wireOffset: 1
+      },
+      {
+        id: 2,
+        title: "Lumaskin Acne Solution",
+        meta: "CLINICAL ACTIVE FORMULA · 2026",
+        tag: "marketplace",
+        src: "../assets/lumaaskin%20acne.png",
+        desc: "Marketplace slide breakdown formula klinis, solusi jerawat, dan keunggulan bahan aktif untuk memandu keputusan beli konsumen secara transparan.",
+        wireOffset: 2
+      },
+      {
+        id: 3,
+        title: "Berka Herbal Stand Pouch",
+        meta: "RETAIL ARCHITECTURE · 2026",
+        tag: "packaging",
+        src: "../assets/berka-pouch.png",
+        desc: "Struktur layout kemasan retail pouch siap produksi massal dengan aksen botanical modern dan kepatuhan label legalitas.",
+        wireOffset: 3
+      },
+      {
+        id: 4,
+        title: "Loka Cibiru Promo Campaign",
+        meta: "CAMPAIGN DESIGN · 2026",
+        tag: "marketplace",
+        src: "../assets/lokacibiru.png",
+        desc: "Display banner promosi marketplace yang memadukan tipografi bold, promo flash-sale, dan komposisi produk yang eye-catching.",
+        wireOffset: 4
+      },
+      {
+        id: 5,
+        title: "AI File Organizer System",
+        meta: "PRODUCT UI INTERFACE · 2026",
+        tag: "systems",
+        src: "../assets/ai-file-organizer.png",
+        desc: "Arsitektur antarmuka sistem otomatisasi file media berbasis AI, semantic taxonomy, dan folder parsing otomatis.",
+        wireOffset: 5
+      },
+      {
+        id: 6,
+        title: "Lumaskin Ingredients Breakdown",
+        meta: "SCIENTIFIC CATALOG · 2026",
+        tag: "marketplace",
+        src: "../assets/Lumaskin%20brightt.png",
+        desc: "Slide katalog informatif yang membedah bahan pencerah aktif (Niacinamide/Vitamin C) secara visual, bersih, dan meyakinkan.",
+        wireOffset: 6
+      },
+      {
+        id: 7,
+        title: "Customer Routine Guide",
+        meta: "USAGE INFOGRAPHIC · 2026",
+        tag: "marketplace",
+        src: "../assets/lumaskin%20acne%201.png",
+        desc: "Visual edukasi panduan langkah pemakaian dan kompatibilitas jenis kulit untuk mengurangi keraguan pembeli pada etalase e-commerce.",
+        wireOffset: 7
+      },
+      {
+        id: 8,
+        title: "Social Editorial Grid",
+        meta: "CONTENT DISTRIBUTION · 2026",
+        tag: "systems",
+        src: "../assets/media-instagram.jpg",
+        desc: "Sistem visual konten editorial untuk distribusi multi-platform Instagram @Muadz_dora & TikTok dengan sinkronisasi template terukur.",
+        wireOffset: 8
+      },
+      {
+        id: 9,
+        title: "Kinetic Video Motion Still",
+        meta: "VIDEO EDITING REEL · 2026",
+        tag: "systems",
+        src: "../assets/editing-video.jpg",
+        desc: "Still capture alur kerja editing video kinetik berbasis AI dengan tempo audio dinamis dan transisi kinetik berbobot.",
+        wireOffset: 9
+      }
+    ];
+
+    let currentIndex = 0;
+    const totalItems = galleryItems.length;
+
+    // --- 3D CLOTHESLINE RENDERER ---
+    const track = document.getElementById('clothesline-track');
+    const activeTitle = document.getElementById('active-title');
+    const activeMeta = document.getElementById('active-meta');
+    const activeDesc = document.getElementById('active-desc');
+    const activeFrameNum = document.getElementById('active-frame-num');
+    const totalFramesNum = document.getElementById('total-frames-num');
+
+    totalFramesNum.textContent = String(totalItems).padStart(2, '0');
+
+    function renderClothesline() {
+      track.innerHTML = '';
+      
+      galleryItems.forEach((item, i) => {
+        const card = document.createElement('div');
+        card.className = 'hanging-card';
+        card.setAttribute('data-index', i);
+
+        card.innerHTML = `
+          <div class="wooden-peg"></div>
+          <div class="photo-frame-inner w-[240px] sm:w-[310px] md:w-[360px] aspect-[4/5]">
+            <img src="${item.src}" alt="${item.title}" class="w-full h-full object-cover rounded-sm" />
+          </div>
+        `;
+
+        card.addEventListener('click', () => {
+          if (currentIndex === i) {
+            openModal(item.src, item.title, item.meta, item.desc);
+          } else {
+            setSlide(i);
+          }
+        });
+
+        track.appendChild(card);
       });
 
-      video.addEventListener('click', () => {
-        video.pause();
-        overlay.classList.remove('opacity-0', 'pointer-events-none');
+      updateSlidePositions();
+    }
+
+    function updateSlidePositions() {
+      const cards = track.querySelectorAll('.hanging-card');
+      const item = galleryItems[currentIndex];
+
+      // Update sidebar content
+      activeTitle.textContent = item.title;
+      activeMeta.textContent = item.meta;
+      activeDesc.textContent = item.desc;
+      activeFrameNum.textContent = String(currentIndex + 1).padStart(2, '0');
+
+      cards.forEach((card, i) => {
+        const diff = i - currentIndex;
+        
+        // Perspective 3D calculation: cards hang along a diagonal receding string
+        // diff = 0 is closest in foreground right center
+        const xOffset = 520 + diff * 220; // diagonal rightwards
+        const yOffset = 260 - diff * 45;  // slanting upwards in the distance
+        const zOffset = -diff * 260;      // receding deep into z-space
+        const rotateY = -18;              // 3D angle matching clothesline slope
+        const rotateZ = (i % 2 === 0 ? 1.5 : -1.5) - (diff * 0.5); // slight natural sway
+        const scale = Math.max(0.4, 1 - Math.abs(diff) * 0.12);
+
+        if (Math.abs(diff) > 4) {
+          card.style.opacity = '0';
+          card.style.pointerEvents = 'none';
+        } else {
+          card.style.opacity = diff < 0 ? '0.4' : '1';
+          card.style.pointerEvents = 'auto';
+        }
+
+        card.style.transform = `translate3d(${xOffset}px, ${yOffset}px, ${zOffset}px) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) scale(${scale})`;
+        card.style.zIndex = 50 - Math.abs(diff);
       });
     }
 
-    // Modal Details
-    const modal = document.getElementById('image-modal');
+    function setSlide(index) {
+      currentIndex = (index + totalItems) % totalItems;
+      updateSlidePositions();
+    }
+
+    document.getElementById('btn-prev-slide').addEventListener('click', () => setSlide(currentIndex - 1));
+    document.getElementById('btn-next-slide').addEventListener('click', () => setSlide(currentIndex + 1));
+    document.getElementById('btn-inspect-active').addEventListener('click', () => {
+      const item = galleryItems[currentIndex];
+      openModal(item.src, item.title, item.meta, item.desc);
+    });
+
+    // Keyboard arrow navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') setSlide(currentIndex - 1);
+      if (e.key === 'ArrowRight') setSlide(currentIndex + 1);
+    });
+
+    // Wheel scrub on clothesline
+    let wheelCooldown = false;
+    window.addEventListener('wheel', (e) => {
+      if (document.getElementById('view-main').classList.contains('opacity-0')) return;
+      if (wheelCooldown) return;
+
+      if (Math.abs(e.deltaY) > 20 || Math.abs(e.deltaX) > 20) {
+        wheelCooldown = true;
+        if (e.deltaY > 0 || e.deltaX > 0) {
+          setSlide(currentIndex + 1);
+        } else {
+          setSlide(currentIndex - 1);
+        }
+        setTimeout(() => { wheelCooldown = false; }, 300);
+      }
+    }, { passive: true });
+
+    // --- VIEW 2: DRAGGABLE PHOTO TABLE VIEW ---
+    const tableCanvas = document.getElementById('table-canvas');
+    const tableContainer = document.getElementById('table-drag-container');
+
+    // Scattered layout coordinates
+    const scatterPositions = [
+      { x: 380, y: 180, w: 280, rot: -4 },
+      { x: 680, y: 140, w: 260, rot: 3 },
+      { x: 960, y: 190, w: 290, rot: -2 },
+      { x: 420, y: 460, w: 270, rot: 2.5 },
+      { x: 720, y: 430, w: 300, rot: -3.5 },
+      { x: 1040, y: 450, w: 280, rot: 4 },
+      { x: 500, y: 760, w: 280, rot: -2 },
+      { x: 800, y: 730, w: 310, rot: 3 },
+      { x: 1120, y: 750, w: 270, rot: -4 },
+      { x: 650, y: 1040, w: 300, rot: 1.5 }
+    ];
+
+    function renderTableGallery(filter = 'all') {
+      tableCanvas.innerHTML = '';
+      
+      const filtered = filter === 'all' 
+        ? galleryItems 
+        : galleryItems.filter(item => item.tag === filter);
+
+      filtered.forEach((item, i) => {
+        const pos = scatterPositions[i % scatterPositions.length];
+        const card = document.createElement('div');
+        card.className = 'scattered-print';
+        card.style.left = `${pos.x}px`;
+        card.style.top = `${pos.y}px`;
+        card.style.width = `${pos.w}px`;
+        card.style.transform = `rotate(${pos.rot}deg)`;
+        card.setAttribute('data-tag', item.tag);
+
+        card.innerHTML = `
+          <div class="w-full aspect-[4/5] overflow-hidden rounded-sm bg-zinc-100">
+            <img src="${item.src}" alt="${item.title}" class="w-full h-full object-cover" />
+          </div>
+          <div class="pt-2 px-1 text-left">
+            <span class="text-[9px] font-mono uppercase text-zinc-400 block">${item.meta}</span>
+            <span class="text-xs font-semibold text-black tracking-tight truncate block">${item.title}</span>
+          </div>
+        `;
+
+        card.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openModal(item.src, item.title, item.meta, item.desc);
+        });
+
+        tableCanvas.appendChild(card);
+      });
+    }
+
+    // Draggable canvas physics
+    let isDragging = false;
+    let startX = 0, startY = 0;
+    let currentX = -120, currentY = -60;
+
+    tableContainer.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.clientX - currentX;
+      startY = e.clientY - currentY;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      currentX = e.clientX - startX;
+      currentY = e.clientY - startY;
+
+      // Restrict boundaries
+      currentX = Math.min(200, Math.max(-1400, currentX));
+      currentY = Math.min(200, Math.max(-900, currentY));
+
+      tableCanvas.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+    });
+
+    window.addEventListener('mouseup', () => { isDragging = false; });
+
+    // Filter pills in Table Gallery
+    const filterPills = document.querySelectorAll('.filter-pill');
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => {
+          p.classList.remove('active', 'bg-black', 'text-white');
+          p.classList.add('bg-white', 'text-zinc-700');
+        });
+        pill.classList.add('active', 'bg-black', 'text-white');
+        pill.classList.remove('bg-white', 'text-zinc-700');
+
+        renderTableGallery(pill.getAttribute('data-tag'));
+      });
+    });
+
+    // --- TAB SWITCHER (MAIN vs GALLERY) ---
+    const tabMain = document.getElementById('tab-main');
+    const tabGallery = document.getElementById('tab-gallery');
+    const viewMain = document.getElementById('view-main');
+    const viewGallery = document.getElementById('view-gallery');
+
+    tabMain.addEventListener('click', () => {
+      tabMain.classList.add('active');
+      tabGallery.classList.remove('active');
+
+      viewMain.classList.remove('opacity-0', 'pointer-events-none');
+      viewGallery.classList.add('opacity-0', 'pointer-events-none');
+    });
+
+    tabGallery.addEventListener('click', () => {
+      tabGallery.classList.add('active');
+      tabMain.classList.remove('active');
+
+      viewGallery.classList.remove('opacity-0', 'pointer-events-none');
+      viewMain.classList.add('opacity-0', 'pointer-events-none');
+    });
+
+    // --- LIGHTBOX MODAL VIEWER ---
+    const modal = document.getElementById('print-modal');
     const modalCard = document.getElementById('modal-card');
     const modalClose = document.getElementById('modal-close');
     const modalImg = document.getElementById('modal-img');
     const modalTitle = document.getElementById('modal-title');
-    const modalCat = document.getElementById('modal-cat');
+    const modalMeta = document.getElementById('modal-meta');
     const modalDesc = document.getElementById('modal-desc');
 
-    function openModal(src, title, cat, desc) {
+    function openModal(src, title, meta, desc) {
       modalImg.src = src;
       modalTitle.textContent = title;
-      modalCat.textContent = cat;
+      modalMeta.textContent = meta;
       modalDesc.textContent = desc;
 
       modal.classList.remove('opacity-0', 'pointer-events-none');
       modalCard.classList.remove('scale-95');
       modalCard.classList.add('scale-100');
-      document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
       modal.classList.add('opacity-0', 'pointer-events-none');
       modalCard.classList.add('scale-95');
       modalCard.classList.remove('scale-100');
-      document.body.style.overflow = '';
     }
 
-    // Feature Cards
-    const cards = document.querySelectorAll('.feature-image-card, .floating-tile');
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        const src = card.getAttribute('data-src');
-        const title = card.getAttribute('data-title');
-        const cat = card.getAttribute('data-cat');
-        const desc = card.getAttribute('data-desc');
-        if (src) openModal(src, title, cat, desc);
-      });
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
     });
-
-    if (modalClose) modalClose.addEventListener('click', closeModal);
-    if (modal) {
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-      });
-    }
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeModal();
     });
 
-    // Simple search filter
-    const searchInput = document.getElementById('cosmos-search');
-    if (searchInput) {
-      searchInput.addEventListener('input', (e) => {
-        const q = e.target.value.toLowerCase();
-        document.querySelectorAll('.feature-image-card').forEach(c => {
-          const title = (c.getAttribute('data-title') || '').toLowerCase();
-          const cat = (c.getAttribute('data-cat') || '').toLowerCase();
-          if (title.includes(q) || cat.includes(q)) {
-            c.style.display = 'block';
-          } else {
-            c.style.display = 'none';
-          }
-        });
-      });
-    }
+    // Initial Boots
+    renderClothesline();
+    renderTableGallery();
   </script>
 </body>
 </html>
