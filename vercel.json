@@ -1,5 +1,11 @@
 {
   "buildCommand": "vite build",
   "outputDirectory": "dist",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/gallery",
+      "destination": "/gallery/index.html"
+    }
+  ]
 }

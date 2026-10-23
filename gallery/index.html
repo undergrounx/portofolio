@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>COSMOS — Muadz Visual Gallery & Artifacts</title>
+  <meta name="description" content="Linen gallery wall with floating polaroids: Curated design works, marketplace packaging, and generative media by Muadz." />
+  <meta name="author" content="Muadz" />
+
+  <!-- Preconnect Google Fonts for Cosmos Typography (Fraunces & Newsreader as didone-influenced whisper serifs, Inter for body/labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,350;0,9..144,400;0,9..144,500;1,9..144,350&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN & Styles -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'linen-canvas': '#f7f5f3',
+            'ink-black': '#0d0d0d',
+            'paper-white': '#ffffff',
+            'stone-muted': '#6e6a69',
+            'pebble-subtle': '#9a9796',
+          },
+          fontFamily: {
+            cosmos: ['"Fraunces"', 'Georgia', 'serif'],
+            sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          borderRadius: {
+            'signature': '16px',
+            'polaroid': '12px',
+            'pill': '9999px',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Cosmos Design Tokens & Rules */
+    :root {
+      --color-linen-canvas: #f7f5f3;
+      --color-ink-black: #0d0d0d;
+      --color-paper-white: #ffffff;
+      --color-stone: #6e6a69;
+      --color-pebble: #9a9796;
+    }
+
+    body {
+      background-color: #f7f5f3;
+      color: #0d0d0d;
+      font-family: "Fraunces", Georgia, serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      selection-background-color: #0d0d0d;
+      selection-color: #ffffff;
+    }
+
+    ::selection {
+      background: #0d0d0d;
+      color: #ffffff;
+    }
+
+    /* Whisper weight 350 display typography */
+    .font-whisper {
+      font-weight: 350;
+      font-optical-sizing: auto;
+    }
+
+    .tracking-tight-display {
+      letter-spacing: -0.05em;
+    }
+
+    .tracking-tight-heading {
+      letter-spacing: -0.04em;
+    }
+
+    .tracking-tight-subheading {
+      letter-spacing: -0.02em;
+    }
+
+    /* Floating polaroid hover transition */
+    .polaroid-tile {
+      border-radius: 12px;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+      will-change: transform;
+    }
+
+    .polaroid-tile:hover {
+      transform: scale(1.03) translateY(-4px) rotate(0deg) !important;
+      z-index: 30;
+      box-shadow: 0 20px 40px -15px rgba(13, 13, 13, 0.18);
+    }
+
+    /* Strict flatness: no chromatic chrome shadows, 16px radius */
+    .cosmos-card {
+      border-radius: 16px;
+      background-color: #ffffff;
+    }
+
+    .cosmos-btn-primary {
+      background-color: #0d0d0d;
+      color: #ffffff;
+      font-family: "Fraunces", serif;
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: 16px;
+      padding: 14px 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      text-decoration: none;
+    }
+
+    .cosmos-btn-primary:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+
+    .cosmos-btn-secondary {
+      background-color: #ffffff;
+      color: #0d0d0d;
+      border: 1px solid rgba(13, 13, 13, 0.15);
+      font-family: "Fraunces", serif;
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: 16px;
+      padding: 14px 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+      text-decoration: none;
+    }
+
+    .cosmos-btn-secondary:hover {
+      background-color: #f7f5f3;
+      border-color: rgba(13, 13, 13, 0.3);
+    }
+
+    /* Modal Backdrop */
+    .cosmos-modal-backdrop {
+      background-color: rgba(13, 13, 13, 0.7);
+      backdrop-filter: blur(8px);
+    }
+  </style>
+
+  <!-- Favicon 8-dot cluster logo -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%23f7f5f3%22/><g fill=%22%230d0d0d%22><circle cx=%2230%22 cy=%2230%22 r=%228%22/><circle cx=%2250%22 cy=%2230%22 r=%228%22/><circle cx=%2270%22 cy=%2230%22 r=%228%22/><circle cx=%2230%22 cy=%2250%22 r=%228%22/><circle cx=%2270%22 cy=%2250%22 r=%228%22/><circle cx=%2230%22 cy=%2270%22 r=%228%22/><circle cx=%2250%22 cy=%2270%22 r=%228%22/><circle cx=%2270%22 cy=%2270%22 r=%228%22/></g></svg>">
+</head>
+<body class="bg-[#f7f5f3] text-[#0d0d0d] relative min-h-screen">
+
+  <!-- ==================== COSMOS FLOATING PILL NAVIGATION ==================== -->
+  <header class="fixed top-5 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
+    <nav class="pointer-events-auto bg-[#ffffff]/95 backdrop-blur-md border border-[#0d0d0d]/12 rounded-full px-5 py-2.5 flex items-center justify-between gap-4 sm:gap-8 max-w-[960px] w-full shadow-[0_8px_30px_rgba(13,13,13,0.04)]">
+      
+      <!-- Brand & 8-Dot Cluster Glyph -->
+      <a href="../" class="flex items-center gap-2.5 no-underline group text-[#0d0d0d]">
+        <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="#0d0d0d">
+          <circle cx="6" cy="6" r="2.2" />
+          <circle cx="12" cy="6" r="2.2" />
+          <circle cx="18" cy="6" r="2.2" />
+          <circle cx="6" cy="12" r="2.2" />
+          <circle cx="18" cy="12" r="2.2" />
+          <circle cx="6" cy="18" r="2.2" />
+          <circle cx="12" cy="18" r="2.2" />
+          <circle cx="18" cy="18" r="2.2" />
+        </svg>
+        <span class="font-whisper text-base sm:text-lg tracking-[-0.03em] font-semibold">COSMOS</span>
+        <span class="text-[11px] font-sans text-[#6e6a69] hidden md:inline-block border-l border-[#0d0d0d]/15 pl-2.5">MUADZ GALLERY</span>
+      </a>
+
+      <!-- Filter Categories -->
+      <div class="hidden sm:flex items-center gap-1 font-sans text-[13px] text-[#6e6a69]">
+        <button class="filter-btn active px-3 py-1.5 rounded-full text-[#0d0d0d] font-medium transition-colors" data-filter="all">All</button>
+        <button class="filter-btn px-3 py-1.5 rounded-full hover:text-[#0d0d0d] transition-colors" data-filter="marketplace">Marketplace</button>
+        <button class="filter-btn px-3 py-1.5 rounded-full hover:text-[#0d0d0d] transition-colors" data-filter="packaging">Packaging</button>
+        <button class="filter-btn px-3 py-1.5 rounded-full hover:text-[#0d0d0d] transition-colors" data-filter="video">Video & Motion</button>
+        <button class="filter-btn px-3 py-1.5 rounded-full hover:text-[#0d0d0d] transition-colors" data-filter="systems">AI Systems</button>
+      </div>
+
+      <!-- Action Cluster: Back to Main Portfolio -->
+      <div class="flex items-center gap-2">
+        <a href="../" class="cosmos-btn-secondary !text-xs !py-2 !px-4 !rounded-full flex items-center gap-1.5">
+          <span>←</span>
+          <span class="font-sans font-medium">Main Site</span>
+        </a>
+        <a href="../#contact" class="cosmos-btn-primary !text-xs !py-2 !px-4 !rounded-full hidden sm:inline-flex">
+          <span class="font-sans font-medium">Commission</span>
+        </a>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- ==================== HERO SECTION: LINEN WALL WITH FLOATING POLAROIDS ==================== -->
+  <section class="relative pt-36 pb-24 md:pt-48 md:pb-32 overflow-hidden min-h-[85vh] flex items-center justify-center">
+    
+    <!-- Floating Polaroids Peripheral Collage (Rotated 2-4deg, 12px radius, zero border/shadow) -->
+    <!-- Top Left Polaroid: Lumaskin Brightening Hero -->
+    <div class="polaroid-tile absolute top-24 left-[4%] sm:left-[8%] w-28 sm:w-40 md:w-48 aspect-[4/5] overflow-hidden rotate-[-3deg] hidden sm:block pointer-events-auto cursor-pointer" data-gallery-id="lumaskin-bright-1">
+      <img src="../assets/lumaskinnn%20bright.png" alt="Lumaskin Bright" class="w-full h-full object-cover rounded-[12px]" />
+    </div>
+
+    <!-- Mid Left Polaroid: Avenor Chia Seed -->
+    <div class="polaroid-tile absolute top-1/2 -translate-y-1/2 left-[1%] sm:left-[3%] w-24 sm:w-36 md:w-44 aspect-square overflow-hidden rotate-[2.5deg] pointer-events-auto cursor-pointer" data-gallery-id="avenor-pouch">
+      <img src="../assets/avenor-chia-seed.jpg" alt="Avenor Chia Seed" class="w-full h-full object-cover rounded-[12px]" />
+    </div>
+
+    <!-- Bottom Left Polaroid: Berka Pouch -->
+    <div class="polaroid-tile absolute bottom-12 left-[6%] sm:left-[10%] w-24 sm:w-36 md:w-44 aspect-[4/5] overflow-hidden rotate-[-2deg] hidden sm:block pointer-events-auto cursor-pointer" data-gallery-id="berka-pack">
+      <img src="../assets/berka-pouch.png" alt="Berka Pouch" class="w-full h-full object-cover rounded-[12px]" />
+    </div>
+
+    <!-- Top Right Polaroid: Lumaskin Acne Benefit -->
+    <div class="polaroid-tile absolute top-24 right-[4%] sm:right-[8%] w-28 sm:w-40 md:w-48 aspect-[4/5] overflow-hidden rotate-[3deg] hidden sm:block pointer-events-auto cursor-pointer" data-gallery-id="lumaskin-acne-1">
+      <img src="../assets/lumaaskin%20acne.png" alt="Lumaskin Acne Benefit" class="w-full h-full object-cover rounded-[12px]" />
+    </div>
+
+    <!-- Mid Right Polaroid: Loka Cibiru Promo -->
+    <div class="polaroid-tile absolute top-1/2 -translate-y-1/2 right-[1%] sm:right-[3%] w-24 sm:w-36 md:w-44 aspect-[16/11] overflow-hidden rotate-[-2.5deg] pointer-events-auto cursor-pointer" data-gallery-id="lokacibiru-banner">
+      <img src="../assets/lokacibiru.png" alt="Loka Cibiru Banner" class="w-full h-full object-cover rounded-[12px]" />
+    </div>
+
+    <!-- Bottom Right Polaroid: AI File Organizer UI -->
+    <div class="polaroid-tile absolute bottom-12 right-[6%] sm:right-[10%] w-28 sm:w-40 md:w-48 aspect-[16/10] overflow-hidden rotate-[2deg] hidden sm:block pointer-events-auto cursor-pointer" data-gallery-id="ai-organizer">
+      <img src="../assets/ai-file-organizer.png" alt="AI File Organizer" class="w-full h-full object-cover rounded-[12px]" />
+    </div>
+
+    <!-- Center Hero Content Well (Max 1280px) -->
+    <div class="max-w-[860px] mx-auto px-6 text-center relative z-20">
+      
+      <!-- Eyebrow Stamp: cosmosOracle weight 500, tracked at 0em -->
+      <div class="inline-flex items-center gap-2 mb-6 text-xs sm:text-sm font-sans font-medium text-[#6e6a69] tracking-wider uppercase">
+        <svg class="w-3.5 h-3.5 inline-block" viewBox="0 0 24 24" fill="#6e6a69">
+          <circle cx="6" cy="6" r="2.2" />
+          <circle cx="12" cy="6" r="2.2" />
+          <circle cx="18" cy="6" r="2.2" />
+          <circle cx="6" cy="12" r="2.2" />
+          <circle cx="18" cy="12" r="2.2" />
+          <circle cx="6" cy="18" r="2.2" />
+          <circle cx="12" cy="18" r="2.2" />
+          <circle cx="18" cy="18" r="2.2" />
+        </svg>
+        <span>GALLERY-WRAPPED CANVAS · VISUAL DISCOVERY</span>
+      </div>
+
+      <!-- Display Headline: Weight 350, negative tracking -0.05em, tight line height -->
+      <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-whisper text-[#0d0d0d] tracking-tight-display leading-[0.88] mb-8">
+        Form, craft, &amp; the quiet surface.
+      </h1>
+
+      <!-- Supporting Body: Stone #6e6a69, 16px, weight 400 -->
+      <p class="font-sans text-base sm:text-lg text-[#6e6a69] max-w-xl mx-auto leading-relaxed mb-10 font-normal">
+        Ruang pameran visual mandiri hasil karya Muadz. Menampilkan kurasi sistem marketplace e-commerce, kemasan fisik tactile, dan video gerak kinetik.
+      </p>
+
+      <!-- Two-Button Row: Primary Filled + Secondary Outlined (16px radius) -->
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#exhibits" class="cosmos-btn-primary font-sans">
+          <span>Explore Exhibits</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </a>
+        <a href="#video-showcase" class="cosmos-btn-secondary font-sans">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          <span>Watch Kinetic Reel</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CINEMATIC FILM/VIDEO CONTAINER ==================== -->
+  <section id="video-showcase" class="max-w-[1280px] mx-auto px-4 sm:px-6 mb-24">
+    <div class="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-[16px] overflow-hidden bg-[#0d0d0d] border border-[#0d0d0d]/10 group">
+      
+      <!-- Video Element -->
+      <video id="cosmos-video-player" class="w-full h-full object-cover opacity-85 group-hover:opacity-95 transition-opacity" loop playsinline preload="metadata" poster="../assets/editing-video.jpg">
+        <source src="../assets/editing-with-ai.mp4" type="video/mp4" />
+      </video>
+
+      <!-- Center 8-Dot Cluster Play Button & Text Overlay -->
+      <div id="video-overlay" class="absolute inset-0 bg-[#0d0d0d]/35 backdrop-blur-[2px] flex flex-col justify-between p-6 sm:p-10 text-white cursor-pointer transition-all">
+        
+        <!-- Top Split Title: 'Watch' left-aligned and 'the film' right-aligned at 38px weight 350 -->
+        <div class="flex items-center justify-between w-full">
+          <span class="font-whisper text-2xl sm:text-4xl text-white tracking-tight-heading">Watch</span>
+          <span class="text-xs font-sans tracking-widest uppercase text-white/70 border border-white/20 rounded-full px-3 py-1">
+            CREATIVE MOTION REEL
+          </span>
+          <span class="font-whisper text-2xl sm:text-4xl text-white tracking-tight-heading">the work</span>
+        </div>
+
+        <!-- Center 9-dot cluster glyph / Play Triangle -->
+        <div class="self-center flex flex-col items-center gap-3">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/15 backdrop-blur-md border border-white/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7 text-white fill-current ml-1" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+          <span class="text-xs font-sans text-white/80 tracking-wider">CLICK TO PLAY WITH SOUND</span>
+        </div>
+
+        <!-- Bottom Caption -->
+        <div class="text-center">
+          <p class="font-sans text-xs sm:text-sm text-white/75 font-normal">
+            Short-form kinetic video cutting, generative visual synthesis &amp; tempo synchronization.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== THREE-COLUMN FEATURE ROW / EXHIBITS GRID ==================== -->
+  <section id="exhibits" class="max-w-[1280px] mx-auto px-4 sm:px-6 mb-28">
+    
+    <!-- Section Subheading -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 pb-6 border-b border-[#0d0d0d]/10 gap-4">
+      <div>
+        <span class="text-xs font-sans font-medium text-[#6e6a69] tracking-wider uppercase block mb-2">CURATED ARCHIVE</span>
+        <h2 class="text-3xl sm:text-4xl font-whisper text-[#0d0d0d] tracking-tight-heading">
+          Selected Works &amp; Packaging Dielines
+        </h2>
+      </div>
+      <p class="font-sans text-sm text-[#6e6a69] max-w-sm">
+        16px signature radius, zero artificial shadows, edge-to-edge imagery. Klik salah satu karya untuk melihat detail format &amp; visual resolusi penuh.
+      </p>
+    </div>
+
+    <!-- 3-Column Editorial Grid (24px gap, 16px radius cards) -->
+    <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Item 1: Lumaskin Brightening Hero -->
+      <article class="gallery-card group cursor-pointer" data-category="marketplace" data-title="Lumaskin Brightening Series — Hero Banner" data-cat-label="Marketplace Hero Showcase" data-src="../assets/lumaskinnn%20bright.png" data-desc="Desain etalase utama varian Brightening Series berestetika glow elegan dengan penekanan hasil uji efikasi mencerahkan kulit di Shopee & Tokopedia.">
+        <div class="w-full aspect-[4/5] rounded-[16px] overflow-hidden bg-white border border-[#0d0d0d]/8 relative">
+          <img src="../assets/lumaskinnn%20bright.png" alt="Lumaskin Brightening Hero" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-[#0d0d0d]/10 text-[10px] font-sans font-medium text-[#0d0d0d]">
+            MARKETPLACE
+          </div>
+        </div>
+        <div class="pt-4 pb-2">
+          <h3 class="font-whisper text-xl text-[#0d0d0d] tracking-tight-subheading group-hover:opacity-70 transition-opacity">
+            Lumaskin Brightening Series
+          </h3>
+          <p class="font-sans text-xs text-[#6e6a69] mt-1">Hero storefront display &amp; clinical efficacy badge</p>
+        </div>
+      </article>
+
+      <!-- Item 2: Lumaskin Acne Benefit Breakdown -->
+      <article class="gallery-card group cursor-pointer" data-category="marketplace" data-title="Lumaskin Acne Series — Formula & Benefit" data-cat-label="Marketplace Slide System" data-src="../assets/lumaaskin%20acne.png" data-desc="Marketplace slide breakdown formula klinis, solusi jerawat, dan keunggulan bahan aktif untuk memandu keputusan beli konsumen secara transparan.">
+        <div class="w-full aspect-[4/5] rounded-[16px] overflow-hidden bg-white border border-[#0d0d0d]/8 relative">
+          <img src="../assets/lumaaskin%20acne.png" alt="Lumaskin Acne Formula" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-[#0d0d0d]/10 text-[10px] font-sans font-medium text-[#0d0d0d]">
+            SLIDE SYSTEM
+          </div>
+        </div>
+        <div class="pt-4 pb-2">
+          <h3 class="font-whisper text-xl text-[#0d0d0d] tracking-tight-subheading group-hover:opacity-70 transition-opacity">
+            Lumaskin Acne Solution
+          </h3>
+          <p class="font-sans text-xs text-[#6e6a69] mt-1">Clinical active ingredient breakdown</p>
+        </div>
+      </article>
+
+      <!-- Item 3: Avenor Chia Seed Physical Packaging -->
+      <article class="gallery-card group cursor-pointer" data-category="packaging" data-title="Avenor Chia Seed — Tactile Packaging" data-cat-label="Retail Dieline & Identity" data-src="../assets/avenor-chia-seed.jpg" data-desc="Tactile matte pouch dielines dan minimal botanical typography untuk produk superfood modern berkarakter premium dan clean.">
+        <div class="w-full aspect-[4/5] rounded-[16px] overflow-hidden bg-white border border-[#0d0d0d]/8 relative">
+          <img src="../assets/avenor-chia-seed.jpg" alt="Avenor Chia Seed" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-[#0d0d0d]/10 text-[10px] font-sans font-medium text-[#0d0d0d]">
+            PACKAGING
+          </div>
+        </div>
+        <div class="pt-4 pb-2">
+          <h3 class="font-whisper text-xl text-[#0d0d0d] tracking-tight-subheading group-hover:opacity-70 transition-opacity">
+            Avenor Chia Seed
+          </h3>
+          <p class="font-sans text-xs text-[#6e6a69] mt-1">Tactile matte pouch dielines &amp; brand identity</p>
+        </div>
+      </article>
+
+      <!-- Item 4: Berka Herbal Pouch Packaging -->
+      <article class="gallery-card group cursor-pointer" data-category="packaging" data-title="Berka Herbal — Retail Stand Pouch" data-cat-label="Retail Packaging Architecture" data-src="../assets/berka-pouch.png" data-desc="Struktur layout kemasan retail pouch siap produksi massal dengan aksen botanical modern dan kepatuhan label legalitas.">
+        <div class="w-full aspect-[4/5] rounded-[16px] overflow-hidden bg-white border border-[#0d0d0d]/8 relative">
+          <img src="../assets/berka-pouch.png" alt="Berka Pouch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-[#0d0d0d]/10 text-[10px] font-sans font-medium text-[#0d0d0d]">
+            PACKAGING
+          </div>
+        </div>
+        <div class="pt-4 pb-2">
+          <h3 class="font-whisper text-xl text-[#0d0d0d] tracking-tight-subheading group-hover:opacity-70 transition-opacity">
+            Berka Herbal Stand Pouch
+          </h3>
+          <p class="font-sans text-xs text-[#6e6a69] mt-1">Retail ready packaging dielines</p>
+        </div>
+      </article>
+
+      <!-- Item 5: Lumaskin Usage Guide Infographic -->
+      <article class="gallery-card group cursor-pointer" data-category="marketplace" data-title="Lumaskin — Usage Guide Infographic" data-cat-label="Customer Journey Education" data-src="../assets/lumaskin%20acne%201.png" data-desc="Visual edukasi panduan langkah pemakaian dan kompatibilitas jenis kulit untuk mengurangi keraguan pembeli pada etalase e-commerce.">
+        <div class="w-full aspect-[4/5] rounded-[16px] overflow-hidden bg-white border border-[#0d0d0d]/8 relative">
+          <img src="../assets/lumaskin%20acne%201.png" alt="Lumaskin Usage Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-[#0d0d0d]/10 text-[10px] font-sans font-medium text-[#0d0d0d]">
+            INFOGRAPHIC
+          </div>
+        </div>
+        <div class="pt-4 pb-2">
+          <h3 class="font-whisper text-xl text-[#0d0d0d] tracking-tight-subheading group-hover:opacity-70 transition-opacity">
+            Customer Education Guide
+          </h3>
+          <p class="font-sans text-xs text-[#6e6a69] mt-1">Multi-step skincare application routine</p>
+        </div>
+      </article>
+
+      <!-- Item 6: Loka Cibiru Campaign Promo Banner -->
+      <article class="gallery-card group cursor-pointer" data-category="marketplace" data-title="Loka Cibiru — Marketplace Promo Banner" data-cat-label="Campaign & Promotional Design" data-src="../assets/lokacibiru.png" data-desc="Display banner promosi marketplace yang memadukan tipografi bold, promo flash-sale, dan komposisi produk yang eye-catching.">
+        <div class="w-full aspect-[4/5] rounded-[16px] overflow-hidden bg-white border border-[#0d0d0d]/8 relative">
+          <img src="../assets/lokacibiru.png" alt="Loka Cibiru Promo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-[#0d0d0d]/10 text-[10px] font-sans font-medium text-[#0d0d0d]">
+            CAMPAIGN
+          </div>
+        </div>
+        <div class="pt-4 pb-2">
+          <h3 class="font-whisper text-xl text-[#0d0d0d] tracking-tight-subheading group-hover:opacity-70 transition-opacity">
+            Loka Cibiru Campaign
+          </h3>
+          <p class="font-sans text-xs text-[#6e6a69] mt-1">High-conversion flash sale banner layout</p>
+        </div>
+      </article>
+
+      <!-- Item 7: Lumaskin Variant Bundle Showcase -->
+      <article class="gallery-card group cursor-pointer" data-category="marketplace" data-title="Lumaskin — Bundle Promo Kit" data-cat-label="Marketplace AOV Strategy" data-src="../assets/lumaskinn%20bright.png" data-desc="Desain paket bundling hemat marketplace untuk menaikkan Average Order Value (AOV) dengan layout perbandingan produk yang rapi.">
+        <div class="w-full aspect-[4/5] rounded-[16px] overflow-hidden bg-white border border-[#0d0d0d]/8 relative">
+          <img src="../assets/lumaskinn%20bright.png" alt="Lumaskin Bundle" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-[#0d0d0d]/10 text-[10px] font-sans font-medium text-[#0d0d0d]">
+            BUNDLE KIT
+          </div>
+        </div>
+        <div class="pt-4 pb-2">
+          <h3 class="font-whisper text-xl text-[#0d0d0d] tracking-tight-subheading group-hover:opacity-70 transition-opacity">
+            Bundle Offer Layout
+          </h3>
+          <p class="font-sans text-xs text-[#6e6a69] mt-1">Multi-item comparative e-commerce card</p>
+        </div>
+      </article>
+
+      <!-- Item 8: AI File Organizer UI -->
+      <article class="gallery-card group cursor-pointer" data-category="systems" data-title="AI File Organizer — Interface Systems" data-cat-label="Product UI Architecture" data-src="../assets/ai-file-organizer.png" data-desc="Arsitektur antarmuka sistem otomatisasi file media berbasis AI, semantic taxonomy, dan folder parsing otomatis.">
+        <div class="w-full aspect-[4/5] rounded-[16px] overflow-hidden bg-white border border-[#0d0d0d]/8 relative">
+          <img src="../assets/ai-file-organizer.png" alt="AI File Organizer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-[#0d0d0d]/10 text-[10px] font-sans font-medium text-[#0d0d0d]">
+            AI SYSTEMS
+          </div>
+        </div>
+        <div class="pt-4 pb-2">
+          <h3 class="font-whisper text-xl text-[#0d0d0d] tracking-tight-subheading group-hover:opacity-70 transition-opacity">
+            AI File Organizer System
+          </h3>
+          <p class="font-sans text-xs text-[#6e6a69] mt-1">Semantic folder taxonomy interface</p>
+        </div>
+      </article>
+
+      <!-- Item 9: Social Editorial & Creative Distribution -->
+      <article class="gallery-card group cursor-pointer" data-category="systems" data-title="Social Editorial & Media Lab" data-cat-label="Content Distribution Pipeline" data-src="../assets/media-instagram.jpg" data-desc="Sistem visual konten editorial untuk distribusi multi-platform Instagram @Muadz_dora & TikTok dengan sinkronisasi template terukur.">
+        <div class="w-full aspect-[4/5] rounded-[16px] overflow-hidden bg-white border border-[#0d0d0d]/8 relative">
+          <img src="../assets/media-instagram.jpg" alt="Media Creative" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-[#0d0d0d]/10 text-[10px] font-sans font-medium text-[#0d0d0d]">
+            EDITORIAL
+          </div>
+        </div>
+        <div class="pt-4 pb-2">
+          <h3 class="font-whisper text-xl text-[#0d0d0d] tracking-tight-subheading group-hover:opacity-70 transition-opacity">
+            Content Editorial System
+          </h3>
+          <p class="font-sans text-xs text-[#6e6a69] mt-1">Multi-platform creative rhythm</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ==================== AI CONTENT DETECTION OVERLAY / NOTICE ==================== -->
+  <section class="max-w-[1280px] mx-auto px-4 sm:px-6 mb-28">
+    <div class="cosmos-card border border-[#0d0d0d]/12 p-8 sm:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div class="max-w-2xl">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 rounded-full bg-[#0d0d0d]"></span>
+          <span class="text-xs font-sans font-medium text-[#0d0d0d] uppercase tracking-wider">CREATIVE TRANSPARENCY PROTOCOL</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-whisper text-[#0d0d0d] tracking-tight-subheading mb-2">
+          Grounded Works. No Fabricated Metrics.
+        </h3>
+        <p class="font-sans text-sm text-[#6e6a69] leading-relaxed">
+          Setiap karya di galeri ini merupakan aset nyata dari proyek fisik, brand handling klien, dan eksplorasi generative media oleh Muadz. Tidak ada klaim fiktif atau metrik yang direkayasa.
+        </p>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="../" class="cosmos-btn-secondary font-sans !text-sm">
+          <span>Explore Muadz Profile</span>
+        </a>
+        <a href="../#contact" class="cosmos-btn-primary font-sans !text-sm">
+          <span>Start a Project ↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="border-t border-[#0d0d0d]/10 py-12 px-6 bg-[#f7f5f3]">
+    <div class="max-w-[1280px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-sans text-[#6e6a69]">
+      <div class="flex items-center gap-3">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="#0d0d0d">
+          <circle cx="6" cy="6" r="2.2" /><circle cx="12" cy="6" r="2.2" /><circle cx="18" cy="6" r="2.2" />
+          <circle cx="6" cy="12" r="2.2" /><circle cx="18" cy="12" r="2.2" />
+          <circle cx="6" cy="18" r="2.2" /><circle cx="12" cy="18" r="2.2" /><circle cx="18" cy="18" r="2.2" />
+        </svg>
+        <span class="font-medium text-[#0d0d0d]">COSMOS GALLERY — MUADZ</span>
+        <span>•</span>
+        <span>Linen Gallery Wall Reference</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="../" class="hover:text-[#0d0d0d] transition-colors">Portfolio Web 1</a>
+        <a href="../#brands-handling" class="hover:text-[#0d0d0d] transition-colors">Brands Handled</a>
+        <a href="https://instagram.com/Muadz_dora" target="_blank" class="hover:text-[#0d0d0d] transition-colors">Instagram @Muadz_dora ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL PREVIEW INSPECTOR ==================== -->
+  <div id="image-modal" class="fixed inset-0 z-[100] cosmos-modal-backdrop flex items-center justify-center p-4 sm:p-8 opacity-0 pointer-events-none transition-all duration-300">
+    <div class="bg-white rounded-[16px] max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col border border-[#0d0d0d]/15 shadow-2xl transition-transform duration-300 scale-95" id="modal-card">
+      <div class="p-4 px-6 border-b border-[#0d0d0d]/10 flex items-center justify-between">
+        <div>
+          <span id="modal-cat" class="text-[11px] font-sans font-medium text-[#6e6a69] uppercase tracking-wider block">CATEGORY</span>
+          <h3 id="modal-title" class="font-whisper text-xl text-[#0d0d0d]">Title</h3>
+        </div>
+        <button id="modal-close" class="w-9 h-9 rounded-full bg-[#f7f5f3] hover:bg-[#0d0d0d] hover:text-white transition-colors flex items-center justify-center text-sm font-sans">
+          ✕
+        </button>
+      </div>
+      <div class="p-6 overflow-y-auto flex-1 flex flex-col items-center bg-[#f7f5f3]">
+        <img id="modal-img" src="" alt="Detail Preview" class="max-h-[60vh] object-contain rounded-[12px] border border-[#0d0d0d]/10 bg-white" />
+        <p id="modal-desc" class="font-sans text-sm text-[#0d0d0d] mt-6 max-w-2xl text-center leading-relaxed"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Client-side Interactive Logic -->
+  <script>
+    // Video Player toggle
+    const video = document.getElementById('cosmos-video-player');
+    const overlay = document.getElementById('video-overlay');
+    if (video && overlay) {
+      overlay.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+          video.muted = false;
+          overlay.classList.add('opacity-0', 'pointer-events-none');
+        } else {
+          video.pause();
+          overlay.classList.remove('opacity-0', 'pointer-events-none');
+        }
+      });
+
+      video.addEventListener('click', () => {
+        video.pause();
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+      });
+    }
+
+    // Category Filtering
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.gallery-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('active', 'text-[#0d0d0d]', 'font-medium');
+          b.classList.add('text-[#6e6a69]');
+        });
+        btn.classList.add('active', 'text-[#0d0d0d]', 'font-medium');
+        btn.classList.remove('text-[#6e6a69]');
+
+        const filter = btn.getAttribute('data-filter');
+        cards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Image Detail Modal
+    const modal = document.getElementById('image-modal');
+    const modalCard = document.getElementById('modal-card');
+    const modalClose = document.getElementById('modal-close');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalCat = document.getElementById('modal-cat');
+    const modalDesc = document.getElementById('modal-desc');
+
+    function openModal(src, title, cat, desc) {
+      modalImg.src = src;
+      modalTitle.textContent = title;
+      modalCat.textContent = cat;
+      modalDesc.textContent = desc;
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modalCard.classList.remove('scale-95');
+      modalCard.classList.add('scale-100');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modalCard.classList.add('scale-95');
+      modalCard.classList.remove('scale-100');
+      document.body.style.overflow = '';
+    }
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const src = card.getAttribute('data-src');
+        const title = card.getAttribute('data-title');
+        const cat = card.getAttribute('data-cat-label');
+        const desc = card.getAttribute('data-desc');
+        openModal(src, title, cat, desc);
+      });
+    });
+
+    // Polaroids click trigger
+    const polaroids = document.querySelectorAll('.polaroid-tile');
+    polaroids.forEach(p => {
+      p.addEventListener('click', () => {
+        const img = p.querySelector('img');
+        if (img) {
+          openModal(img.src, p.getAttribute('data-gallery-id') || 'Curated Polaroid', 'Cosmos Gallery Exhibit', 'Eksplorasi visual fisik berformat polaroid floating tile.');
+        }
+      });
+    });
+
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>

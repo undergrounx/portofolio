@@ -6,7 +6,7 @@
 import { renderNavbar, initNavbarEvents } from "./components/Navbar.js";
 import { renderHero } from "./components/Hero.js";
 import { renderSnapshot } from "./components/Snapshot.js";
-import { renderShowcaseGallery } from "./components/ShowcaseGallery.js";
+import { renderGalleryTeaser } from "./components/GalleryTeaser.js";
 import { renderFeaturedProjects, initProjectCards } from "./components/FeaturedProjects.js";
 import { renderBrandsHandling } from "./components/BrandsHandling.js";
 import { renderMediaCreative } from "./components/MediaCreative.js";
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <main>
       ${renderHero()}
       ${renderSnapshot()}
-      ${renderShowcaseGallery()}
+      ${renderGalleryTeaser()}
       ${renderFeaturedProjects()}
       ${renderBrandsHandling()}
       ${renderMediaCreative()}
