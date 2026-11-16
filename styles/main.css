@@ -1,36 +1,42 @@
 /* -------------------------------------------------------------
- * MUADZ PORTFOLIO — SLUSH DESIGN SYSTEM
- * Inflatable sticker universe on pastel paper
+ * MUADZ PORTFOLIO — UNSLOPPED EDITORIAL DESIGN SYSTEM
+ * DKV Visual Craft × AI Controller
+ * Grounded neutral palette (#f8fafc / #ffffff / #0f172a) with Cobalt (#145ebb)
+ * Hairline 1px borders, disciplined typography, zero decorative emoji clutter
  * ------------------------------------------------------------*/
 
-@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Bowlby+One&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-  /* Tokens — Colors */
-  --color-carbon: #000000;
-  --color-paper-white: #ffffff;
-  --color-sky-wash: #dceeff;
-  --color-concrete-gray: #cccccc;
-  --color-soft-mist: #e9e9e9;
-  --color-electric-blue: #4da2ff;
-  --color-mint-pop: #55db9c;
-  --color-lavender: #e9ccff;
-  --color-ember: #fb4903;
-  --color-sunburst: #ffd731;
-  --color-voltage-violet: #5c4ade;
+  /* Quiet Neutral Ramp */
+  --bg-page: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f1f5f9;
+  --bg-muted: #e2e8f0;
+
+  --border-light: rgba(15, 23, 42, 0.08);
+  --border-medium: rgba(15, 23, 42, 0.16);
+  --border-strong: rgba(15, 23, 42, 0.85);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  /* 1 Deliberate Accent */
+  --accent-primary: #145ebb;
+  --accent-hover: #0f4893;
+  --accent-soft: rgba(20, 94, 187, 0.08);
 
   /* Typography */
-  --font-lateral: 'Bowlby One', 'Antonio', -apple-system, sans-serif;
-  --font-aeonik-pro: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Space Grotesk', -apple-system, sans-serif;
 
-  /* Radii */
-  --radius-nav: 1600px;
-  --radius-body: 30px;
-  --radius-cards: 20px;
-  --radius-pills: 1600px;
-  --radius-buttons: 1600px;
-  --radius-wallet-icon: 16px;
-  --radius-cards-elevated: 40px;
+  /* Geometry */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
 }
 
 *, *::before, *::after {
@@ -41,266 +47,220 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--color-sky-wash);
-  color: var(--color-carbon);
-  font-family: var(--font-aeonik-pro);
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 body {
-  background-color: var(--color-sky-wash);
-  color: var(--color-carbon);
+  background-color: var(--bg-page);
+  color: var(--text-primary);
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
 }
 
-/* Lateral crushed display typography */
-.font-display-lateral {
-  font-family: var(--font-lateral);
-  line-height: 0.8;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-  color: var(--color-carbon);
+/* Subtle editorial grain overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-.font-body-aeonik {
-  font-family: var(--font-aeonik-pro);
-  letter-spacing: -0.01em;
+/* Display & Mono Typography */
+.font-display-lateral, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  color: var(--text-primary);
 }
 
-/* Nav Pill Buttons */
-.nav-pill-btn {
+.font-mono-tag {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+/* Clean Editorial Card System */
+.slush-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.02);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+
+.slush-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(15, 23, 42, 0.28);
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.06), 0 12px 24px -4px rgba(15, 23, 42, 0.05);
+}
+
+/* Status / Category Badges (Unslopped — No cartoon emojis) */
+.slush-sticker {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-pills);
-  border: 1px solid var(--color-carbon);
-  background: var(--color-paper-white);
-  color: var(--color-carbon);
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.032em;
-  padding: 10px 16px;
-  text-decoration: none;
-  transition: transform 0.15s ease, background-color 0.15s ease;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--border-medium);
+  background: var(--bg-surface);
+  color: var(--text-primary);
 }
 
-.nav-pill-btn:hover {
-  transform: translateY(-2px);
-  background-color: var(--color-soft-mist);
+/* Subtle Geometric Indicator */
+.status-indicator {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-primary);
 }
 
-/* Filled CTA Button */
+/* Primary Filled Action Button */
 .btn-slush-filled {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border-radius: 40px;
-  background: var(--color-carbon);
-  color: var(--color-paper-white);
-  border: 1px solid var(--color-carbon);
-  font-weight: 700;
+  border-radius: var(--radius-full);
+  background: var(--text-primary);
+  color: #ffffff;
+  border: 1px solid var(--text-primary);
+  font-weight: 600;
   font-size: 13px;
-  letter-spacing: 0.032em;
-  padding: 12px 24px;
+  letter-spacing: 0.02em;
+  padding: 10px 22px;
   text-decoration: none;
-  transition: transform 0.15s ease, opacity 0.15s ease;
   cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 
 .btn-slush-filled:hover {
-  transform: translateY(-2px);
-  opacity: 0.92;
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(20, 94, 187, 0.25);
 }
 
-/* Outlined Ghost Button */
-.btn-slush-ghost {
+/* Ghost Secondary Button */
+.btn-slush-ghost, .btn-slush-outlined {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border-radius: var(--radius-buttons);
-  border: 1px solid var(--color-carbon);
-  background: var(--color-paper-white);
-  color: var(--color-carbon);
-  font-weight: 700;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-medium);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-weight: 600;
   font-size: 13px;
-  letter-spacing: 0.032em;
-  padding: 12px 24px;
+  letter-spacing: 0.02em;
+  padding: 10px 22px;
   text-decoration: none;
-  transition: transform 0.15s ease, background-color 0.15s ease;
   cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
 }
 
-.btn-slush-ghost:hover {
-  transform: translateY(-2px);
-  background: var(--color-soft-mist);
+.btn-slush-ghost:hover, .btn-slush-outlined:hover {
+  background: var(--bg-subtle);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
 }
 
-/* Slush Hand-cut Sticker Card */
-.slush-card {
-  background: var(--color-paper-white);
-  border: 1px solid var(--color-carbon);
-  border-radius: var(--radius-cards);
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-}
-
-.slush-card:hover {
-  transform: translateY(-3px);
-}
-
-.slush-card-elevated {
-  border-radius: var(--radius-cards-elevated);
-}
-
-/* Flat Sticker Badges */
-.slush-sticker {
+/* Nav Link */
+.nav-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  border: 1px solid var(--color-carbon);
-  border-radius: 20px;
   padding: 6px 14px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.032em;
-  text-transform: uppercase;
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
 }
 
-/* Continuous Marquee Banner */
+.nav-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-subtle);
+  border-color: var(--border-light);
+}
+
+.nav-link.active {
+  color: var(--accent-primary);
+  background: var(--accent-soft);
+  border-color: rgba(20, 94, 187, 0.2);
+}
+
+/* Marquee Track */
 .slush-marquee-track {
-  display: flex;
+  width: 100%;
   overflow: hidden;
+  background: var(--text-primary);
+  color: #ffffff;
+  padding: 7px 0;
+  display: flex;
   user-select: none;
-  white-space: nowrap;
-  background: var(--color-carbon);
-  border-top: 1px solid var(--color-carbon);
-  border-bottom: 1px solid var(--color-carbon);
-  color: var(--color-paper-white);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.032em;
-  text-transform: uppercase;
-  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .slush-marquee-content {
   display: flex;
   flex-shrink: 0;
+  align-items: center;
+  justify-content: space-around;
   gap: 32px;
-  animation: slushMarqueeScroll 25s linear infinite;
+  min-width: 100%;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  animation: marquee-scroll 32s linear infinite;
 }
 
-@keyframes slushMarqueeScroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
 }
 
-/* 3D Inflatable Ribbon SVG effects */
-.inflatable-ribbon-hero {
-  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.12));
-}
-
-
-/* -------------------------------------------------------------
- * SLUSH MICRO-ANIMATIONS & INTERACTION POLISH
- * Subtle physics, float effects, smooth button hovers
- * ------------------------------------------------------------*/
-
-/* Floating Sticker Animation (Physics-like levitation) */
-@keyframes stickerFloat1 {
-  0%, 100% {
-    transform: translateY(0px) rotate(-12deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(-9deg);
-  }
-}
-
-@keyframes stickerFloat2 {
-  0%, 100% {
-    transform: translateY(0px) rotate(12deg);
-  }
-  50% {
-    transform: translateY(-10px) rotate(15deg);
-  }
-}
-
-@keyframes stickerFloat3 {
-  0%, 100% {
-    transform: translateY(0px) rotate(6deg);
-  }
-  50% {
-    transform: translateY(-7px) rotate(3deg);
-  }
-}
-
-@keyframes stickerFloat4 {
-  0%, 100% {
-    transform: translateY(0px) rotate(-6deg);
-  }
-  50% {
-    transform: translateY(-9px) rotate(-3deg);
-  }
-}
-
-.animate-sticker-1 {
-  animation: stickerFloat1 4.5s ease-in-out infinite;
+/* Scroll-Craft Dimensional Planes & Parallax */
+.scroll-plane-bg {
+  transform: translate3d(0, calc(var(--scroll-offset, 0px) * 0.15), 0);
   will-change: transform;
 }
 
-.animate-sticker-2 {
-  animation: stickerFloat2 5.2s ease-in-out infinite 0.5s;
+.scroll-plane-mid {
+  transform: translate3d(0, calc(var(--scroll-offset, 0px) * -0.1), 0);
   will-change: transform;
 }
 
-.animate-sticker-3 {
-  animation: stickerFloat3 4.8s ease-in-out infinite 1s;
+.scroll-plane-fg {
+  transform: translate3d(0, calc(var(--scroll-offset, 0px) * -0.22), 0);
   will-change: transform;
 }
 
-.animate-sticker-4 {
-  animation: stickerFloat4 5.5s ease-in-out infinite 1.5s;
-  will-change: transform;
-}
-
-/* Inflatable Ribbon Breathing Animation */
-@keyframes ribbonBreath {
-  0%, 100% {
-    transform: rotate(-6deg) translateY(28px) scale(1);
-  }
-  50% {
-    transform: rotate(-5deg) translateY(20px) scale(1.02);
-  }
-}
-
-.animate-ribbon-breath {
-  animation: ribbonBreath 7s ease-in-out infinite;
-  will-change: transform;
-}
-
-/* Tactile Button Press Animation */
-.btn-slush-filled:active,
-.btn-slush-ghost:active,
-.nav-pill-btn:active {
-  transform: translateY(1px) scale(0.98);
-}
-
-/* Scroll-triggered reveal animations */
+/* Scroll Reveal States */
 .slush-reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(18px);
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
 }
 
 .slush-reveal.is-visible {
@@ -308,45 +268,17 @@ body {
   transform: translateY(0);
 }
 
-/* Cross-OS / Cross-Device Fixes */
-/* 1. iOS Safari safe-area-inset & notch padding */
-body {
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-  padding-bottom: env(safe-area-inset-bottom);
+/* Line clamp helpers */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* 2. Safari font rendering & tap highlight disable */
-html, body, button, a {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-}
-
-/* 3. Momentum scrolling for iOS */
-.overflow-y-auto {
-  -webkit-overflow-scrolling: touch;
-}
-
-/* 4. Responsive display headline scaling for ultra-small to 4K displays */
-@media (max-width: 480px) {
-  .font-display-lateral {
-    word-break: break-word;
-  }
-}
-
-/* 5. Reduced motion support for accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .slush-marquee-content,
-  .animate-sticker-1,
-  .animate-sticker-2,
-  .animate-sticker-3,
-  .animate-sticker-4,
-  .animate-ribbon-breath {
-    animation: none !important;
-  }
-  .slush-reveal {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

@@ -1,6 +1,6 @@
 /**
- * MUADZ PORTFOLIO — SLUSH REDESIGN
- * Inflatable sticker universe on pastel paper
+ * MUADZ PORTFOLIO — APP ORCHESTRATION
+ * Unslopped Editorial + Scroll-Craft Multi-Plane Parallax + UI-Layouts Sparkles Globe
  */
 
 import { renderNavbar, initNavbarEvents } from "./components/Navbar.js";
@@ -17,12 +17,13 @@ import { renderStatement } from "./components/Statement.js";
 import { renderFinalCTA, initContactEvents } from "./components/FinalCTA.js";
 import { renderFooter } from "./components/Footer.js";
 import { workflowModal } from "./components/WorkflowModal.js";
+import { initSparklesGlobe } from "./components/SparklesGlobe.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const app = document.getElementById("app");
   if (!app) return;
 
-  // Render Page Sections in Slush Color Banding Sequence
+  // Render Page Sections
   app.innerHTML = `
     ${renderNavbar()}
     <main>
@@ -45,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavbarEvents();
   initProjectCards();
   initContactEvents();
+  initSparklesGlobe();
 
   // 24-Hour Workflow Modal Triggers
   const openWorkflowBtn = document.getElementById("open-workflow-btn");
@@ -85,9 +87,35 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { passive: true });
 
-  // IntersectionObserver for scroll-reveal animations across devices
-  const cards = document.querySelectorAll(".slush-card, section h2, section .grid > div");
-  cards.forEach(el => el.classList.add("slush-reveal"));
+  // SCROLL-CRAFT: Dimensional Plane Parallax Scrubbing on Hero
+  const heroSection = document.getElementById("hero");
+  if (heroSection) {
+    const bgPlane = heroSection.querySelector(".scroll-plane-bg");
+    const midPlane = heroSection.querySelector(".scroll-plane-mid");
+    const fgPlane = heroSection.querySelector(".scroll-plane-fg");
+
+    let ticking = false;
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const heroHeight = heroSection.offsetHeight;
+
+          if (scrollY <= heroHeight) {
+            if (bgPlane) bgPlane.style.transform = `translate3d(0, ${scrollY * 0.18}px, 0)`;
+            if (midPlane) midPlane.style.transform = `translate3d(0, ${scrollY * -0.08}px, 0)`;
+            if (fgPlane) fgPlane.style.transform = `translate3d(0, ${scrollY * -0.15}px, 0)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // IntersectionObserver for clean scroll reveals
+  const revealElements = document.querySelectorAll(".slush-card, section h2, section .grid > div");
+  revealElements.forEach(el => el.classList.add("slush-reveal"));
 
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries) => {
@@ -98,14 +126,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }, {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
+      rootMargin: "0px 0px -40px 0px",
+      threshold: 0.1
     });
 
-    cards.forEach(el => observer.observe(el));
+    revealElements.forEach(el => observer.observe(el));
   } else {
-    cards.forEach(el => el.classList.add("is-visible"));
+    revealElements.forEach(el => el.classList.add("is-visible"));
   }
-
-  console.log("✦ MUADZ Portfolio: Slush Theme Active with Live Media Showcase Gallery.");
 });

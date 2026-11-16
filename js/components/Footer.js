@@ -5,24 +5,23 @@ export function renderFooter() {
   const currentYear = new Date().getFullYear();
 
   return `
-    <!-- Section Ground: Paper White #ffffff Band -->
-    <footer class="py-12 bg-white text-black border-t border-black">
+    <footer class="py-12 bg-white text-[#0f172a] border-t border-black/10">
       <div class="max-w-[1440px] mx-auto px-6 sm:px-12 flex flex-col sm:flex-row items-center justify-between gap-6">
         
         <!-- Left Brand & Monogram -->
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs">
+          <div class="w-7 h-7 rounded-full bg-slate-900 text-white flex items-center justify-center font-display font-semibold text-xs">
             M
           </div>
-          <div class="text-xs font-bold uppercase tracking-wider">
-            © ${currentYear} ${f.brand} · INFLATABLE STICKER UNIVERSE
+          <div class="text-xs font-mono font-medium text-slate-500 uppercase tracking-wider">
+            © ${currentYear} ${f.brand} · DKV × AI CONTROLLER
           </div>
         </div>
 
         <!-- Right: Pill Links -->
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2">
           ${f.links.map(s => `
-            <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="nav-pill-btn text-xs py-2 px-4">
+            <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="nav-link text-xs py-1.5 px-3">
               ${s.name} ↗
             </a>
           `).join("")}

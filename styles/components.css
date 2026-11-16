@@ -1,40 +1,28 @@
 /* -------------------------------------------------------------
- * SLUSH COMPONENTS CSS
- * 1px black outlines, 0 box-shadows, sticker colors & soft curves
+ * UNSLOPPED COMPONENTS CSS
+ * Hairline borders, refined micro-surfaces, clean modals & toasts
  * ------------------------------------------------------------*/
 
-.nav-link {
-  border-radius: 1600px;
-  border: 1px solid #000000;
-  background: #ffffff;
-  color: #000000;
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.032em;
-  padding: 8px 16px;
-  text-decoration: none;
-  transition: all 0.15s ease;
-}
-
-.nav-link:hover, .nav-link.active {
-  background: #e9e9e9;
-  transform: translateY(-2px);
-}
-
-/* QR Download Card style */
+/* QR Intake Card */
 .slush-qr-card {
-  border-radius: 20px;
-  background: #5c4ade;
-  border: 1px solid #000000;
+  border-radius: 14px;
+  background: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.16);
   color: #ffffff;
   display: flex;
   overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.slush-qr-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
 }
 
 .slush-qr-box {
   background: #ffffff;
-  padding: 10px;
-  border-right: 1px solid #000000;
+  padding: 12px;
+  border-right: 1px solid rgba(15, 23, 42, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +32,7 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(8px);
   z-index: 1000;
   display: flex;
@@ -67,12 +55,13 @@
   max-height: 90vh;
   overflow-y: auto;
   background: #ffffff;
-  border: 2px solid #000000;
-  border-radius: 30px;
+  border: 1px solid rgba(15, 23, 42, 0.2);
+  border-radius: 20px;
   padding: 32px;
-  color: #000000;
-  transform: translateY(20px) scale(0.97);
-  transition: transform 0.25s ease;
+  color: #0f172a;
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.2);
+  transform: translateY(16px) scale(0.98);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .modal-overlay.open .modal-card {
@@ -97,11 +86,12 @@
   align-items: center;
   gap: 10px;
   padding: 10px 20px;
-  border-radius: 1600px;
+  border-radius: 9999px;
   background: #ffffff;
-  border: 1px solid #000000;
-  color: #000000;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+  color: #0f172a;
   font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.032em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }

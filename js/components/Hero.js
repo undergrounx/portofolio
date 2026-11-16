@@ -1,102 +1,57 @@
 import { portfolioData } from "../data.js";
+import { renderSparklesGlobe } from "./SparklesGlobe.js";
 
 export function renderHero() {
   const p = portfolioData.profile;
 
   return `
-    <section id="hero" class="relative min-h-[90vh] bg-[#dceeff] pt-12 pb-20 px-4 sm:px-8 overflow-hidden flex flex-col justify-center items-center text-center">
+    <section id="hero" class="relative min-h-[92vh] bg-[#f8fafc] pt-14 pb-20 px-4 sm:px-8 overflow-hidden flex flex-col justify-center items-center text-center border-b border-black/10">
       
-      <!-- 3D Ribbon Elements (Rendered SVG tubular forms with subtle breathing animation) -->
-      <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
-        <svg class="animate-ribbon-breath w-[1200px] h-[600px] max-w-none opacity-90 select-none" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="ribbonShine" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#72b6ff" />
-              <stop offset="40%" stop-color="#4da2ff" />
-              <stop offset="80%" stop-color="#2382f0" />
-              <stop offset="100%" stop-color="#145ebb" />
-            </linearGradient>
-          </defs>
-          <path d="M 50 350 C 250 100, 450 480, 700 200 C 850 40, 950 300, 980 220" 
-                stroke="url(#ribbonShine)" 
-                stroke-width="110" 
-                stroke-linecap="round" 
-                stroke-linejoin="round" />
-          <path d="M 50 350 C 250 100, 450 480, 700 200 C 850 40, 950 300, 980 220" 
-                stroke="#000000" 
-                stroke-width="114" 
-                stroke-linecap="round" 
-                stroke-linejoin="round" 
-                class="opacity-15 -translate-y-2 -translate-x-1" />
-        </svg>
+      <!-- SCROLL-CRAFT PLANE 1: Atmospheric Background Grid & Subtle Radiance -->
+      <div class="scroll-plane-bg absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center opacity-70">
+        <div class="absolute inset-0 bg-[radial-gradient(#0f172a_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.04]"></div>
       </div>
 
-      <!-- Floating Playful Stickers with Smooth Levitation Animation -->
-      <!-- Sticker 1: Rocket in Ember #fb4903 -->
-      <div class="animate-sticker-1 absolute top-8 sm:top-12 left-3 sm:left-16 z-20 cursor-pointer">
-        <div class="slush-sticker bg-[#fb4903] text-white">
-          <span class="text-sm sm:text-base">🚀</span>
-          <span>AI SYSTEMS</span>
-        </div>
-      </div>
-
-      <!-- Sticker 2: Coin in Sunburst #ffd731 -->
-      <div class="animate-sticker-2 absolute top-12 sm:top-20 right-3 sm:right-20 z-20 cursor-pointer">
-        <div class="slush-sticker bg-[#ffd731] text-black">
-          <span class="text-sm sm:text-base">🪙</span>
-          <span>HIGH VALUE</span>
-        </div>
-      </div>
-
-      <!-- Sticker 3: Wallet in Voltage Violet #5c4ade -->
-      <div class="animate-sticker-3 absolute bottom-24 sm:bottom-28 left-2 sm:left-24 z-20 cursor-pointer">
-        <div class="slush-sticker bg-[#5c4ade] text-white">
-          <span class="text-sm sm:text-base">⚡</span>
-          <span>PROMPT LAB</span>
-        </div>
-      </div>
-
-      <!-- Sticker 4: Checkmark in Mint Pop #55db9c -->
-      <div class="animate-sticker-4 absolute bottom-20 sm:bottom-24 right-2 sm:right-28 z-20 cursor-pointer">
-        <div class="slush-sticker bg-[#55db9c] text-black">
-          <span class="text-sm sm:text-base">✅</span>
-          <span>DKV CERTIFIED</span>
-        </div>
-      </div>
-
-      <!-- Main Headline Content: Sculptural Lateral Block -->
-      <div class="relative z-10 max-w-[1280px] mx-auto flex flex-col items-center">
+      <!-- Main Dimensional Content Container -->
+      <div class="relative z-10 max-w-[1240px] mx-auto flex flex-col items-center w-full">
         
-        <!-- Live Tagline Subhead -->
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-black mb-6">
-          <span class="w-2.5 h-2.5 rounded-full bg-[#55db9c] border border-black animate-pulse"></span>
-          <span class="text-xs font-bold tracking-wider uppercase text-black">VISUAL DESIGNER × AI CONTROLLER</span>
+        <!-- Status Pill: Editorial Authority Badge (No emojis) -->
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-black/15 mb-6 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-[#145ebb] animate-pulse"></span>
+          <span class="text-[11px] font-mono font-semibold tracking-wider uppercase text-black/80">
+            VISUAL DESIGNER (DKV) · AI CONTROLLER
+          </span>
         </div>
 
-        <!-- Monumental Crushed Display Headline -->
-        <h1 class="font-display-lateral text-[68px] sm:text-[130px] md:text-[170px] lg:text-[220px] text-black leading-[0.78] tracking-tight uppercase select-none">
-          MUADZ
-        </h1>
+        <!-- SCROLL-CRAFT PLANE 2: Sculptural Typography Headline -->
+        <div class="scroll-plane-mid flex flex-col items-center">
+          <h1 class="font-display text-[54px] sm:text-[96px] md:text-[124px] lg:text-[148px] text-[#0f172a] leading-[0.88] tracking-tight uppercase select-none">
+            MUADZ
+          </h1>
+          
+          <div class="font-mono text-xs sm:text-sm md:text-base font-semibold tracking-widest text-[#145ebb] uppercase mt-4">
+            CRAFTING VISUAL FORM · DIRECTING SYSTEMIC INTELLIGENCE
+          </div>
 
-        <!-- Secondary crushed title block -->
-        <div class="font-display-lateral text-[24px] sm:text-[42px] md:text-[54px] text-black leading-[0.85] tracking-tight uppercase mt-4">
-          CRAFTING FORM · DIRECTING INTELLIGENCE
+          <p class="mt-5 text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl font-normal leading-relaxed px-4">
+            ${p.supportingLine}
+          </p>
         </div>
 
-        <!-- Tagline Subhead -->
-        <p class="mt-6 text-sm sm:text-lg md:text-xl text-black/85 max-w-2xl font-medium leading-snug px-4">
-          ${p.supportingLine}
-        </p>
+        <!-- SCROLL-CRAFT PLANE 3: Centerpiece — UI-Layouts Sparkles with Interactive Globe -->
+        <div class="w-full max-w-4xl mx-auto my-2">
+          ${renderSparklesGlobe()}
+        </div>
 
-        <!-- Ghost Action Buttons -->
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-          <a href="#work" class="btn-slush-filled text-xs sm:text-sm md:text-base px-6 sm:px-8 py-3 sm:py-3.5">
+        <!-- SCROLL-CRAFT PLANE 4: Foreground Interactive Actions & Live Capabilities -->
+        <div class="scroll-plane-fg flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-2">
+          <a href="#work" class="btn-slush-filled text-xs sm:text-sm px-7 py-3">
             ${p.ctaPrimary} ↗
           </a>
-          <a href="#contact" class="btn-slush-ghost text-xs sm:text-sm md:text-base px-6 sm:px-8 py-3 sm:py-3.5">
-            ${p.ctaSecondary} ↗
+          <a href="./gallery/" class="btn-slush-ghost text-xs sm:text-sm px-6 py-3 font-semibold text-[#0f172a]">
+            COSMOS GALLERY ↗
           </a>
-          <button id="open-workflow-btn" type="button" class="btn-slush-ghost bg-[#e9ccff] text-xs sm:text-sm md:text-base px-6 sm:px-8 py-3 sm:py-3.5 hover:bg-[#d8b4fe]">
+          <button id="open-workflow-btn" type="button" class="btn-slush-ghost text-xs sm:text-sm px-6 py-3">
             24H SCHEDULE ↗
           </button>
         </div>
