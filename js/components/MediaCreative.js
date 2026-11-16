@@ -57,10 +57,10 @@ export function renderMediaCreative() {
                 </p>
 
                 <div class="space-y-1.5 mb-6">
-                  ${channel.highlights.map(h => `
+                  ${(channel.features || []).map(f => `
                     <div class="flex items-center gap-2 text-xs font-mono text-slate-600">
                       <span class="w-1.5 h-1.5 rounded-full bg-[#145ebb]"></span>
-                      <span>${h}</span>
+                      <span>${f}</span>
                     </div>
                   `).join("")}
                 </div>
@@ -68,8 +68,10 @@ export function renderMediaCreative() {
 
               <!-- Action Row -->
               <div class="pt-4 border-t border-black/10 flex items-center justify-between">
-                <span class="text-xs font-mono font-medium text-slate-600 uppercase">DIRECT DISPATCH</span>
-                <a href="${channel.link}" target="_blank" rel="noopener noreferrer" class="btn-slush-ghost text-xs py-2 px-4">
+                <span class="text-xs font-mono font-medium text-slate-500">
+                  ${channel.metrics}
+                </span>
+                <a href="${channel.url}" target="_blank" rel="noopener noreferrer" class="btn-slush-ghost text-xs py-2 px-4">
                   OPEN CHANNEL ↗
                 </a>
               </div>

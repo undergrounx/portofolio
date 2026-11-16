@@ -57,34 +57,37 @@ export function renderBrandsHandling() {
 
                 <!-- Brand Name & Role -->
                 <div class="text-[11px] font-mono font-semibold text-[#145ebb] uppercase tracking-wider mb-1">
-                  ${brand.role}
+                  ${brand.category} · ${brand.role}
                 </div>
                 <h3 class="font-display text-2xl text-[#0f172a] leading-tight uppercase mb-3">
                   ${brand.name}
                 </h3>
-                <p class="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-6">
-                  ${brand.desc}
+                <p class="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-5">
+                  ${brand.description}
                 </p>
 
-                <!-- Deliverables Tags -->
-                <div class="space-y-1.5 mb-6">
-                  ${brand.deliverables.map(d => `
+                <!-- Highlights -->
+                <div class="space-y-2 mb-6">
+                  ${(brand.highlights || []).map(h => `
                     <div class="flex items-center gap-2 text-xs font-mono text-slate-600">
                       <span class="w-1.5 h-1.5 rounded-full bg-[#145ebb]"></span>
-                      <span>${d}</span>
+                      <span>${h}</span>
                     </div>
                   `).join("")}
                 </div>
               </div>
 
-              <!-- Metrics Row -->
-              <div class="pt-4 border-t border-black/10 flex items-center justify-between">
-                <div>
-                  <div class="text-[10px] font-mono text-slate-500 uppercase tracking-wider">${brand.metricLabel}</div>
-                  <div class="text-xl font-display text-[#0f172a]">${brand.metricValue}</div>
+              <!-- Tags & CTA -->
+              <div class="pt-4 border-t border-black/10 flex flex-wrap items-center justify-between gap-3">
+                <div class="flex flex-wrap gap-1.5">
+                  ${(brand.tags || []).map(t => `
+                    <span class="slush-sticker bg-slate-100 text-[10px] py-1 px-2.5 text-slate-700">
+                      ${t}
+                    </span>
+                  `).join("")}
                 </div>
-                <a href="${brand.link}" target="_blank" rel="noopener noreferrer" class="btn-slush-ghost text-xs py-2 px-4">
-                  VISIT BRAND ↗
+                <a href="#contact" class="btn-slush-filled text-xs py-2 px-4">
+                  TALK PACKAGING ↗
                 </a>
               </div>
 
