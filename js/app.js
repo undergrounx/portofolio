@@ -1,6 +1,7 @@
 /**
  * MUADZ PORTFOLIO — APP ORCHESTRATION
- * High-performance smooth scroll reveals with requestAnimationFrame and IntersectionObserver
+ * Unslopped Lightweight & Direct Engine
+ * Zero scroll hijacking, zero scroll-craft plane parallax, zero lag
  */
 
 import { renderNavbar, initNavbarEvents } from "./components/Navbar.js";
@@ -61,13 +62,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Active Section Nav Highlight on Scroll (debounced with requestAnimationFrame)
+  // Active Section Nav Highlight on Scroll
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-link");
 
-  let scrollTicking = false;
+  let ticking = false;
   window.addEventListener("scroll", () => {
-    if (!scrollTicking) {
+    if (!ticking) {
       window.requestAnimationFrame(() => {
         let current = "";
         const scrollPos = window.scrollY + 200;
@@ -87,31 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
 
-        scrollTicking = false;
+        ticking = false;
       });
-      scrollTicking = true;
+      ticking = true;
     }
   }, { passive: true });
-
-  // Native IntersectionObserver for ultra-smooth 60fps card reveal motion
-  const revealElements = document.querySelectorAll(".slush-card, section h2, section .grid > div");
-  revealElements.forEach(el => el.classList.add("slush-reveal"));
-
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      rootMargin: "0px 0px -30px 0px",
-      threshold: 0.05
-    });
-
-    revealElements.forEach(el => observer.observe(el));
-  } else {
-    revealElements.forEach(el => el.classList.add("is-visible"));
-  }
 });
