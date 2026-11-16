@@ -4,7 +4,7 @@ export function renderHero() {
   const p = portfolioData.profile;
 
   return `
-    <section id="hero" class="relative min-h-[82vh] bg-[#f8fafc] pt-20 pb-20 px-6 sm:px-12 flex flex-col justify-center items-center text-center border-b border-black/10">
+    <section id="hero" class="relative min-h-[90vh] bg-[#f8fafc] pt-20 pb-28 px-6 sm:px-12 flex flex-col justify-center items-center text-center border-b border-black/10">
       
       <!-- Quiet Technical Dot Grid Background (hairline opacity) -->
       <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center opacity-60">
@@ -63,7 +63,7 @@ export function renderHero() {
         </div>
 
         <!-- Clean Action Buttons: One Primary, One Secondary, One Meta Trigger -->
-        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-12">
           <a href="#work" class="btn-slush-filled text-xs sm:text-sm px-6 py-3">
             ${p.ctaPrimary} ↗
           </a>
@@ -74,6 +74,19 @@ export function renderHero() {
             24h Jadwal Alur Kerja ↗
           </button>
         </div>
+
+        <!-- SCROLL DOWN ANIMATION (Interactive & Elegant Pill Mouse Indicator) -->
+        <a href="#snapshot-section" class="group flex flex-col items-center gap-2.5 text-slate-500 hover:text-[#0f172a] transition-colors no-underline cursor-pointer select-none">
+          <span class="text-[10px] font-mono font-medium tracking-widest uppercase text-slate-400 group-hover:text-slate-700 transition-colors">
+            SCROLL DOWN
+          </span>
+          <div class="relative w-5 h-9 rounded-full border border-black/20 group-hover:border-black/50 transition-colors flex justify-center pt-2 bg-white/60">
+            <div class="w-1 h-2 rounded-full bg-[#145ebb] animate-mouse-scroll"></div>
+          </div>
+          <svg class="w-3.5 h-3.5 animate-bounce text-slate-400 group-hover:text-[#145ebb] transition-colors mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
 
       </div>
 

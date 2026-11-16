@@ -220,6 +220,26 @@ body {
   to { transform: translateX(-100%); }
 }
 
+/* Mouse Wheel Scroll Down Animation */
+@keyframes mouseScrollAnim {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(9px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.animate-mouse-scroll {
+  animation: mouseScrollAnim 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
 /* Scroll Reveal */
 .slush-reveal {
   opacity: 0;
