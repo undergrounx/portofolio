@@ -1,11 +1,11 @@
 import { portfolioData } from "../data.js";
-import { renderSparklesGlobe } from "./SparklesGlobe.js";
+import { renderCardGlobeWhite } from "./SparklesGlobe.js";
 
 export function renderHero() {
   const p = portfolioData.profile;
 
   return `
-    <section id="hero" class="relative min-h-[92vh] bg-[#f8fafc] pt-14 pb-20 px-4 sm:px-8 overflow-hidden flex flex-col justify-center items-center text-center border-b border-black/10">
+    <section id="hero" class="relative min-h-[92vh] bg-[#f8fafc] pt-12 pb-20 px-4 sm:px-8 overflow-hidden flex flex-col justify-center items-center text-center border-b border-black/10">
       
       <!-- SCROLL-CRAFT PLANE 1: Atmospheric Background Grid & Subtle Radiance -->
       <div class="scroll-plane-bg absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center opacity-70">
@@ -33,14 +33,14 @@ export function renderHero() {
             CRAFTING VISUAL FORM · DIRECTING SYSTEMIC INTELLIGENCE
           </div>
 
-          <p class="mt-5 text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl font-normal leading-relaxed px-4">
+          <p class="mt-4 text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl font-normal leading-relaxed px-4">
             ${p.supportingLine}
           </p>
         </div>
 
-        <!-- SCROLL-CRAFT PLANE 3: Centerpiece — UI-Layouts Sparkles with Interactive Globe -->
-        <div class="w-full max-w-4xl mx-auto my-2">
-          ${renderSparklesGlobe()}
+        <!-- SCROLL-CRAFT PLANE 3: Centerpiece — CardGlobeWhite (Cobe Earth with radial grid & metallic gradient) -->
+        <div class="w-full max-w-2xl mx-auto my-4">
+          ${renderCardGlobeWhite()}
         </div>
 
         <!-- SCROLL-CRAFT PLANE 4: Foreground Interactive Actions & Live Capabilities -->

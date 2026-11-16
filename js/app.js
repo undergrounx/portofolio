@@ -1,6 +1,6 @@
 /**
  * MUADZ PORTFOLIO — APP ORCHESTRATION
- * Unslopped Editorial + Scroll-Craft Multi-Plane Parallax + UI-Layouts Sparkles Globe
+ * Unslopped Editorial + Scroll-Craft Multi-Plane Parallax + UI-Layouts CardGlobeWhite (Earth)
  */
 
 import { renderNavbar, initNavbarEvents } from "./components/Navbar.js";
@@ -17,7 +17,7 @@ import { renderStatement } from "./components/Statement.js";
 import { renderFinalCTA, initContactEvents } from "./components/FinalCTA.js";
 import { renderFooter } from "./components/Footer.js";
 import { workflowModal } from "./components/WorkflowModal.js";
-import { initSparklesGlobe } from "./components/SparklesGlobe.js";
+import { initEarthGlobe } from "./components/SparklesGlobe.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const app = document.getElementById("app");
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavbarEvents();
   initProjectCards();
   initContactEvents();
-  initSparklesGlobe();
+  initEarthGlobe();
 
   // 24-Hour Workflow Modal Triggers
   const openWorkflowBtn = document.getElementById("open-workflow-btn");
