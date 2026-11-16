@@ -1,7 +1,6 @@
 /**
  * MUADZ PORTFOLIO — APP ORCHESTRATION
- * Unslopped Lightweight Editorial Architecture
- * Zero heavy WebGL or sluggish runtime scripts
+ * High-performance smooth scroll reveals with requestAnimationFrame and IntersectionObserver
  */
 
 import { renderNavbar, initNavbarEvents } from "./components/Navbar.js";
@@ -62,31 +61,39 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Active Section Nav Highlight on Scroll
+  // Active Section Nav Highlight on Scroll (debounced with requestAnimationFrame)
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-link");
 
+  let scrollTicking = false;
   window.addEventListener("scroll", () => {
-    let current = "";
-    const scrollPos = window.scrollY + 200;
+    if (!scrollTicking) {
+      window.requestAnimationFrame(() => {
+        let current = "";
+        const scrollPos = window.scrollY + 200;
 
-    sections.forEach(section => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-      if (scrollPos >= top && scrollPos < top + height) {
-        current = section.getAttribute("id");
-      }
-    });
+        sections.forEach(section => {
+          const top = section.offsetTop;
+          const height = section.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            current = section.getAttribute("id");
+          }
+        });
 
-    navLinks.forEach(link => {
-      link.classList.remove("active");
-      if (link.getAttribute("data-section") === current) {
-        link.classList.add("active");
-      }
-    });
+        navLinks.forEach(link => {
+          link.classList.remove("active");
+          if (link.getAttribute("data-section") === current) {
+            link.classList.add("active");
+          }
+        });
+
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
   }, { passive: true });
 
-  // IntersectionObserver for clean scroll reveals
+  // Native IntersectionObserver for ultra-smooth 60fps card reveal motion
   const revealElements = document.querySelectorAll(".slush-card, section h2, section .grid > div");
   revealElements.forEach(el => el.classList.add("slush-reveal"));
 
@@ -99,8 +106,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }, {
-      rootMargin: "0px 0px -40px 0px",
-      threshold: 0.1
+      rootMargin: "0px 0px -30px 0px",
+      threshold: 0.05
     });
 
     revealElements.forEach(el => observer.observe(el));
